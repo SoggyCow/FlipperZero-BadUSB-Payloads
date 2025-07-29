@@ -7,7 +7,8 @@ This folder contains a Python tool and its output payload designed to brute-forc
 ## 📁 Contents
 
 - `Generate_BadUSB_Brute_Force.py`: Python script that auto-generates a full BadUSB brute force payload.
-- `full_4digit_bf.txt`: The generated payload, formatted for Flipper Zero's BadUSB module.
+- `full_4digit_bf.txt`: The generated payload, formatted for Flipper Zero's BadUSB module. It contains all 0000 - 9999 possibilities.
+- `top65_4digit_bf.txt`: I found this one online, made by defplex.wordpress.com, modified by rf-bandit.
 - `README.md`: You're reading it.
 
 ---
