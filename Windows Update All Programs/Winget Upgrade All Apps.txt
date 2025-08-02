@@ -1,0 +1,13 @@
+REM Title: Winget Auto-Upgrader
+REM Description: Launches winget upgrade --all and confirms with 'Y' input
+DELAY 1000
+GUI r
+DELAY 500
+STRING cmd
+ENTER
+DELAY 500
+STRING winget upgrade --all
+ENTER
+DELAY 1500
+STRING y
+ENTER
