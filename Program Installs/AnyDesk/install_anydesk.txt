@@ -1,4 +1,4 @@
-REM Title: Install AnyDesk via Chocolatey
+REM Title: Install AnyDesk via Chocolatey (Admin CMD)
 REM Author: SoggyCow
 REM Description: Opens elevated CMD and installs Adobe Reader silently
 
@@ -10,3 +10,4 @@ CTRL-SHIFT ENTER
 DELAY 1500
 STRING choco install anydesk -y
 ENTER
+
