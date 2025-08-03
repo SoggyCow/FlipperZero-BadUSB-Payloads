@@ -1,0 +1,12 @@
+REM Title: Install 7zip via Chocolatey (Admin CMD)
+REM Author: SoggyCow
+REM Description: Opens elevated CMD and installs 7zip silently
+
+DELAY 1000
+GUI r
+DELAY 500
+STRING cmd
+CTRL-SHIFT ENTER
+DELAY 1500
+STRING choco install 7zip -y
+ENTER
