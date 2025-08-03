@@ -4,6 +4,7 @@ REM Description: Assumes Chocolatey is pre-installed; installs Notepad++ silentl
 
 DELAY 1000
 GUI r
-DELAY 500
+DELAY 1000
 STRING powershell -NoP -W Hidden -Command "Start-Sleep -Seconds 1; choco install notepadplusplus.install -y"
+
 ENTER
