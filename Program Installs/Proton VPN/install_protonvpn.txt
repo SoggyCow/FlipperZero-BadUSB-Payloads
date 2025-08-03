@@ -1,0 +1,8 @@
+REM Title: Install Proton VPN via Chocolatey
+REM Author: SoggyCow
+REM Description: Assumes Chocolatey is pre-installed; installs Proton VPN silently
+DELAY 1000
+GUI r
+DELAY 500
+STRING powershell -NoP -W Hidden -Command "choco install protonvpn -y"
+ENTER
