@@ -1,10 +1,12 @@
-REM Title: Install Notepad++ via Chocolatey (No Choco Install)
+REM Title: Install Notepad++ via Chocolatey (Admin CMD)
 REM Author: SoggyCow
-REM Description: Assumes Chocolatey is pre-installed; installs Notepad++ silently
+REM Description: Opens elevated CMD and installs Notepad++ silently
 
 DELAY 1000
 GUI r
-DELAY 1000
-STRING powershell -NoP -W Hidden -Command "Start-Sleep -Seconds 1; choco install notepadplusplus.install -y"
-
+DELAY 500
+STRING cmd
+CTRL-SHIFT ENTER
+DELAY 1500
+STRING choco install notepadplusplus -y
 ENTER
