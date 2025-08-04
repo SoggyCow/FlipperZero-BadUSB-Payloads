@@ -1,11 +1,12 @@
 REM Title: Install Proton Pass via Chocolatey (Admin CMD)
 REM Author: SoggyCow
-REM Description: Opens elevated CMD and installs Proton Pass silently
+REM Description: Assumes Chocolatey is pre-installed; installs Proton Pass silently and closes terminal
+
 DELAY 1000
 GUI r
 DELAY 500
 STRING cmd
 CTRL-SHIFT ENTER
 DELAY 1500
-STRING choco install protonpass -y
+STRING choco install protonpass -y && exit
 ENTER
