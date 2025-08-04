@@ -18,7 +18,7 @@ Payload simulates keyboard input to elevate CMD and run a silent install command
 
 ### 1. Save Script
 
-- File name: `install_reflect-free.txt`  
+- File name: `install_reflect.txt`  
 - Format: Plain `.txt`, UTF-8 encoded
 
 ### 2. Upload to Flipper
@@ -31,7 +31,7 @@ Payload simulates keyboard input to elevate CMD and run a silent install command
 ### 3. Execute on Target
 
 - On Flipper:  
-  `Main Menu > Bad USB > install_reflect-free.txt`  
+  `Main Menu > Bad USB > install_reflect.txt`  
 - Confirm USB logo is displayed (USB mode active)  
 - Plug Flipper into target Windows machine  
 - Tap **Run**
