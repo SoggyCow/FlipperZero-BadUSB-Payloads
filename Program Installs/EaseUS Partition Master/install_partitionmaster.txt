@@ -1,11 +1,12 @@
 REM Title: Install EaseUS Partition Master via Chocolatey (Admin CMD)
 REM Author: SoggyCow
-REM Description: Opens elevated CMD and installs EaseUS Partition Master silently
+REM Description: Assumes Chocolatey is pre-installed; installs EaseUS Partition Master silently and closes terminal
+
 DELAY 1000
 GUI r
 DELAY 500
 STRING cmd
 CTRL-SHIFT ENTER
 DELAY 1500
-STRING choco install partitionmasterfree -y
+STRING choco install partitionmasterfree -y && exit
 ENTER
