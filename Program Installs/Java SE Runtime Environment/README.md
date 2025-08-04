@@ -1,4 +1,4 @@
-# Java SE Runtime Environment Installation Script via Chocolatey for Flipper Zero
+# Java Runtime Environment Installation Script via Chocolatey for Flipper Zero
 
 **Author:** SoggyCow  
 **License:** MIT
@@ -7,7 +7,7 @@
 
 ## ☕ Overview
 
-Installs [Java SE Runtime Environment 8](https://www.java.com/) using [Chocolatey](https://chocolatey.org/) on Windows.  
+Installs [Java Runtime Environment 8](https://www.java.com/) using [Chocolatey](https://chocolatey.org/) on Windows.  
 Designed for **Flipper Zero's BadUSB** feature via **DuckyScript**, launching elevated CMD for silent deployment.
 
 > ⚠️ Requires Chocolatey to be installed before execution.
@@ -58,7 +58,7 @@ Java SE installs silently if:
 - Flipper Zero w/ BadUSB enabled  
 - Active internet connection  
 - Admin privileges  
-- System specs compatible with JRE 8 (lightweight footprint)
+- System specs compatible with Java Runtime (lightweight footprint)
 
 ---
 
@@ -73,7 +73,7 @@ Java SE installs silently if:
   - For slower systems: increase to `DELAY 700+`
 
 - **Version Installed:**  
-  Installs JRE 8 (e.g., 8u351 or later as of August 2025)  
+  Installs JRE (e.g., 8u351 or later as of August 2025)  
   See [Chocolatey Package Page](https://community.chocolatey.org/packages/jre8)
 
 - **Test Environment:** Run in VM or sandbox before live deployment
