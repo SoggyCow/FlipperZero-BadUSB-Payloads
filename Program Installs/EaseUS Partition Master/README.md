@@ -18,7 +18,7 @@ Powered by **Flipper Zero’s BadUSB** functionality, this **DuckyScript** paylo
 
 ### 1. Save Script
 
-- File name: `install_partitionmasterfree.txt`  
+- File name: `install_partitionmaster.txt`  
 - Format: Plain `.txt`, UTF-8 encoded
 
 ### 2. Upload to Flipper
@@ -31,7 +31,7 @@ Powered by **Flipper Zero’s BadUSB** functionality, this **DuckyScript** paylo
 ### 3. Execute on Target Machine
 
 - Navigate:  
-  `Main Menu > Bad USB > install_partitionmasterfree.txt`  
+  `Main Menu > Bad USB > install_partitionmaster.txt`  
 - Confirm USB mode active (USB icon visible)  
 - Connect Flipper to Windows host  
 - Tap **Run**
