@@ -1,11 +1,12 @@
-REM Title: Install Cheat Engine via Chocolatey (Admin CMD)
+REM Title: Install Blender via Chocolatey (Admin CMD)
 REM Author: SoggyCow
-REM Description: Opens elevated CMD and installs Cheat Engine silently
+REM Description: Assumes Chocolatey is pre-installed; installs Blender silently and closes terminal
+
 DELAY 1000
 GUI r
 DELAY 500
 STRING cmd
 CTRL-SHIFT ENTER
 DELAY 1500
-STRING choco install cheatengine -y
+STRING choco install blender -y && exit
 ENTER
