@@ -1,6 +1,7 @@
 REM Title: Install BleachBit via Chocolatey (Admin CMD)
 REM Author: SoggyCow
-REM Description: Opens elevated CMD and installs BleachBit silently
+REM Description: Assumes Chocolatey is pre-installed; installs BleachBit silently via elevated terminal
+
 DELAY 1000
 GUI r
 DELAY 500
