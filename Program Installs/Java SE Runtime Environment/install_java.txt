@@ -1,6 +1,6 @@
 REM Title: Install Java Runtime Environment via Chocolatey (Admin CMD)
 REM Author: SoggyCow
-REM Description: Opens elevated CMD and installs Java SE Runtime Environment silently
+REM Description: Opens elevated CMD and installs Java Runtime Environment silently
 DELAY 1000
 GUI r
 DELAY 500
@@ -10,3 +10,4 @@ DELAY 1500
 STRING choco install javaruntime -y
 
 ENTER
+
