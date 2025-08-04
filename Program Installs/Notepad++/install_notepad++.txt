@@ -1,6 +1,6 @@
-REM Title: Install Notepad++ via Chocolatey (Admin CMD)
+REM Title: Install Notepad++ via Chocolatey
 REM Author: SoggyCow
-REM Description: Opens elevated CMD and installs Notepad++ silently
+REM Description: Assumes Chocolatey is pre-installed; installs Notepad++ silently and closes terminal
 
 DELAY 1000
 GUI r
@@ -8,5 +8,5 @@ DELAY 500
 STRING cmd
 CTRL-SHIFT ENTER
 DELAY 1500
-STRING choco install notepadplusplus -y
+STRING choco install notepadplusplus -y && exit
 ENTER
