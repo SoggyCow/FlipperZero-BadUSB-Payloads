@@ -1,11 +1,12 @@
 REM Title: Install Discord via Chocolatey (Admin CMD)
 REM Author: SoggyCow
-REM Description: Opens elevated CMD and installs Discord silently
+REM Description: Assumes Chocolatey is pre-installed; installs Discord silently and closes terminal
+
 DELAY 1000
 GUI r
 DELAY 500
 STRING cmd
 CTRL-SHIFT ENTER
 DELAY 1500
-STRING choco install discord.install -y
+STRING choco install discord.install -y && exit
 ENTER
