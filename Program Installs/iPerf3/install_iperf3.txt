@@ -1,11 +1,12 @@
 REM Title: Install iPerf3 via Chocolatey (Admin CMD)
 REM Author: SoggyCow
-REM Description: Opens elevated CMD and installs iPerf3 silently
+REM Description: Assumes Chocolatey is pre-installed; installs iPerf3 silently and closes terminal
+
 DELAY 1000
 GUI r
 DELAY 500
 STRING cmd
 CTRL-SHIFT ENTER
 DELAY 1500
-STRING choco install iperf3 -y
+STRING choco install iperf3 -y && exit
 ENTER
