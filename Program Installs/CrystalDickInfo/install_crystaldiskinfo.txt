@@ -1,11 +1,12 @@
-REM Title: Install CrystalDiskInfo via Chocolatey (Admin CMD)
+REM Title: Install Cheat Engine via Chocolatey (Admin CMD)
 REM Author: SoggyCow
-REM Description: Opens elevated CMD and installs CrystalDiskInfo silently
+REM Description: Assumes Chocolatey is pre-installed; installs Cheat Engine silently and closes terminal
+
 DELAY 1000
 GUI r
 DELAY 500
 STRING cmd
 CTRL-SHIFT ENTER
 DELAY 1500
-STRING choco install crystaldiskinfo -y
+STRING choco install cheatengine -y && exit
 ENTER
