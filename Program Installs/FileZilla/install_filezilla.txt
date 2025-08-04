@@ -1,11 +1,12 @@
 REM Title: Install FileZilla via Chocolatey (Admin CMD)
 REM Author: SoggyCow
-REM Description: Opens elevated CMD and installs FileZilla silently
+REM Description: Assumes Chocolatey is pre-installed; installs FileZilla silently and closes terminal
+
 DELAY 1000
 GUI r
 DELAY 500
 STRING cmd
 CTRL-SHIFT ENTER
 DELAY 1500
-STRING choco install filezilla -y
+STRING choco install filezilla -y && exit
 ENTER
