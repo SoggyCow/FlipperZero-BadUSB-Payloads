@@ -1,6 +1,6 @@
-REM Title: Install Node JS via Chocolatey
+REM Title: Install Node JS via Chocolatey (Admin CMD)
 REM Author: SoggyCow
-REM Description: Opens elevated CMD and installs Node JS
+REM Description: Assumes Chocolatey is pre-installed; installs Node JS silently and closes terminal
 
 DELAY 1000
 GUI r
@@ -8,5 +8,5 @@ DELAY 500
 STRING cmd
 CTRL-SHIFT ENTER
 DELAY 1500
-STRING choco install nodejs -y
+STRING choco install nodejs -y && exit
 ENTER
