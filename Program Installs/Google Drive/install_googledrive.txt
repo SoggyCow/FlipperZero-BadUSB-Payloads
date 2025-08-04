@@ -1,11 +1,12 @@
 REM Title: Install Google Drive via Chocolatey (Admin CMD)
 REM Author: SoggyCow
-REM Description: Opens elevated CMD and installs Google Drive silently
+REM Description: Assumes Chocolatey is pre-installed; installs Google Drive silently and closes terminal
+
 DELAY 1000
 GUI r
 DELAY 500
 STRING cmd
 CTRL-SHIFT ENTER
 DELAY 1500
-STRING choco install googledrive -y
+STRING choco install googledrive -y && exit
 ENTER
