@@ -1,0 +1,12 @@
+REM Title: Install qBittorrent via Chocolatey (Admin CMD)
+REM Author: SoggyCow
+REM Description: Assumes Chocolatey is pre-installed; installs qBittorrent silently and closes terminal
+
+DELAY 1000
+GUI r
+DELAY 500
+STRING cmd
+CTRL-SHIFT ENTER
+DELAY 1500
+STRING choco install qbittorrent -y && exit
+ENTER
