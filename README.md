@@ -18,7 +18,7 @@ Each script is stored in its own folder with clear naming. You’ll find:
 
 ## **💡 How to Use**
 
-1. **Clone or Download the Repo**: Download the repository or clone it using `git clone https://github.com/SoggyCow/flipperzero-badusb-scripts.git`.  
+1. **Clone or Download the Repo**: Download the repository or clone it using `git clone https://github.com/SoggyCow/flipperzero-badusb-payloads.git`.  
 2. **Load Scripts onto Flipper Zero**:  
    - Connect your Flipper Zero to a computer via USB or Bluetooth.  
    - Use the qFlipper app or Flipper Mobile app to transfer the desired script(s) to the `SD Card/badusb/` folder.  
@@ -31,7 +31,7 @@ Each script is stored in its own folder with clear naming. You’ll find:
 
 ## **📢 Important Notes**
 
-- **Chocolatey Dependency**: All scripts require **Chocolatey** to be pre-installed on the target system. Run the [Chocolatey installation script](https://github.com/SoggyCow/choco-install-script) first.  
+- **Chocolatey Dependency**: All scripts require **Chocolatey** to be pre-installed on the target system. Run the [Chocolatey installation script](https://github.com/SoggyCow/FlipperZero-BadUSB-Payloads/blob/main/Program%20Payloads/Install%20Chocolatey.txt) first.  
 - **Package Availability**: Some packages (e.g., `protonpass`, `protondrive`, `quickcpu`, `renamemytvseries2`, `easeus-partition-master`) may not be available in the [Chocolatey Community Repository](https://community.chocolatey.org/packages) as of August 2025. Verify package existence before running these scripts or consider alternative installation methods.  
 - **Administrative Privileges**: Most scripts open an elevated CMD, which may trigger a UAC prompt if enabled.  
 - **Timing Delays**: Scripts use delays (e.g., `DELAY 1000`, `DELAY 500`) for reliable execution. Adjust delays for slower systems if execution fails.  
