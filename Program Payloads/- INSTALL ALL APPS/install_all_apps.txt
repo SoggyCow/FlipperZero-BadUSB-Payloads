@@ -1,0 +1,15 @@
+REM Title: Install All Apps via Chocolatey (Admin CMD)
+REM Author: SoggyCow
+REM Description: Assumes Chocolatey is pre-installed; installs listed apps silently and closes terminal
+
+DELAY 1000
+GUI r
+DELAY 500
+STRING cmd
+CTRL-SHIFT ENTER
+DELAY 1500
+STRING choco upgrade chocolatey -y
+ENTER
+DELAY 1000
+STRING choco install 7zip adobereader anydesk bleachbit blender cheatengine crystaldiskinfo discord docker-desktop dropbox easeus-partition-master epicgameslauncher exiftool filezilla git googledrive h2testw hxd ida-free innosetup javaruntime macrium-reflect vcredist2015 vcredist140 nirlauncher nodejs notepadplusplus paint.net parsec protondrive protonpass protonvpn putty python quickcpu recuva renamemytvseries2 resourcehacker rufus steam tailscale teamviewer testdisk thunderbird vlc visualstudio2022community winget wireshark zoom iperf3 mirc -y --ignore-checksums && exit
+ENTER
