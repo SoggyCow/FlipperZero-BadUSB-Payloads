@@ -1,0 +1,18 @@
+REM Title: Close NordVPN Processes (Elevated)
+REM Author: SoggyCow
+REM Description: Uses PowerShell to launch elevated CMD and terminate NordVPN processes
+
+DELAY 1000
+GUI r
+DELAY 500
+STRING powershell Start-Process cmd -Verb runAs
+ENTER
+DELAY 1000
+STRING taskkill /IM "NordVPN.exe" /F
+ENTER
+DELAY 500
+STRING taskkill /IM "nordvpn-service.exe" /F
+ENTER
+DELAY 500
+STRING exit
+ENTER

@@ -1,6 +1,6 @@
-REM Title: Hide.me VPN GUI process
+REM Title: Close Hide.me VPN Processes
 REM Author: SoggyCow
-REM Description: Closes Hide.me processes
+REM Description: Opens elevated CMD to forcefully terminate Hide.me VPN processes (hide.me.exe and hidemevpn.exe) and closes the terminal
 
 DELAY 1000
 GUI r

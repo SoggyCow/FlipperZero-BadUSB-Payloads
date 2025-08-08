@@ -1,0 +1,18 @@
+REM Title: Close ProtonVPN Processes
+REM Author: SoggyCow
+REM Description: Opens elevated CMD to forcefully terminate ProtonVPN processes (ProtonVPN.exe and ProtonVPNService.exe) and closes the terminal
+
+DELAY 1000
+GUI r
+DELAY 500
+STRING cmd
+ENTER
+DELAY 500
+STRING taskkill /IM "ProtonVPN.exe" /F
+ENTER
+DELAY 500
+STRING taskkill /IM "ProtonVPNService.exe" /F
+ENTER
+DELAY 500
+STRING exit
+ENTER
