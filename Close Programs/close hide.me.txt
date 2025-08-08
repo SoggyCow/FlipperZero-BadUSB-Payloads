@@ -1,0 +1,12 @@
+REM Title: Hide.me VPN GUI process
+REM Author: SoggyCow
+REM Description: Closes Hide.me processes
+
+DELAY 1000
+GUI r
+DELAY 500
+STRING taskkill /IM "hide.me.exe" /F
+ENTER
+DELAY 500
+STRING taskkill /IM "hidemevpn.exe" /F
+ENTER
