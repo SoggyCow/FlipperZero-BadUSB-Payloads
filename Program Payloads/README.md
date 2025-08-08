@@ -18,7 +18,7 @@ This script is intended for use with keystroke injection tools (e.g., USB Rubber
 ### Steps:
 
 1. **Save the Script**  
-   Save the payload as a compatible file (`install_choco.txt`) per your tool’s specifications.
+   Save the payload as a compatible file (`install_chocolatey.txt`) per your tool’s specifications.
 
 2. **Load Your Device**  
    Transfer the script to your keystroke injection device and follow its setup instructions.
