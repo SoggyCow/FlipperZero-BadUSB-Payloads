@@ -1,0 +1,9 @@
+REM Title: Open Momentum Firmware Update URL
+REM Author: SoggyCow
+REM Description: Opens https://momentum-fw.dev/update in the default browser and closes the terminal
+
+DELAY 1000
+GUI r
+DELAY 500
+STRING https://momentum-fw.dev/update
+ENTER

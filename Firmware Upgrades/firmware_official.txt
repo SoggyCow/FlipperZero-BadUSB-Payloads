@@ -1,0 +1,9 @@
+REM Title: Open Flipper Lab Firmware Portal
+REM Author: SoggyCow
+REM Description: Opens the official Flipper Lab site for firmware updates
+
+DELAY 1000
+GUI r
+DELAY 500
+STRING https://lab.flipper.net/
+ENTER

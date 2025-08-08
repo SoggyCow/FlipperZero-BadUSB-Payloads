@@ -1,0 +1,9 @@
+REM Title: Open Unleashed Firmware Install Guide
+REM Author: SoggyCow
+REM Description: Opens the GitHub-hosted installation instructions for DarkFlippers Unleashed Firmware
+
+DELAY 1000
+GUI r
+DELAY 500
+STRING https://github.com/DarkFlippers/unleashed-firmware/blob/dev/documentation/HowToInstall.md
+ENTER
