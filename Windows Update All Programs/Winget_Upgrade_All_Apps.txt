@@ -1,0 +1,12 @@
+REM Title: Winget Auto-Upgrader
+REM Author: SoggyCow
+REM Description: Assumes Winget is pre-installed; upgrades all packages silently and closes terminal
+
+DELAY 1000
+GUI r
+DELAY 500
+STRING cmd
+ENTER
+DELAY 900
+STRING winget upgrade --all -h && exit
+ENTER
