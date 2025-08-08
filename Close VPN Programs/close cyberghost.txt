@@ -1,0 +1,18 @@
+REM Title: Close CyberGhost VPN Processes
+REM Author: SoggyCow
+REM Description: Opens elevated CMD to forcefully terminate CyberGhost VPN processes (CyberGhost.exe and CyberGhost.Service.exe) and closes the terminal
+
+DELAY 1000
+GUI r
+DELAY 500
+STRING cmd
+ENTER
+DELAY 500
+STRING taskkill /IM "CyberGhost.exe" /F
+ENTER
+DELAY 500
+STRING taskkill /IM "CyberGhost.Service.exe" /F
+ENTER
+DELAY 500
+STRING exit
+ENTER

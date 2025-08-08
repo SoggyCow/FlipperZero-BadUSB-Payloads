@@ -1,0 +1,18 @@
+REM Title: Close IPVanish VPN Processes
+REM Author: SoggyCow
+REM Description: Opens elevated CMD to forcefully terminate IPVanish VPN processes (IPVanish.exe and ipvanish-service.exe) and closes the terminal
+
+DELAY 1000
+GUI r
+DELAY 500
+STRING cmd
+ENTER
+DELAY 500
+STRING taskkill /IM "IPVanish.exe" /F
+ENTER
+DELAY 500
+STRING taskkill /IM "ipvanish-service.exe" /F
+ENTER
+DELAY 500
+STRING exit
+ENTER

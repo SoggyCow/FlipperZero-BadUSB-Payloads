@@ -1,0 +1,18 @@
+REM Title: Close PrivateVPN Processes
+REM Author: SoggyCow
+REM Description: Opens elevated CMD to forcefully terminate PrivateVPN processes (PrivateVPN.exe and PrivateVPNService.exe) and closes the terminal
+
+DELAY 1000
+GUI r
+DELAY 500
+STRING cmd
+ENTER
+DELAY 500
+STRING taskkill /IM "PrivateVPN.exe" /F
+ENTER
+DELAY 500
+STRING taskkill /IM "PrivateVPNService.exe" /F
+ENTER
+DELAY 500
+STRING exit
+ENTER
