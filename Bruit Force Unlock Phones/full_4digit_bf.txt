@@ -1,3 +1,6 @@
+REM Author: SoggyCow
+REM All 9999 Combinations
+
 STRING 0000
 ENTER
 DELAY 1000
