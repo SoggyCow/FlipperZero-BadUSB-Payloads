@@ -1,95 +1,65 @@
-# Wireshark Installation Script via Chocolatey for Flipper Zero
+# Wireshark Installation Script for Flipper Zero
 
-**Author:** SoggyCow  
-**License:** MIT
+Author: SoggyCow  
+License: MIT
 
----
+## Overview
 
-## 📡 Overview
+This script automates the installation of [Wireshark](https://www.wireshark.org/), a powerful network protocol analyzer, via [Chocolatey](https://chocolatey.org/) on Windows systems. Using Flipper Zero’s **BadUSB** feature with DuckyScript, it opens an elevated Command Prompt and silently installs Wireshark.
 
-Installs [Wireshark](https://www.wireshark.org/)—a robust network protocol analyzer—via [Chocolatey](https://chocolatey.org/), triggered through Flipper Zero's **BadUSB** feature and executed via **DuckyScript**.  
-The script launches elevated CMD and runs silently, requiring no user interaction post-launch.
+> Note: Chocolatey must be pre-installed on the target system.
 
-> ⚠️ **Important:** Chocolatey must be installed beforehand.
-
----
-
-## 🚀 Usage Instructions
+## Usage Instructions
 
 ### 1. Save the Script
-
-- Filename: `install_wireshark.txt`  
-- Format: Plain text compatible with Flipper’s BadUSB
+- Filename: `install_wireshark.txt`
+- Format: UTF-8 plain text
 
 ### 2. Upload to Flipper
-
-- Connect via **USB/Bluetooth**
-- Transfer using **qFlipper** or **Flipper Mobile**
-- Target folder: `SD Card/badusb/`
+- Connect Flipper Zero via USB or Bluetooth.
+- Use **qFlipper** or **Flipper Mobile App**.
+- Transfer to: `SD Card/badusb/`.
 
 ### 3. Run the Script
+- On Flipper: Navigate to `Main Menu > Bad USB > install_wireshark.txt`.
+- Ensure USB mode is active.
+- Connect to the target Windows machine and press **Run**.
 
-- On Flipper Zero:  
-  `Main Menu > Bad USB`
-- Select: `install_wireshark.txt`
-- Confirm USB mode is active (USB icon)
-- Connect Flipper to Windows host
-- Tap **Run**
+The script will:
+- Open the Run dialog (`Win + R`).
+- Launch an elevated Command Prompt (`cmd` with `CTRL + SHIFT + ENTER`).
+- Execute: `choco install wireshark -y`.
 
-Script behavior:
-- Opens Run dialog  
-- Launches elevated CMD (UAC may appear)  
-- Executes Chocolatey command to install Wireshark silently
+## Installation Verification
 
----
+Wireshark installs silently if:
+- Chocolatey is installed.
+- Administrative privileges are available.
+- An internet connection is active.
 
-## ✅ Installation Verification
+## Prerequisites
 
-Wireshark will install without manual prompts if:
-- Chocolatey is installed  
-- Admin rights are available  
-- Internet access is active
+- **OS**: Windows 10/11
+- **Chocolatey**: Must be pre-installed
+- **Flipper Zero**: BadUSB feature enabled
+- **Internet Access**: Required for package download
+- **Admin Privileges**: Needed for elevated Command Prompt
+- **Hardware**: Compatible with Wireshark requirements (RAM, NIC, etc.)
 
----
+## Technical Notes
 
-## 📦 Prerequisites
+- **Chocolatey Dependency**: Requires Chocolatey to be pre-installed.
+- **Elevation**: Uses elevated Command Prompt; may trigger a UAC prompt.
+- **Silent Install**: The `-y` flag suppresses installer prompts.
+- **Shell**: Uses Command Prompt for broad compatibility.
+- **Delays**: Includes `DELAY 1000`, `DELAY 500`, and `DELAY 1500`. Adjust for slower systems (e.g., `DELAY 700+`).
+- **Version**: Installs the latest Wireshark version (e.g., 4.x as of October 2025). See [Chocolatey Package Page](https://community.chocolatey.org/packages/wireshark).
+- **Testing**: Validate in a virtual machine or sandbox before deployment.
 
-- Windows 10/11  
-- Chocolatey pre-installed  
-- Flipper Zero w/ BadUSB  
-- Internet connection  
-- Administrative privileges  
-- Wireshark-compatible hardware (RAM, NIC, etc.)
+## Disclaimer
 
----
+This script is provided for educational purposes only. Use only on systems you own or have explicit permission to configure. The author, SoggyCow, is not liable for misuse or system impact.
 
-## ⚙️ Technical Notes
+## License
 
-- **Chocolatey Dependency:** Required pre-install  
-- **Admin Elevation:** CMD launched as admin; UAC may be triggered  
-- **Silent Flag:** `-y` used to suppress installer dialogs  
-- **Shell Environment:** CMD selected for broader compatibility  
-- **Delay Timing:**  
-  - Defaults: `DELAY 1000`, `DELAY 500`, `DELAY 1500`  
-  - Adjust for slower systems (`DELAY 700+`)
-
-- **Version Info:**  
-  Installs latest Wireshark version (e.g., 4.x as of August 2025)  
-  See [Chocolatey Package Page](https://community.chocolatey.org/packages/wireshark)
-
-- **Sandbox Testing:** Always test in VM or safe environment before deployment
-
----
-
-## ⚖️ Disclaimer
-
-This script is provided **as-is**, for educational purposes only.  
-Use only on systems you **own or are authorized to configure**.  
-Author assumes **no responsibility** for misuse or system impact.
-
----
-
-## 📄 License
-
-Licensed under the **MIT License**  
-Refer to [LICENSE](LICENSE) for full terms
+Licensed under the MIT License. See the `LICENSE` file for details.

@@ -1,101 +1,66 @@
-# TeamViewer Installation Script via Chocolatey for Flipper Zero
+# TeamViewer Installation Script for Flipper Zero
 
-**Author:** SoggyCow  
-**License:** MIT
+Author: [SoggyCow](https://github.com/SoggyCow)  
+License: MIT
 
----
+## Overview
 
-## 🖥️ Overview
+This script automates the installation of [TeamViewer](https://www.teamviewer.com/), a remote desktop and support tool, via [Chocolatey](https://chocolatey.org/) on Windows systems. Using Flipper Zero’s **BadUSB** feature with DuckyScript, it simulates keyboard input to open an elevated Command Prompt and silently install TeamViewer.
 
-Automates the installation of [TeamViewer](https://www.teamviewer.com/)—a remote desktop and support tool—using [Chocolatey](https://chocolatey.org/)  
-Built for **Flipper Zero’s BadUSB** feature using **DuckyScript** to elevate into CMD and install silently.
+> Note: Chocolatey must be pre-installed. Run `install_chocolatey.txt` first if needed.
 
-> ⚠️ **Note:** Chocolatey must be pre-installed. Run the Chocolatey installer script first.
-
----
-
-## 🚀 Usage Instructions
-
-Executed via **Flipper Zero keyboard emulation**.
+## Usage Instructions
 
 ### 1. Save the Script
+- Filename: `install_teamviewer.txt`
+- Format: UTF-8 plain text
 
-- Save to `.txt` (e.g., `install_teamviewer.txt`)
-
-### 2. Upload to Flipper Zero
-
-- Connect via **USB/Bluetooth**
-- Use **qFlipper** or **Flipper Mobile App**
-- Transfer to:  
-  `SD Card/badusb/`
+### 2. Upload to Flipper
+- Connect Flipper Zero via USB or Bluetooth.
+- Use **qFlipper** or **Flipper Mobile App**.
+- Transfer to: `SD Card/badusb/`.
 
 ### 3. Run the Script
+- On Flipper: Navigate to `Main Menu > Bad USB > install_teamviewer.txt`.
+- Ensure USB mode is active.
+- Connect to the target Windows machine and press **Run**.
 
-- Navigate: `Main Menu > Bad USB`
-- Select `install_teamviewer.txt`
-- Ensure USB mode is active
-- Connect Flipper to target machine
-- Tap **Run**
+The script will:
+- Open the Run dialog (`Win + R`).
+- Launch an elevated Command Prompt (`cmd` with `CTRL + SHIFT + ENTER`).
+- Execute: `choco install teamviewer -y`.
 
-Flipper will:
-- Open Windows Run dialog  
-- Launch elevated CMD (UAC may prompt)  
-- Execute Chocolatey install silently
+## Installation Verification
 
----
+TeamViewer installs silently if:
+- Chocolatey is installed.
+- Administrative privileges are granted.
+- An internet connection is available.
 
-## ✅ Verify Installation
+Verify installation via: [Chocolatey Package Page](https://community.chocolatey.org/packages/teamviewer). Installs the latest stable version (e.g., 15.x as of October 2025).
 
-- No interaction required post-launch  
-- Installs if Chocolatey and internet access are available
+## Requirements
 
----
+- **OS**: Windows 10/11
+- **Chocolatey**: Must be pre-installed
+- **Flipper Zero**: BadUSB feature enabled
+- **Internet Access**: Required for package download
+- **Admin Privileges**: Needed for elevated Command Prompt
+- **System Compatibility**: Lightweight, compatible with TeamViewer requirements
 
-## 📦 Prerequisites
+## Technical Notes
 
-- Windows 10/11  
-- Chocolatey installed  
-- Flipper Zero with BadUSB enabled  
-- Internet connection  
-- Admin rights  
-- Basic system resources (TeamViewer is lightweight)
+- **Chocolatey Dependency**: Requires Chocolatey to be pre-installed.
+- **Elevation**: Uses elevated Command Prompt; may trigger a UAC prompt.
+- **Silent Install**: The `-y` flag suppresses prompts.
+- **Shell**: Uses Command Prompt for compatibility.
+- **Delays**: Includes `DELAY 1000`, `DELAY 500`, and `DELAY 1500`. Adjust for slower systems (e.g., `DELAY 700+`).
+- **Testing**: Validate in a virtual machine or sandbox before deployment.
 
----
+## Disclaimer
 
-## ⚙️ Technical Notes
+This script is for educational purposes only. Use only on systems you own or have explicit permission to access. The author, SoggyCow, is not liable for misuse or system damage.
 
-- **Chocolatey Dependency:**  
-  Required prior to execution
+## License
 
-- **UAC / Elevation Handling:**  
-  CMD runs with admin rights—may prompt
-
-- **Silent Install:**  
-  `-y` flag suppresses user prompts
-
-- **CMD vs. PowerShell:**  
-  CMD used for broader system compatibility
-
-- **Timing Delays:**  
-  Baseline: `DELAY 1000`, `500`, `1500`  
-  For slower machines: try `DELAY 700+`
-
-- **Version Installed:**  
-  Typically installs latest stable (e.g., 15.x in Aug 2025)  
-  Verify at [Chocolatey Package Page](https://community.chocolatey.org/packages/teamviewer)
-
-- **Testing Protocol:**  
-  Run in VM or sandbox prior to live deployment
-
----
-
-## ⚖️ Disclaimer
-
-Use only on systems you **own or are authorized to access**.  
-Author is not liable for misuse or system damage.
-
----
-
-## 📄 License
-
-MIT License – see [LICENSE](LICENSE)
+Licensed under the MIT License. See the `LICENSE` file for details.

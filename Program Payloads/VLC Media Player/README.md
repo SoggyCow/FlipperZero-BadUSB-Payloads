@@ -1,103 +1,65 @@
-# VLC Media Player Installation Script via Chocolatey for Flipper Zero
+# VLC Media Player Installation Script for Flipper Zero
 
-**Author:** SoggyCow  
-**License:** MIT
+Author: SoggyCow  
+License: MIT
 
----
+## Overview
 
-## 🎵 Overview
+This script automates the installation of [VLC Media Player](https://www.videolan.org/vlc/), a lightweight, open-source multimedia platform, via [Chocolatey](https://chocolatey.org/) on Windows systems. Using Flipper Zero’s **BadUSB** feature with DuckyScript, it simulates keystrokes to open an elevated Command Prompt and silently install VLC.
 
-Automates the installation of [VLC Media Player](https://www.videolan.org/vlc/)—a lightweight, open-source multimedia platform—using [Chocolatey](https://chocolatey.org/)  
-Built for **Flipper Zero’s BadUSB** functionality via **DuckyScript**, simulating keystrokes to launch elevated CMD and silently deploy VLC.
+> Note: Chocolatey must be pre-installed. Run the Chocolatey setup script first if needed.
 
-> ⚠️ Requires Chocolatey pre-installation. Run the Chocolatey setup script first.
-
----
-
-## 🚀 Usage Instructions
+## Usage Instructions
 
 ### 1. Prepare the Script
-
 - Save as: `install_vlc.txt`
+- Format: UTF-8 plain text
 
 ### 2. Upload to Flipper
-
-- Connect via **USB/Bluetooth**
-- Use **qFlipper** or **Flipper Mobile App**
-- Transfer to: `SD Card/badusb/`
+- Connect Flipper Zero via USB or Bluetooth.
+- Use **qFlipper** or **Flipper Mobile App**.
+- Transfer to: `SD Card/badusb/`.
 
 ### 3. Execute on Host Machine
+- On Flipper: Navigate to `Main Menu > Bad USB > install_vlc.txt`.
+- Ensure USB mode is active.
+- Connect to the target Windows machine and press **Run**.
 
-- On Flipper:  
-  `Main Menu > Bad USB`
-- Select: `install_vlc.txt`
-- Ensure USB mode is active
-- Connect Flipper to target Windows system
-- Tap **Run**
+The script will:
+- Open the Run dialog (`Win + R`).
+- Launch an elevated Command Prompt (`cmd` with `CTRL + SHIFT + ENTER`).
+- Execute: `choco install vlc -y`.
 
-Execution will:
-- Open the Windows Run dialog  
-- Launch elevated Command Prompt (UAC may prompt)  
-- Install VLC Media Player silently via Chocolatey
+## Installation Verification
 
----
+VLC installs silently if:
+- Chocolatey is installed.
+- An internet connection is active.
+- Administrative privileges are granted.
 
-## ✅ Installation Verification
+## Requirements
 
-No user interaction needed if:
-- Chocolatey is installed  
-- Internet connection is active  
-- Admin rights are granted
+- **OS**: Windows 10/11
+- **Chocolatey**: Must be pre-installed
+- **Flipper Zero**: BadUSB feature enabled
+- **Internet Access**: Required for package download
+- **Admin Privileges**: Needed for elevated Command Prompt
+- **System Compatibility**: Lightweight, compatible with VLC requirements
 
----
+## Technical Notes
 
-## 📦 Requirements
+- **Chocolatey Dependency**: Requires Chocolatey to be pre-installed.
+- **Elevation**: Uses elevated Command Prompt; may trigger a UAC prompt.
+- **Silent Install**: The `-y` flag suppresses prompts.
+- **Shell**: Uses Command Prompt for compatibility.
+- **Delays**: Includes `DELAY 1000`, `DELAY 500`, and `DELAY 1500`. Adjust for slower systems (e.g., `DELAY 700+`).
+- **Version**: Installs the latest stable VLC release (e.g., 3.x as of October 2025). See [Chocolatey Package Page](https://community.chocolatey.org/packages/vlc).
+- **Testing**: Validate in a virtual machine or sandbox before deployment.
 
-- Windows 10 or 11  
-- Chocolatey installed  
-- Flipper Zero w/ BadUSB  
-- Internet access  
-- Admin privileges  
-- VLC-compatible system (lightweight footprint)
+## Disclaimer
 
----
+This script is for educational purposes only. Use only on systems you own or have explicit permission to modify. The author, SoggyCow, is not liable for misuse or system damage.
 
-## ⚙️ Technical Notes
+## License
 
-- **Chocolatey Dependency:**  
-  Must be installed beforehand
-
-- **Elevation / UAC Handling:**  
-  Elevated CMD launch—UAC may appear
-
-- **Silent Install Flag:**  
-  Uses `-y` to bypass prompts
-
-- **Shell Choice:**  
-  CMD used for compatibility
-
-- **Delay Heuristics:**  
-  Defaults: `DELAY 1000`, `500`, `1500`  
-  For slower systems: increase to `DELAY 700+`
-
-- **Version Coverage:**  
-  Installs latest VLC stable release (e.g., 3.x as of August 2025)  
-  See [Chocolatey Package Page](https://community.chocolatey.org/packages/vlc)
-
-- **Environment Testing:**  
-  Recommended in VM or sandbox before full deployment
-
----
-
-## ⚖️ Disclaimer
-
-Educational use only.  
-Use on systems you **own or have explicit authorization to modify**.  
-Author assumes **no responsibility** for misuse or system damage.
-
----
-
-## 📄 License
-
-Licensed under the **MIT License**  
-See [LICENSE](LICENSE) for details
+Licensed under the MIT License. See the `LICENSE` file for details.

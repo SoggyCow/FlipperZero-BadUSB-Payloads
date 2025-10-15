@@ -1,101 +1,67 @@
-# mIRC Installation Script via Chocolatey for Flipper Zero
+# mIRC Installation Script for Flipper Zero
 
-**Author:** SoggyCow  
-**License:** MIT
+Author: SoggyCow  
+License: MIT
 
----
+## Overview
 
-## 💬 Overview
+This script automates the installation of [mIRC](https://www.mirc.com/), a popular IRC client, via [Chocolatey](https://chocolatey.org/) on Windows systems. It leverages Flipper Zero’s **BadUSB** feature with DuckyScript to open an elevated Command Prompt and perform a silent installation.
 
-Installs [mIRC](https://www.mirc.com/), a legacy but still-popular IRC client, via [Chocolatey](https://chocolatey.org/) on Windows systems.  
-Engineered for **Flipper Zero’s BadUSB** feature using **DuckyScript** to open elevated Command Prompt and execute a silent install.
+> Note: Chocolatey must be pre-installed on the target system. See `install_chocolatey.txt` for setup if needed.
 
-> ⚠️ Chocolatey must be installed beforehand. See `install_chocolatey.txt`.
-
----
-
-## 🚀 Usage Guide
+## Usage Guide
 
 ### 1. Save the Payload
-
-- Filename: `install_mirc.txt`  
-- Format: UTF-8 encoded `.txt` for Flipper Zero BadUSB
+- Filename: `install_mirc.txt`
+- Format: UTF-8 encoded plain text
 
 ### 2. Transfer to Flipper
-
-- Use **qFlipper** or **Flipper Mobile App**
-- Destination: `SD Card/badusb/`
+- Connect Flipper Zero via USB or Bluetooth.
+- Use **qFlipper** or **Flipper Mobile App**.
+- Upload to: `SD Card/badusb/`
 
 ### 3. Execute on Target Machine
+- On Flipper: Navigate to `Main Menu > Bad USB > install_mirc.txt`.
+- Ensure USB mode is active.
+- Connect to the target Windows machine and select **Run**.
 
-- On Flipper:  
-  `Main Menu > Bad USB` > `install_mirc.txt`  
-- Connect to Windows machine via USB  
-- Ensure USB mode is active (USB icon visible)  
-- Press **Run**
+The script will:
+- Open the Run dialog (`Win + R`).
+- Launch an elevated Command Prompt (`cmd` with `CTRL + SHIFT + ENTER`).
+- Execute: `choco install mirc -y`.
 
-Payload performs:
-- Opens **Windows Run dialog**  
-- Launches **elevated CMD** (UAC may be triggered)  
-- Executes: `choco install mirc -y`
+## Post-Install Verification
 
----
+If Chocolatey is installed and an internet connection is available:
+- mIRC installs silently without user interaction.
+- Installs the latest stable version (e.g., 7.x as of October 2025).
+- Verify via: [Chocolatey Package Page](https://community.chocolatey.org/packages/mirc).
 
-## ✅ Post-Install Verification
+## Requirements
 
-If Chocolatey is installed and internet is active:
-- mIRC installs silently  
-- No user interaction required  
-- Version: Latest stable (e.g., 7.x as of August 2025)  
-- Confirm via: [Chocolatey Package Page](https://community.chocolatey.org/packages/mirc)
+- **OS**: Windows 10/11
+- **Chocolatey**: Must be pre-installed
+- **Flipper Zero**: BadUSB feature enabled
+- **Internet Access**: Required for package download
+- **Admin Privileges**: Needed for elevated Command Prompt
+- **System Compatibility**: Lightweight, compatible with mIRC requirements
 
----
+## Payload Notes
 
-## 📋 Requirements
+- **Admin Privileges**: Required for Chocolatey installation; may trigger a UAC prompt.
+- **Silent Install**: The `-y` flag ensures no user prompts.
+- **Shell**: Uses CMD for broad compatibility.
+- **Delays**: Includes `DELAY 1000`, `500`, and `1500` ms. Increase (e.g., `700+` ms) for slower systems.
+- **Failure Modes**:
+  - No Chocolatey: Script aborts.
+  - No internet: Download fails.
+  - UAC blocked: Elevation fails.
+- **Testing**: Validate in a virtual machine before physical deployment.
 
-- Windows 10/11  
-- Chocolatey installed  
-- Flipper Zero with BadUSB enabled  
-- Internet access for download  
-- Admin rights to run elevated CMD  
-- System compatibility with mIRC (typically lightweight)
+## Disclaimer
 
----
+This script is for educational purposes only. Use responsibly on systems you own or have explicit permission to access. The author is not liable for improper use or outcomes.
 
-## ⚙️ Payload Notes
+## License
 
-- **Admin Privileges:**  
-  Required for Chocolatey install; triggers elevated CMD
-
-- **Silent Flag:**  
-  `-y` ensures non-interactive install
-
-- **Shell Selection:**  
-  CMD chosen for compatibility
-
-- **Timing Delays:**  
-  - Standard: `DELAY 1000`, `500`, `1500`  
-  - If unreliable: bump delays (`500` → `700+`)
-
-- **Failure Modes:**  
-  - Missing Chocolatey = abort  
-  - Network outage = failed download  
-  - UAC blocking = elevation failure
-
-- **Sandbox Test First:**  
-  Validate in a VM before deploying to physical systems
-
----
-
-## ⚠️ Disclaimer
-
-For educational purposes only.  
-Use responsibly on systems you **own or are authorized to access**.  
-Author assumes **no liability** for improper use or outcomes.
-
----
-
-## 📄 License
-
-Distributed under the **MIT License**  
-See the [LICENSE](LICENSE) file for details.
+Licensed under the MIT License. See the `LICENSE` file for details.

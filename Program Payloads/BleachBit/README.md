@@ -1,91 +1,67 @@
-# BleachBit Installation Script via Chocolatey for Flipper Zero
+# BleachBit Installation Script for Flipper Zero
 
-**Author:** SoggyCow  
-**License:** MIT
+Author: [SoggyCow](https://github.com/SoggyCow)  
+License: MIT
 
----
+## Overview
 
-## 🧼 Overview
+This script automates the installation of [BleachBit](https://www.bleachbit.org/), an open-source tool for cleaning junk files, clearing caches, and wiping sensitive data, via [Chocolatey](https://chocolatey.org/) on Windows systems. Using Flipper Zero’s **BadUSB** feature with DuckyScript, it simulates keyboard input to open an elevated Command Prompt and silently install BleachBit.
 
-Installs [BleachBit](https://www.bleachbit.org/), an open-source privacy tool for cleaning junk files, clearing cache, and wiping sensitive data from Windows systems.  
-Designed for **Flipper Zero’s BadUSB** and scripted in **DuckyScript**, this payload automates silent deployment via **elevated CMD** using [Chocolatey](https://chocolatey.org/).
+> Note: Chocolatey must be pre-installed. Run `install_chocolatey.txt` first if needed.
 
-> ⚠️ Chocolatey must be installed before executing this module (`install_chocolatey.txt`).
+## Usage Instructions
 
----
-
-## 🧰 Usage Instructions
-
-### 1. Save Payload
-
-- File name: `install_bleachbit.txt`  
-- Format: UTF-8 encoded plain text `.txt` (compatible with Flipper Zero)
+### 1. Save the Script
+- Filename: `install_bleachbit.txt`
+- Format: UTF-8 plain text
 
 ### 2. Upload to Flipper
+- Connect Flipper Zero via USB or Bluetooth.
+- Use **qFlipper** or **Flipper Mobile App**.
+- Transfer to: `SD Card/badusb/`.
 
-- Connect via USB or Bluetooth  
-- Use **qFlipper** or **Flipper Mobile App**  
-- Destination path:  
-  `SD Card/badusb/`
+### 3. Run the Script
+- On Flipper: Navigate to `Main Menu > Bad USB > install_bleachbit.txt`.
+- Ensure USB mode is active.
+- Connect to the target Windows machine and press **Run**.
 
-### 3. Execute on Target System
+The script will:
+- Open the Run dialog (`Win + R`).
+- Launch an elevated Command Prompt (`cmd` with `CTRL + SHIFT + ENTER`).
+- Execute: `choco install bleachbit -y`.
 
-- Navigate:  
-  `Main Menu > Bad USB > install_bleachbit.txt`  
-- Confirm USB mode is active (USB icon visible)  
-- Plug Flipper into target machine  
-- Tap **Run**
+## Installation Verification
 
-Execution Flow:
-- Opens Windows Run dialog  
-- Launches elevated CMD (`CTRL + SHIFT + ENTER`) — may trigger UAC  
-- Executes command:  
-  `choco install bleachbit -y`
+BleachBit installs silently if:
+- Chocolatey is installed.
+- Administrative privileges are granted.
+- An internet connection is available.
 
----
+Verify installation via: [Chocolatey Package Page](https://community.chocolatey.org/packages/bleachbit). Installs the latest stable version (e.g., 4.x as of October 2025).
 
-## ✅ Verification & Environment
+## Requirements
 
-| Requirement               | Description                                           |
-|---------------------------|--------------------------------------------------------|
-| Windows OS                | Windows 10/11                                          |
-| Chocolatey                | Must be pre-installed                                  |
-| Admin Privileges          | Required for elevated install                          |
-| Internet Connectivity     | Necessary for Chocolatey package download              |
-| CMD Compatibility         | Must accept Chocolatey commands                        |
-| System Specs              | Lightweight footprint; see [BleachBit requirements](https://www.bleachbit.org/documentation) |
+- **OS**: Windows 10/11
+- **Chocolatey**: Must be pre-installed
+- **Flipper Zero**: BadUSB feature enabled
+- **Internet Access**: Required for package download
+- **Admin Privileges**: Needed for elevated Command Prompt
+- **System Compatibility**: Lightweight, compatible with BleachBit requirements (see [BleachBit documentation](https://www.bleachbit.org/documentation))
 
----
+## Technical Notes
 
-## ⚙️ Technical Notes
+- **Chocolatey Dependency**: Requires Chocolatey to be pre-installed.
+- **Elevation**: Uses elevated Command Prompt; may trigger a UAC prompt.
+- **Silent Install**: The `-y` flag suppresses prompts.
+- **Shell**: Uses Command Prompt for compatibility.
+- **Delays**: Includes `DELAY 1000`, `DELAY 500`, and `DELAY 1500`. Adjust for slower systems (e.g., `DELAY 700+`).
+- **Security**: BleachBit can permanently delete files and logs; use with caution.
+- **Testing**: Validate in a virtual machine or sandbox before deployment.
 
-- **Silent Install:**  
-  `-y` flag suppresses prompts during installation
+## Disclaimer
 
-- **Delays for Reliability:**  
-  Uses `DELAY 1000`, `500`, `1500`  
-  Increase for slower hosts (`700+` recommended)
+This script is for educational purposes only. Use only on systems you own or have explicit permission to access. The author, SoggyCow, is not liable for misuse, data loss, or system damage.
 
-- **Version Installed:**  
-  Latest stable (e.g., v4.x as of August 2025)  
-  Check package: [Chocolatey: bleachbit](https://community.chocolatey.org/packages/bleachbit)
+## License
 
-- **Security Consideration:**  
-  BleachBit can permanently erase files and logs—use with caution
-
-- **Testing Advice:**  
-  Deploy initially in a sandbox or VM to verify behavior before field use
-
----
-
-## ⚠️ Disclaimer
-
-Use only on systems you **own or have explicit authorization** to modify.  
-This payload is offered **as-is**, and the author is **not responsible** for misuse, data loss, or unintended consequences.
-
----
-
-## 📄 License
-
-Distributed under the **MIT License**  
-Refer to the `LICENSE` file for full terms.
+Licensed under the MIT License. See the `LICENSE` file for details.

@@ -1,100 +1,69 @@
-# Visual Studio 2022 Community Installation Script via Chocolatey for Flipper Zero
+# Visual Studio 2022 Community Installation Script for Flipper Zero
 
-**Author:** SoggyCow  
-**License:** MIT
+Author: SoggyCow  
+License: MIT
 
----
+## Overview
 
-## 🧰 Overview
+This script automates the installation of [Visual Studio 2022 Community Edition](https://visualstudio.microsoft.com/vs/community/), a free and powerful IDE, via [Chocolatey](https://chocolatey.org/) on Windows systems. Using Flipper Zero’s **BadUSB** feature with DuckyScript, it opens an elevated Command Prompt and silently installs Visual Studio.
 
-Installs [Visual Studio 2022 Community Edition](https://visualstudio.microsoft.com/vs/community/)—a powerful free IDE—via [Chocolatey](https://chocolatey.org/) on Windows.  
-Optimized for **Flipper Zero's BadUSB** function using **DuckyScript** to launch elevated CMD and trigger silent installation.
+> Note: Chocolatey must be pre-installed, or the script will fail.
 
-> ⚠️ **Important:** Requires Chocolatey installed beforehand. This script will fail if Chocolatey is missing.
-
----
-
-## 🚀 Usage Instructions
+## Usage Instructions
 
 ### 1. Save the Script
-
 - Filename: `install_visualstudio2022.txt`
+- Format: UTF-8 plain text
 
 ### 2. Upload to Flipper
-
-- Connect via **USB or Bluetooth**
-- Use **qFlipper** or **Flipper Mobile App**
-- Transfer to:  
-  `SD Card/badusb/`
+- Connect Flipper Zero via USB or Bluetooth.
+- Use **qFlipper** or **Flipper Mobile App**.
+- Transfer to: `SD Card/badusb/`.
 
 ### 3. Run the Script
+- On Flipper: Navigate to `Main Menu > Bad USB > install_visualstudio2022.txt`.
+- Ensure USB mode is active.
+- Connect to the target Windows machine and press **Run**.
 
-- On Flipper:  
-  `Main Menu > Bad USB`
-- Select: `install_visualstudio2022.txt`
-- Confirm USB mode is active
-- Plug into target Windows host
-- Tap **Run**
+The script will:
+- Open the Run dialog (`Win + R`).
+- Launch an elevated Command Prompt (`cmd` with `CTRL + SHIFT + ENTER`).
+- Execute: `choco install visualstudio2022community -y`.
 
-Actions performed:
-- Opens Windows Run dialog  
-- Launches elevated CMD (may trigger UAC)  
-- Executes Chocolatey install command silently
+## Installation Confirmation
 
----
+Visual Studio installs silently if:
+- Chocolatey is installed.
+- Administrative privileges are granted.
+- An internet connection is available.
+- The system meets Visual Studio’s requirements.
 
-## ✅ Installation Confirmation
+## Requirements
 
-Visual Studio installs with no manual input if:
-- Chocolatey is present  
-- Admin rights granted  
-- Internet is available  
-- System meets Visual Studio requirements
+- **OS**: Windows 10/11 (64-bit)
+- **Chocolatey**: Must be pre-installed
+- **Flipper Zero**: BadUSB feature enabled
+- **Internet Access**: Required for package download
+- **Admin Privileges**: Needed for elevated Command Prompt
+- **System Specs**:
+  - Minimum 8 GB RAM
+  - 20–50 GB disk space
+  - Compatible CPU/GPU (see [Visual Studio Requirements](https://learn.microsoft.com/en-us/visualstudio/releases/2022/system-requirements))
 
----
+## Technical Notes
 
-## 📦 Requirements
+- **Chocolatey Dependency**: Requires Chocolatey to be pre-installed.
+- **Elevation**: Uses elevated Command Prompt; may trigger a UAC prompt.
+- **Silent Install**: The `-y` flag suppresses prompts.
+- **Shell**: Uses Command Prompt for stability.
+- **Delays**: Includes `DELAY 1000`, `DELAY 500`, and `DELAY 1500`. Adjust for slower systems (e.g., `DELAY 700+`).
+- **Version**: Installs the latest stable Visual Studio 2022 Community release (e.g., 17.x as of October 2025). See [Chocolatey Package Page](https://community.chocolatey.org/packages/visualstudio2022community).
+- **Testing**: Due to the large install size, validate in a virtual machine or sandbox first.
 
-- Windows 10/11 (64-bit required)  
-- Chocolatey pre-installed  
-- Flipper Zero with BadUSB enabled  
-- Internet connection  
-- Admin privileges  
-- System specs:  
-  - Minimum 8 GB RAM  
-  - 20–50 GB disk space  
-  - Compatible CPU/GPU (see official [Visual Studio Requirements](https://learn.microsoft.com/en-us/visualstudio/releases/2022/system-requirements))
+## Disclaimer
 
----
+This script is provided for educational purposes only. Use only on systems you own or have explicit permission to configure. The author, SoggyCow, is not liable for damage or misuse.
 
-## ⚙️ Technical Notes
+## License
 
-- **Chocolatey Dependency:** Must be installed prior  
-- **Elevation / UAC Handling:** CMD runs with admin rights  
-- **Silent Install Flag:** `-y` suppresses prompts  
-- **Shell Compatibility:** CMD used for stability  
-- **Timing Heuristics:**  
-  - Default delays: `DELAY 1000`, `500`, `1500`  
-  - Adjust for slow machines: try `DELAY 700+`
-
-- **Version Installed:**  
-  Installs latest stable Visual Studio 2022 Community (e.g., 17.x as of August 2025)  
-  See [Chocolatey Package Page](https://community.chocolatey.org/packages/visualstudio2022community)
-
-- **Testing Guidance:**  
-  Due to install size, use VMs or sandbox environments for validation
-
----
-
-## ⚖️ Disclaimer
-
-Provided **as-is** for educational purposes.  
-Use only on systems you **own or are authorized to configure**.  
-Author assumes **no responsibility** for damage or misuse.
-
----
-
-## 📄 License
-
-Distributed under the **MIT License**  
-See the [LICENSE](LICENSE) file for terms.
+Licensed under the MIT License. See the `LICENSE` file for details.

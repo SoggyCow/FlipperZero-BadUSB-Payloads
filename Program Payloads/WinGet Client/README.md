@@ -1,102 +1,65 @@
-# WinGet Installation Script via Chocolatey for Flipper Zero
+# WinGet Installation Script for Flipper Zero
 
-**Author:** SoggyCow  
-**License:** MIT
+Author: SoggyCow  
+License: MIT
 
----
+## Overview
 
-## 📦 Overview
+This script automates the installation of **WinGet**, Microsoft’s command-line package manager, via [Chocolatey](https://chocolatey.org/) on Windows systems. Using Flipper Zero’s **BadUSB** feature with DuckyScript, it simulates keyboard input to open an elevated Command Prompt, perform a silent installation, and close the terminal.
 
-Installs **WinGet**, Microsoft’s command-line package manager, via [Chocolatey](https://chocolatey.org/) on Windows.  
-Scripted for **Flipper Zero’s BadUSB**, this DuckyScript payload simulates keyboard input to elevate CMD, execute a silent install, and close the terminal post-deployment.
+> Note: Chocolatey must be pre-installed. Run `install_chocolatey.txt` first if needed.
 
-> ⚠️ Requires Chocolatey. Run `install_chocolatey.txt` before using this payload.
-
----
-
-## 🧰 Usage Instructions
+## Usage Instructions
 
 ### 1. Save the Payload
-
-- File name: `install_winget.txt`  
-- Format: UTF-8 plain `.txt` (compatible with Flipper Zero)
+- Filename: `install_winget.txt`
+- Format: UTF-8 plain text
 
 ### 2. Upload to Flipper Zero
-
-- Connect via USB or Bluetooth  
-- Transfer using **qFlipper** or **Flipper Mobile App**  
-- Upload to:  
-  `SD Card/badusb/`
+- Connect Flipper Zero via USB or Bluetooth.
+- Use **qFlipper** or **Flipper Mobile App**.
+- Upload to: `SD Card/badusb/`.
 
 ### 3. Deploy on Target Machine
+- On Flipper: Navigate to `Main Menu > Bad USB > install_winget.txt`.
+- Ensure USB mode is active.
+- Connect to the target Windows machine and press **Run**.
 
-- On Flipper:  
-  `Main Menu > Bad USB > install_winget.txt`  
-- Ensure USB mode is active (USB icon visible)  
-- Plug Flipper into a Windows machine  
-- Tap **Run**
+The script will:
+- Open the Run dialog (`Win + R`).
+- Launch an elevated Command Prompt (`cmd` with `CTRL + SHIFT + ENTER`).
+- Execute: `choco install winget -y && exit`.
 
-Payload executes:
-- Opens Run dialog  
-- Launches elevated CMD (`CTRL + SHIFT + ENTER`) — may trigger UAC  
-- Runs:  
-  `choco install winget -y && exit`
+## Installation Confirmation
 
----
+Successful installation requires:
+- Chocolatey installed and functional.
+- Active internet connection for package download.
+- Administrative privileges for elevation.
+- Command Prompt compatibility with Chocolatey.
 
-## ✅ Installation Confirmation
+Installs the latest WinGet version (e.g., 1.x as of October 2025). See [Chocolatey Package Page](https://community.chocolatey.org/packages/winget).
 
-Success requires:
-- Chocolatey installed and functional  
-- Internet connection to pull Chocolatey packages  
-- Admin rights for elevation  
-- CMD compatibility with Chocolatey
+## Requirements
 
-Latest WinGet version (e.g., 1.x as of August 2025) is installed from Chocolatey:  
-[Chocolatey Package: winget](https://community.chocolatey.org/packages/winget)
+- **OS**: Windows 10/11 (WinGet compatible)
+- **Chocolatey**: Must be pre-installed
+- **Admin Privileges**: Required for elevated command execution
+- **Internet Access**: Needed for package download
+- **Flipper Zero**: BadUSB mode enabled
+- **Command Prompt**: Must support Chocolatey commands
 
----
+## Technical Notes
 
-## 📋 Requirements
+- **Delays**: Uses `DELAY 1000`, `DELAY 500`, and `DELAY 1500`. Increase for slower systems (e.g., `DELAY 700+`).
+- **Silent Install**: The `-y` flag suppresses prompts; `&& exit` closes the terminal.
+- **Redundancy**: WinGet may already be installed natively; this script ensures installation or update via Chocolatey.
+- **Testing**: Validate in a virtual machine or sandbox before production use.
 
-| Component             | Description                                     |
-|-----------------------|-------------------------------------------------|
-| OS                    | Windows 10/11 only (WinGet compatibility)       |
-| Chocolatey            | Pre-installed                                   |
-| Admin Privileges      | Required for elevated command execution         |
-| Internet Access       | Required to download the package                |
-| Flipper Zero          | BadUSB mode must be enabled                     |
-| CMD Shell             | Must support Chocolatey commands                |
+## Disclaimer
 
----
+This script is for educational and authorized purposes only. Use only on systems you own or have explicit permission to modify. The author, SoggyCow, is not liable for misuse or damage.
 
-## ⚙️ Technical Notes
+## License
 
-- **Timing Delays:**  
-  Default: `DELAY 1000`, `500`, `1500`  
-  Adjust upwards for slower machines (e.g., `DELAY 700+`)
-
-- **Silent Install Flag:**  
-  `-y` bypasses prompts  
-  `&& exit` ensures terminal closure after execution
-
-- **Redundancy Warning:**  
-  WinGet may already be installed natively—this script enforces update via Chocolatey
-
-- **Testing Recommendation:**  
-  Run in virtual machine or sandbox before deploying in production environments
-
----
-
-## ⚠️ Disclaimer
-
-Use for **educational and authorized purposes only**.  
-Run only on systems you **own or have explicit permission to modify**.  
-Author assumes no liability for misuse or damage.
-
----
-
-## 📄 License
-
-Released under the **MIT License**  
-See the `LICENSE` file for full terms.
+Licensed under the MIT License. See the `LICENSE` file for details.

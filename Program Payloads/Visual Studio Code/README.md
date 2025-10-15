@@ -1,43 +1,41 @@
-# TestDisk Installation Script for Flipper Zero
+# Visual Studio Code Installation Script for Flipper Zero
 
 Author: SoggyCow  
 License: MIT
 
 ## Overview
 
-This script automates the installation of [TestDisk](https://www.cgsecurity.org/wiki/TestDisk), an open-source data recovery tool for partition repair and file restoration, via [Chocolatey](https://chocolatey.org/) on Windows systems. Using Flipper Zero’s **BadUSB** feature with DuckyScript, it simulates keyboard input to open an elevated Command Prompt and silently install TestDisk.
+This script automates the installation of [Visual Studio Code](https://code.visualstudio.com/), a popular open-source code editor, via [Chocolatey](https://chocolatey.org/) on Windows systems. Using Flipper Zero’s **BadUSB** feature with DuckyScript, it simulates keyboard input to open an elevated Command Prompt and silently install Visual Studio Code.
 
 > Note: Chocolatey must be pre-installed. Run `install_chocolatey.txt` first if needed.
 
 ## Usage Instructions
 
-### 1. Save the Payload
-- Filename: `install_testdisk.txt`
+### 1. Save the Script
+- Filename: `install_vscode.txt`
 - Format: UTF-8 plain text
 
-### 2. Transfer to Flipper
+### 2. Upload to Flipper
 - Connect Flipper Zero via USB or Bluetooth.
 - Use **qFlipper** or **Flipper Mobile App**.
 - Transfer to: `SD Card/badusb/`.
 
-### 3. Execute
-- On Flipper: Navigate to `Main Menu > Bad USB > install_testdisk.txt`.
+### 3. Run the Script
+- On Flipper: Navigate to `Main Menu > Bad USB > install_vscode.txt`.
 - Ensure USB mode is active.
 - Connect to the target Windows machine and press **Run**.
 
 The script will:
 - Open the Run dialog (`Win + R`).
 - Launch an elevated Command Prompt (`cmd` with `CTRL + SHIFT + ENTER`).
-- Execute: `choco install testdisk -y`.
+- Execute: `choco install vscode -y && exit`.
 
 ## Installation Verification
 
-TestDisk installs silently if:
+Visual Studio Code installs silently if:
 - Chocolatey is installed.
 - Administrative privileges are granted.
 - An internet connection is available.
-
-Installs the latest stable version (e.g., 7.2+ as of October 2025). Verify via: [Chocolatey Package Page](https://community.chocolatey.org/packages/testdisk).
 
 ## Requirements
 
@@ -46,20 +44,21 @@ Installs the latest stable version (e.g., 7.2+ as of October 2025). Verify via: 
 - **Flipper Zero**: BadUSB feature enabled
 - **Internet Access**: Required for package download
 - **Admin Privileges**: Needed for elevated Command Prompt
-- **Command Prompt**: Must support Chocolatey commands
+- **System Compatibility**: Lightweight, compatible with Visual Studio Code requirements
 
 ## Technical Notes
 
 - **Chocolatey Dependency**: Requires Chocolatey to be pre-installed.
 - **Elevation**: Uses elevated Command Prompt; may trigger a UAC prompt.
-- **Silent Install**: The `-y` flag suppresses prompts.
+- **Silent Install**: The `-y` flag suppresses prompts; `&& exit` closes the terminal.
 - **Shell**: Uses Command Prompt for compatibility.
 - **Delays**: Includes `DELAY 1000`, `DELAY 500`, and `DELAY 1500`. Adjust for slower systems (e.g., `DELAY 700+`).
+- **Version**: Installs the latest stable Visual Studio Code release (e.g., 1.x as of October 2025). See [Chocolatey Package Page](https://community.chocolatey.org/packages/vscode).
 - **Testing**: Validate in a virtual machine or sandbox before deployment.
 
 ## Disclaimer
 
-This script is for educational purposes only. Use only on systems you own or have explicit permission to access. The author, SoggyCow, is not liable for misuse or system impact.
+This script is for educational purposes only. Use only on systems you own or have explicit permission to configure. The author, SoggyCow, is not liable for misuse or system damage.
 
 ## License
 

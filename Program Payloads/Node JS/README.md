@@ -1,95 +1,67 @@
-# Node.js Installation Script via Chocolatey for Flipper Zero
+# Node.js Installation Script for Flipper Zero
 
-**Author:** SoggyCow  
-**License:** MIT
+Author: [SoggyCow](https://github.com/SoggyCow)  
+License: MIT
 
----
+## Overview
 
-## 🧭 Overview
+This script automates the installation of [Node.js](https://nodejs.org/), a JavaScript runtime, via [Chocolatey](https://chocolatey.org/) on Windows systems. Using Flipper Zero’s **BadUSB** feature with DuckyScript, it simulates keyboard input to open an elevated Command Prompt and silently install Node.js.
 
-This script automates the installation of [Node.js](https://nodejs.org/), a JavaScript runtime, using [Chocolatey](https://chocolatey.org/), a package manager for Windows. Designed for Flipper Zero's **BadUSB** feature, it uses **DuckyScript** to simulate keyboard inputs and silently execute a PowerShell command in a hidden window.
+> Note: Chocolatey must be pre-installed. Run `install_chocolatey.txt` first if needed.
 
-> ⚠️ **Important:** Chocolatey must be pre-installed on the target machine. Run the Chocolatey installation script first.
-
----
-
-## 🚀 Usage
-
-This script is intended for use with Flipper Zero's **BadUSB** functionality, which emulates a keyboard to execute commands.
+## Usage Instructions
 
 ### 1. Save the Script
+- Filename: `install_nodejs.txt`
+- Format: UTF-8 plain text
 
-Save the script to a `.txt` file (e.g., `install_nodejs.txt`) compatible with Flipper Zero.
-
-### 2. Upload to Flipper Zero
-
-- Connect your Flipper Zero to a computer via **USB** or **Bluetooth**
-- Use the **qFlipper app** or **Flipper Mobile app** to transfer the script to:  
-  `SD Card/badusb/`
+### 2. Upload to Flipper
+- Connect Flipper Zero via USB or Bluetooth.
+- Use **qFlipper** or **Flipper Mobile App**.
+- Transfer to: `SD Card/badusb/`.
 
 ### 3. Run the Script
-
-- On Flipper Zero, navigate to:  
-  `Main Menu > Bad USB`
-- Select the script (`install_nodejs.txt`)
-- Ensure USB mode is active (USB logo should be displayed)
-- Connect Flipper Zero to the target Windows machine
-- Press the **Run** button
+- On Flipper: Navigate to `Main Menu > Bad USB > install_nodejs.txt`.
+- Ensure USB mode is active.
+- Connect to the target Windows machine and press **Run**.
 
 The script will:
-- Open the Windows Run dialog
-- Execute a PowerShell command that installs Node.js silently via Chocolatey
+- Open the Run dialog (`Win + R`).
+- Launch an elevated Command Prompt (`cmd` with `CTRL + SHIFT + ENTER`).
+- Execute: `choco install nodejs -y`.
 
----
+## Installation Verification
 
-## ✅ Verification
+Node.js installs silently if:
+- Chocolatey is installed.
+- Administrative privileges are granted.
+- An internet connection is available.
 
-Node.js will install without user interaction, assuming:
-- Chocolatey is installed
-- Internet access is available
+Verify installation via: [Chocolatey Package Page](https://community.chocolatey.org/packages/nodejs). Installs the latest stable version (e.g., 20.x as of October 2025).
 
----
+## Requirements
 
-## 📦 Prerequisites
+- **OS**: Windows 10/11
+- **Chocolatey**: Must be pre-installed
+- **Flipper Zero**: BadUSB feature enabled
+- **Internet Access**: Required for package download
+- **Admin Privileges**: Needed for elevated Command Prompt
+- **Command Prompt**: Must support Chocolatey commands
 
-- A Windows operating system
-- Chocolatey pre-installed
-- Flipper Zero with BadUSB functionality enabled
-- Internet connection to download Node.js
-- Administrative privileges on the target machine
+## Technical Notes
 
----
+- **Chocolatey Dependency**: Requires Chocolatey to be pre-installed.
+- **Elevation**: Uses elevated Command Prompt; may trigger a UAC prompt.
+- **Silent Install**: The `-y` flag suppresses prompts.
+- **Shell**: Uses Command Prompt for compatibility (unlike the original’s PowerShell approach).
+- **Delays**: Includes `DELAY 1000`, `DELAY 500`, and `DELAY 1500`. Adjust for slower systems (e.g., `DELAY 700+`).
+- **Testing**: Validate in a virtual machine or sandbox before deployment.
+- **Security**: Some antivirus software may flag Node.js installation. Use ethically and with authorization.
 
-## ⚙️ Important Notes
+## Disclaimer
 
-- **Chocolatey Dependency:**  
-  This script requires Chocolatey. If absent, the install will fail.
-  
-- **Administrative Privileges:**  
-  Chocolatey needs admin rights—ensure the target account is elevated.
+This script is for educational purposes only. Use only on systems you own or have explicit permission to access. The author, SoggyCow, is not liable for misuse, data loss, or system damage.
 
-- **Silent Installation:**  
-  `-y` flag ensures no user prompts.
+## License
 
-- **Hidden Execution:**  
-  PowerShell uses `-W Hidden` for discretion, though security software may flag it.
-
-- **Timing Delays:**  
-  Script uses `DELAY 1000` and `DELAY 500` for reliability. On slower systems, try `DELAY 700` or higher.
-
-- **Testing First:**  
-  Run in a VM or safe testbed before deploying live.
-
----
-
-## ⚖️ Disclaimer
-
-This script is provided as-is for **educational purposes only**. Use responsibly and **only on systems you own or have permission to access**.  
-The author (SoggyCow) is **not responsible** for any misuse, data loss, or system damage.
-
----
-
-## 📄 License
-
-This project is licensed under the **MIT License**.  
-See the [LICENSE](LICENSE) file for details.
+Licensed under the MIT License. See the `LICENSE` file for details.

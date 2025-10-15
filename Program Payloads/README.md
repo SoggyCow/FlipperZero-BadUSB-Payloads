@@ -1,62 +1,50 @@
-# 🧰 Chocolatey Installation Script
+# Chocolatey Installation Script
 
-**Author:** SoggyCow  
-**Purpose:** Automates the installation of [Chocolatey](https://chocolatey.org), a package manager for Windows systems.
+Author: SoggyCow  
+License: MIT
 
----
+## Overview
 
-## 📦 Overview
+This script automates the installation of [Chocolatey](https://chocolatey.org), a package manager for Windows. It serves as a prerequisite for any automation relying on Chocolatey (`choco install`) commands. The script opens an elevated PowerShell session, bypasses the execution policy, downloads the official installer from the Chocolatey community site, executes it, and closes PowerShell.
 
-This script is a setup prerequisite for any automation utilizing Chocolatey (`choco install`). It opens PowerShell with elevated permissions, bypasses the execution policy, downloads the official install script from the Chocolatey community site, executes it, and gracefully closes PowerShell.
+## Usage
 
----
-
-## ⚙️ Usage
-
-This script is intended for use with keystroke injection tools (e.g., USB Rubber Ducky).
+Designed for use with keystroke injection tools like Flipper Zero’s BadUSB feature.
 
 ### Steps:
-
 1. **Save the Script**  
-   Save the payload as a compatible file (`install_chocolatey.txt`) per your tool’s specifications.
+   Save as `install_chocolatey.txt` in a format compatible with your device (e.g., UTF-8 plain text).
 
-2. **Load Your Device**  
-   Transfer the script to your keystroke injection device and follow its setup instructions.
+2. **Load to Device**  
+   Transfer the script to your keystroke injection device following its setup instructions.
 
 3. **Deploy the Script**  
-   On plug-in:
-   - PowerShell opens with administrator rights.
-   - Downloads and executes: `https://community.chocolatey.org/install.ps1`
-   - Closes PowerShell upon completion.
+   - Connect the device to the target Windows machine.
+   - Run the script to:
+     - Open PowerShell with administrator privileges.
+     - Download and execute the installer from `https://community.chocolatey.org/install.ps1`.
+     - Close PowerShell upon completion.
 
-> ⚠️ **Important:** This must be executed before any `choco install` usage.
+> Note: This script must be run before any `choco install` payloads.
 
----
+## Prerequisites
 
-## 🧱 Prerequisites
+- **OS**: Windows 10/11
+- **Device**: Keystroke injection tool (e.g., Flipper Zero with BadUSB)
+- **Internet Access**: Required to download the installer
+- **Admin Privileges**: Needed to adjust execution policy and install Chocolatey
 
-- Windows OS  
-- Keystroke injection tool or virtual keyboard input system  
-- Internet access to fetch Chocolatey installer  
-- Administrative rights to adjust execution policy and perform the install
+## Important Notes
 
----
+- **Dependency**: Required for all Chocolatey-based automation scripts.
+- **Admin Privileges**: Must run in a user context allowing elevated PowerShell.
+- **Source Verification**: Script pulls from `https://community.chocolatey.org/install.ps1`. Verify the source before execution.
+- **Delays**: Timing is calibrated for typical systems. Adjust delays for slower or faster machines if needed.
 
-## 📝 Important Notes
+## Disclaimer
 
-- 🔑 **Setup Dependency:** This is a foundational install for any future Chocolatey-based automation.
-- 🧑‍💻 **Admin Privileges Required:** Ensure your user context allows elevated PowerShell.
-- 🛡️ **Verify Source:** This script pulls from `https://community.chocolatey.org/install.ps1`. Confirm trustworthiness before executing.
-- ⏱️ **Delays:** Script timing is calibrated for typical machines. Modify as needed for performance variance.
+This script is provided for educational purposes only. Running scripts with admin privileges or automated downloads carries risks. The author, SoggyCow, is not liable for misuse or adverse outcomes.
 
----
+## License
 
-## ⚖️ Disclaimer
-
-This script is supplied _as-is_ for educational purposes. Execution carries inherent risks—especially with admin privileges and automated downloads. The author, SoggyCow, assumes no liability for misuse or adverse outcomes.
-
----
-
-## 📄 License
-
-Distributed under the MIT License. See `LICENSE` for full terms.
+Licensed under the MIT License. See the `LICENSE` file for details.

@@ -1,52 +1,57 @@
-# **FlipperZero BadUSB Scripts**
+# Flipper Zero BadUSB Scripts
 
-**Crafted by [SoggyCow](https://github.com/SoggyCow)**
+Author: [SoggyCow](https://github.com/SoggyCow)  
+License: MIT
 
-Welcome to a growing collection of **BadUSB payloads** engineered for [Flipper Zero](https://flipperzero.one/). This repository showcases practical, tactical, and occasionally mischievous scripts written to leverage Flipper’s built-in USB emulation capabilities using **Ducky Script**.
+## Purpose
 
-## **🧠 Purpose**
+This repository is a collection of **BadUSB payloads** designed for [Flipper Zero](https://flipperzero.one/), utilizing **DuckyScript** to leverage its USB emulation capabilities. The scripts range from practical utilities to creative automations and software installations, created to support the Flipper Zero community and showcase adversarial testing and automation techniques.
 
-Created as a public archive to share my work and contribute useful payloads to the Flipper Zero community. These scripts range from quick demos to more involved utilities designed for adversarial testing, creative automation, and software installation.
+## Contents
 
-## **📁 Contents**
+Scripts are organized in individual folders with descriptive names, including:
+- Brute-force and lock-screen bypass payloads
+- System tweaks, pranks, and automation scripts
+- Software installation scripts using Chocolatey
+- Detailed documentation and usage instructions for each payload
 
-Each script is stored in its own folder with clear naming. You’ll find:  
-- **🔐 Brute-force & lock-screen bypass payloads**  
-- **⚙️ System tweaks, prank scripts, and automation examples**  
-- **📦 Software installation scripts** for various applications via Chocolatey  
-- **📋 Helpful documentation** and usage notes per payload
+## How to Use
 
-## **💡 How to Use**
+1. **Clone or Download the Repo**:  
+   Clone with `git clone https://github.com/SoggyCow/flipperzero-badusb-payloads.git` or download directly.
 
-1. **Clone or Download the Repo**: Download the repository or clone it using `git clone https://github.com/SoggyCow/flipperzero-badusb-payloads.git`.  
 2. **Load Scripts onto Flipper Zero**:  
-   - Connect your Flipper Zero to a computer via USB or Bluetooth.  
-   - Use the qFlipper app or Flipper Mobile app to transfer the desired script(s) to the `SD Card/badusb/` folder.  
+   - Connect Flipper Zero via USB or Bluetooth.
+   - Use **qFlipper** or **Flipper Mobile App** to transfer scripts to `SD Card/badusb/`.
+
 3. **Run the Script**:  
-   - On Flipper Zero, navigate to **Main Menu > Bad USB**.  
-   - Select the script (e.g., `install_7zip.txt`) and ensure USB mode is active (USB logo displayed).  
-   - Connect Flipper Zero to the target Windows machine via USB.  
-   - Press the **Run** button to execute the script.  
-4. **Verify Execution**: Ensure **Chocolatey** is pre-installed on the target system, an internet connection is available, and administrative privileges are granted (most scripts trigger a UAC prompt).
+   - Navigate to `Main Menu > Bad USB` on Flipper Zero.
+   - Select the desired script (e.g., `install_nmap.txt`).
+   - Ensure USB mode is active.
+   - Connect to the target Windows machine and press **Run**.
 
-## **📢 Important Notes**
+4. **Verify Execution**:  
+   - Confirm **Chocolatey** is pre-installed.
+   - Ensure internet access and administrative privileges (most scripts trigger a UAC prompt).
 
-- **Chocolatey Dependency**: All scripts require **Chocolatey** to be pre-installed on the target system. Run the [Chocolatey installation script](https://github.com/SoggyCow/FlipperZero-BadUSB-Payloads/blob/main/Program%20Payloads/Install%20Chocolatey.txt) first.  
-- **Package Availability**: Some packages (e.g., `protonpass`, `protondrive`, `quickcpu`, `renamemytvseries2`, `easeus-partition-master`) may not be available in the [Chocolatey Community Repository](https://community.chocolatey.org/packages) as of August 2025. Verify package existence before running these scripts or consider alternative installation methods.  
-- **Administrative Privileges**: Most scripts open an elevated CMD, which may trigger a UAC prompt if enabled.  
-- **Timing Delays**: Scripts use delays (e.g., `DELAY 1000`, `DELAY 500`) for reliable execution. Adjust delays for slower systems if execution fails.  
-- **Testing**: Test scripts in a controlled environment (e.g., a virtual machine) to avoid unintended consequences.  
-- **Responsible Use**: Some tools (e.g., `cheatengine`, `nirlauncher`, `ida-free`) may be flagged by antivirus software or have sensitive uses. Use them responsibly and only for legitimate purposes, such as educational or security research activities.
+## Important Notes
 
-## **📬 Disclaimer**
+- **Chocolatey Dependency**: Scripts require **Chocolatey** pre-installed. Use the [Chocolatey installation script](https://github.com/SoggyCow/FlipperZero-BadUSB-Payloads/blob/main/Program%20Payloads/Install%20Chocolatey.txt) if needed.
+- **Package Availability**: Verify package availability in the [Chocolatey Community Repository](https://community.chocolatey.org/packages) before running, as some packages may not be available (e.g., `protonpass`, `protondrive`).
+- **Admin Privileges**: Scripts typically open an elevated Command Prompt, which may trigger a UAC prompt.
+- **Delays**: Scripts use delays (e.g., `DELAY 1000`, `DELAY 500`). Adjust for slower systems if needed.
+- **Testing**: Test in a virtual machine before deploying to avoid unintended consequences.
+- **Responsible Use**: Some tools (e.g., `nirlauncher`) may trigger antivirus flags or have sensitive applications. Use only for legitimate, authorized purposes.
 
-These scripts are for **educational and research purposes only**. Always have permission before deploying any payload on a system. **SoggyCow** is not responsible for misuse or any resulting issues.
+## Disclaimer
 
-## **📬 Contributions**
+These scripts are for **educational and research purposes only**. Use only on systems you own or have explicit permission to access. **SoggyCow** is not liable for misuse or any resulting issues.
 
-Ideas, forks, and pull requests are welcome. If you have a script or improvement, send it in—let’s make this toolbox sharp.
+## Contributions
+
+Contributions, ideas, and pull requests are welcome. Submit your scripts or improvements to enhance this collection.
 
 ---
 
-Enjoy the payloads. Hack responsibly.  
+Enjoy the payloads and use them responsibly.  
 — **SoggyCow**

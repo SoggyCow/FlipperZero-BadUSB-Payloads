@@ -1,99 +1,63 @@
-# Zoom Installation Script via Chocolatey for Flipper Zero
+# Zoom Installation Script for Flipper Zero
 
-**Author:** SoggyCow  
-**License:** MIT
+Author: SoggyCow  
+License: MIT
 
----
+## Overview
 
-## 🎥 Overview
+This script automates the installation of [Zoom](https://zoom.us/), a widely-used video conferencing application, via [Chocolatey](https://chocolatey.org/) on Windows systems. It uses Flipper Zero’s **BadUSB** feature with DuckyScript to simulate keystrokes, open an elevated Command Prompt, and perform a silent Zoom installation.
 
-This script automates installation of [Zoom](https://zoom.us/), a leading video conferencing app, via [Chocolatey](https://chocolatey.org/) for Windows.  
-It’s designed for Flipper Zero’s **BadUSB** function and leverages **DuckyScript** to simulate keystrokes, elevate to **Command Prompt (CMD)**, and silently deploy Zoom.
+> Note: Chocolatey must be pre-installed. Run the Chocolatey installation script first if needed.
 
-> ⚠️ **Important:** Chocolatey must be installed beforehand. Run the Chocolatey install script first.
+## Usage
 
----
-
-## 🚀 Usage
-
-Executed via Flipper Zero’s **BadUSB keyboard emulation**. Steps below:
+The script is executed via Flipper Zero’s BadUSB keyboard emulation. Follow these steps:
 
 ### 1. Save Script
-
-Save contents to a `.txt` file, e.g. `install_zoom.txt`.
+- Save as `install_zoom.txt` in UTF-8 plain text format.
 
 ### 2. Upload to Flipper Zero
-
-- Connect Flipper via **USB** or **Bluetooth**
-- Use **qFlipper** or **Flipper Mobile App**
-- Transfer file to:  
-  `SD Card/badusb/`
+- Connect Flipper Zero via USB or Bluetooth.
+- Use **qFlipper** or **Flipper Mobile App**.
+- Transfer to: `SD Card/badusb/`.
 
 ### 3. Deploy the Script
+- On Flipper: Navigate to `Main Menu > Bad USB > install_zoom.txt`.
+- Ensure USB mode is active.
+- Connect to the target Windows machine and press **Run**.
 
-- On Flipper, navigate:  
-  `Main Menu > Bad USB`
-- Select `install_zoom.txt`
-- Verify USB mode is active
-- Connect Flipper to target Windows device
-- Press **Run**
+The script will:
+- Open the Run dialog (`Win + R`).
+- Launch an elevated Command Prompt (`cmd` with `CTRL + SHIFT + ENTER`).
+- Execute: `choco install zoom -y`.
 
-Script will:
-- Open Windows Run dialog
-- Trigger elevated CMD (UAC may prompt)
-- Execute silent Zoom install via Chocolatey
-
----
-
-## ✅ Installation Verification
+## Installation Verification
 
 Zoom installs silently if:
-- Chocolatey is present
-- Internet connection is active
+- Chocolatey is installed.
+- An internet connection is available.
 
----
+## Prerequisites
 
-## 📦 Prerequisites
+- **OS**: Windows 10/11
+- **Chocolatey**: Must be pre-installed
+- **Flipper Zero**: BadUSB feature enabled
+- **Internet Access**: Required for package download
+- **Admin Privileges**: Needed for elevated Command Prompt
 
-- Windows OS  
-- Chocolatey installed  
-- Flipper Zero with BadUSB enabled  
-- Internet access  
-- Admin rights on target system
+## Technical Notes
 
----
+- **Chocolatey Dependency**: Requires Chocolatey to be pre-installed.
+- **Elevation**: Uses elevated Command Prompt; may trigger a UAC prompt.
+- **Silent Install**: The `-y` flag suppresses user prompts.
+- **CMD Compatibility**: Uses Command Prompt for broad system support.
+- **Delays**: Includes `DELAY 1000`, `DELAY 500`, and `DELAY 1500`. Adjust for slower systems (e.g., `DELAY 700+`).
+- **Testing**: Validate in a virtual machine or sandbox before deployment.
 
-## ⚙️ Technical Notes
+## Disclaimer
 
-- **Chocolatey Dependency:**  
-  Must be installed—install script required beforehand.
+This script is provided for educational purposes only. Use only on systems you own or have explicit permission to access. The author, SoggyCow, is not liable for unintended outcomes or misuse.
 
-- **Elevation:**  
-  CMD launched with admin privileges; may trigger UAC.
+## License
 
-- **Silent Install:**  
-  `-y` bypasses user prompts.
-
-- **CMD Compatibility:**  
-  Uses Command Prompt for broader system support—ensure CMD handles Chocolatey.
-
-- **Execution Timing:**  
-  Includes `DELAY 1000`, `DELAY 500`, `DELAY 1500`. Increase delays on slower devices (e.g. `DELAY 700`).
-
-- **Testing Environment:**  
-  Run on virtual machine or sandbox first to ensure predictable behavior.
-
----
-
-## ⚖️ Disclaimer
-
-Provided **as-is** for educational use only.  
-Do **not** deploy without explicit system access rights.  
-Author (SoggyCow) is **not responsible** for unintended outcomes.
-
----
-
-## 📄 License
-
-Licensed under the **MIT License**.  
-Refer to [LICENSE](LICENSE) for details.
+Licensed under the MIT License. See the `LICENSE` file for details.

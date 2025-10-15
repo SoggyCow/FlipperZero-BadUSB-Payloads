@@ -1,6 +1,7 @@
 REM Title: Install Nmap via Chocolatey (Admin CMD)
 REM Author: SoggyCow
 REM Description: Assumes Chocolatey is pre-installed; installs Nmap silently and closes terminal
+
 DELAY 1000
 GUI r
 DELAY 500

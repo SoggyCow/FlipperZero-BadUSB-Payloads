@@ -1,92 +1,66 @@
-# Microsoft Visual C++ Redistributable Installation Script via Chocolatey for Flipper Zero
+# Microsoft Visual C++ Redistributable Installation Script for Flipper Zero
 
-**Author:** SoggyCow  
-**License:** MIT
+Author: [SoggyCow](https://github.com/SoggyCow)  
+License: MIT
 
----
+## Overview
 
-## 🧱 Overview
+This script automates the installation of [Microsoft Visual C++ Redistributable for Visual Studio 2015–2022](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist) via [Chocolatey](https://chocolatey.org/) on Windows systems. Using Flipper Zero’s **BadUSB** feature with DuckyScript, it simulates keyboard input to open an elevated Command Prompt and silently install the redistributable.
 
-Installs [Microsoft Visual C++ Redistributable for Visual Studio 2015–2022](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist) via [Chocolatey](https://chocolatey.org/)  
-Built for **Flipper Zero’s BadUSB** via **DuckyScript**, simulating keystrokes to elevate CMD and perform silent install.
+> Note: Chocolatey must be pre-installed. Run `install_chocolatey.txt` first if needed.
 
-> ⚠️ Requires Chocolatey to be installed beforehand
+## Usage Instructions
 
----
-
-## 🚀 Usage Instructions
-
-### 1. Prepare the Script
-
-- Save as: `install_vcredist140.txt`
+### 1. Save the Script
+- Filename: `install_vcredist140.txt`
+- Format: UTF-8 plain text
 
 ### 2. Upload to Flipper
+- Connect Flipper Zero via USB or Bluetooth.
+- Use **qFlipper** or **Flipper Mobile App**.
+- Transfer to: `SD Card/badusb/`.
 
-- Connect via **USB or Bluetooth**
-- Use **qFlipper** or **Flipper Mobile**
-- Upload to: `SD Card/badusb/`
+### 3. Run the Script
+- On Flipper: Navigate to `Main Menu > Bad USB > install_vcredist140.txt`.
+- Ensure USB mode is active.
+- Connect to the target Windows machine and press **Run**.
 
-### 3. Execute on Host
+The script will:
+- Open the Run dialog (`Win + R`).
+- Launch an elevated Command Prompt (`cmd` with `CTRL + SHIFT + ENTER`).
+- Execute: `choco install vcredist140 -y`.
 
-- Navigate: `Main Menu > Bad USB`
-- Select: `install_vcredist140.txt`
-- Confirm USB mode active (USB icon on Flipper screen)
-- Plug into Windows host
-- Press **Run**
+## Installation Verification
 
-Script will:
-- Trigger Windows Run dialog  
-- Launch elevated CMD (UAC may prompt)  
-- Silently install Microsoft Visual C++ Redistributable
+The Visual C++ Redistributable installs silently if:
+- Chocolatey is installed.
+- Administrative privileges are granted.
+- An internet connection is available.
 
----
+Verify installation via: [Chocolatey Package Page](https://community.chocolatey.org/packages/vcredist140). Installs the latest version for Visual Studio 2015–2022 (e.g., 14.x as of October 2025).
 
-## ✅ Verification & Outcome
+## Requirements
 
-Installs automatically if:
-- Chocolatey is installed  
-- Internet connection available  
-- Admin rights granted
+- **OS**: Windows 10/11
+- **Chocolatey**: Must be pre-installed
+- **Flipper Zero**: BadUSB feature enabled
+- **Internet Access**: Required for package download
+- **Admin Privileges**: Needed for elevated Command Prompt
+- **System Compatibility**: Lightweight, compatible with Visual C++ Redistributable requirements
 
----
+## Technical Notes
 
-## 📦 Requirements
+- **Chocolatey Dependency**: Requires Chocolatey to be pre-installed.
+- **Elevation**: Uses elevated Command Prompt; may trigger a UAC prompt.
+- **Silent Install**: The `-y` flag suppresses prompts.
+- **Shell**: Uses Command Prompt for compatibility.
+- **Delays**: Includes `DELAY 1000`, `DELAY 500`, and `DELAY 1500`. Adjust for slower systems (e.g., `DELAY 700+`).
+- **Testing**: Validate in a virtual machine or sandbox before deployment.
 
-- Windows 10/11  
-- Chocolatey installed  
-- Flipper Zero w/ BadUSB  
-- Internet access  
-- Admin privileges  
-- System compatibility (Visual C++ is lightweight)
+## Disclaimer
 
----
+This script is for educational purposes only. Use only on systems you own or have explicit permission to access. The author, SoggyCow, is not liable for misuse or system damage.
 
-## ⚙️ Technical Notes
+## License
 
-- **Chocolatey Dependency:** Must be installed first  
-- **Elevation Handling:** CMD runs with admin rights; may trigger UAC  
-- **Silent Installation:** `-y` flag used to suppress prompts  
-- **Shell Compatibility:** CMD preferred over PowerShell  
-- **Delay Profile:**  
-  - Defaults: `DELAY 1000`, `500`, `1500`  
-  - For slower machines: try `DELAY 700+`
-
-- **Version Coverage:**  
-  Installs Visual Studio 2015–2022 redistributable (vcredist140, ~14.x as of Aug 2025)  
-  See [Chocolatey Package Page](https://community.chocolatey.org/packages/vcredist140)
-
-- **Testing Environment:** VM/sandbox testing recommended
-
----
-
-## ⚖️ Disclaimer
-
-Educational script only.  
-Use only on systems you **own or are authorized to modify**.  
-Author assumes **no liability** for misuse or damage.
-
----
-
-## 📄 License
-
-MIT License – see [LICENSE](LICENSE)
+Licensed under the MIT License. See the `LICENSE` file for details.
