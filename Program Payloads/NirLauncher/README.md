@@ -1,99 +1,61 @@
-# NirLauncher Installation Script via Chocolatey for Flipper Zero
+# NirLauncher Installation Script for Flipper Zero
 
-**Author:** SoggyCow  
-**License:** MIT
+Author: SoggyCow  
+License: MIT
 
----
+## Overview
 
-## 🛠️ Overview
+This script automates the installation of **NirLauncher**, a collection of over 200 portable utilities from NirSoft for diagnostics, password recovery, and network monitoring. It uses Flipper Zero’s **BadUSB** DuckyScript to simulate keyboard input, open an elevated Command Prompt, and perform a silent installation via Chocolatey.
 
-Installs **NirLauncher**, a bundle of 200+ portable utilities from NirSoft for diagnostics, password recovery, and network monitoring.  
-Uses Flipper Zero’s **BadUSB** DuckyScript to simulate keyboard input, elevate CMD, and execute a **silent Chocolatey install**.
+> Note: Chocolatey must be pre-installed on the target system. See `install_chocolatey.txt` for setup if needed.
 
-> ⚠️ Requires Chocolatey installed beforehand. Use `install_chocolatey.txt`.
+## Use Case
 
----
+Ideal for forensic and adversarial workstations requiring lightweight tools for password analysis, system auditing, and utility benchmarking without complex installations.
 
-## 🐛 Use Case
-
-Perfect for forensic and adversarial workstations needing compact tooling for password analysis, system audit, and utility benchmarking—without heavy installs.
-
----
-
-## 📦 Execution Steps
+## Execution Steps
 
 ### 1. Save Payload
-
-- File: `install_nirlauncher.txt`  
-- Encoding: Plain `.txt`, UTF-8
+- File: `install_nirlauncher.txt`
+- Encoding: Plain text, UTF-8
 
 ### 2. Transfer to Flipper
-
-- Connect Flipper via USB or Bluetooth  
-- Use **qFlipper** or **Flipper Mobile App**  
-- Upload to:  
-  `SD Card/badusb/`
+- Connect Flipper Zero via USB or Bluetooth.
+- Use **qFlipper** or **Flipper Mobile App**.
+- Upload to: `SD Card/badusb/`
 
 ### 3. Launch on Target System
+- On Flipper: Navigate to `Main Menu > Bad USB > install_nirlauncher.txt`.
+- Ensure USB mode is active.
+- Connect to the target Windows machine and select **Run**.
 
-- On Flipper:  
-  `Main Menu > Bad USB > install_nirlauncher.txt`  
-- Confirm USB mode (USB icon shown)  
-- Plug into target Windows machine  
-- Tap **Run**
+The script will:
+- Open the Run dialog (`Win + R`).
+- Launch an elevated Command Prompt (`cmd` with `CTRL + SHIFT + ENTER`).
+- Execute: `choco install nirlauncher -y`.
 
-Payload simulates:
-- `Win + R` ➞ Open Run dialog  
-- `cmd` + `CTRL + SHIFT + ENTER` ➞ Elevate  
-- Run command:  
-  `choco install nirlauncher -y`
+## Requirements
 
----
+- **OS**: Windows 10/11
+- **Chocolatey**: Must be pre-installed
+- **Admin Privileges**: Required for elevated installation
+- **Internet Access**: Needed to download the package
+- **CMD Compatibility**: Must support Chocolatey commands
+- **System Specs**: Lightweight; refer to NirSoft requirements
 
-## ✅ Requirements Matrix
+## Technical Notes
 
-| Component             | Requirement                                           |
-|-----------------------|--------------------------------------------------------|
-| OS                    | Windows 10/11                                          |
-| Chocolatey            | Must be installed first                                |
-| Admin Privileges      | Required for elevated install                          |
-| Internet Access       | Needed to fetch package                                |
-| CMD Compatibility     | Supports Chocolatey commands                           |
-| System Specs          | Lightweight; check NirSoft specs                       |
+- **Delays**: Uses `DELAY 1000`, `500`, and `1500` ms. Increase for slower systems (e.g., `700+` ms).
+- **Silent Install**: The `-y` flag suppresses user prompts.
+- **Elevation**: `CTRL + SHIFT + ENTER` may trigger a UAC prompt.
+- **Package**: Installs the latest stable NirLauncher version (e.g., 1.x as of October 2025).
+- **Security**: Some NirSoft utilities may trigger antivirus flags. Use ethically and with authorization.
+- **Testing**: Test in a virtual machine before deployment.
 
----
+## Disclaimer
 
-## ⚙️ Technical Notes
+Use this script only on systems you own or have explicit permission to access. Some NirLauncher utilities may raise security or legal concerns if misused. The author is not liable for any misuse or violations.
 
-- **Timing Delays:**  
-  `DELAY 1000`, `500`, `1500` — increase for slower systems (`700+`)
+## License
 
-- **Silent Install:**  
-  `-y` flag avoids user prompts
-
-- **Elevation Trigger:**  
-  `CTRL + SHIFT + ENTER` may prompt UAC
-
-- **Package Version:**  
-  Chocolatey installs latest stable NirLauncher (e.g., 1.x in Aug 2025)
-
-- **Security Concerns:**  
-  Some NirSoft utilities may be flagged by antivirus—intended use must be ethical and authorized
-
-- **VM Testing:**  
-  Strongly recommended before field deployment
-
----
-
-## ⚠️ Disclaimer
-
-Use this script **only** on systems you **own or have explicit permission** to access.  
-Certain utilities bundled in NirLauncher may raise software or legal concerns if misused.  
-Author is not liable for misuse or breach of terms.
-
----
-
-## 📄 License
-
-Licensed under the **MIT License**  
-See included `LICENSE` file for full terms
+Licensed under the MIT License. See the `LICENSE` file for details.
