@@ -1,102 +1,66 @@
-# Discord Installation Script via Chocolatey for Flipper Zero
+# Discord Installation Script for Flipper Zero
 
-**Author:** SoggyCow  
+**Author:** [SoggyCow](https://github.com/SoggyCow)  
 **License:** MIT
 
----
+## Overview
 
-## 💬 Overview
+This script automates the installation of **Discord**, the popular voice, video, and text communication platform, via [Chocolatey](https://chocolatey.org/) on Windows systems. Using Flipper Zero’s **BadUSB** feature with DuckyScript, it simulates keyboard input to open an elevated Command Prompt and silently install Discord.
 
-Deploys **Discord**, the ubiquitous voice and chat platform for gamers and communities, via [Chocolatey](https://chocolatey.org/) on Windows.  
-Tailored for **Flipper Zero’s BadUSB**, this payload uses **DuckyScript** to simulate keystrokes that open an elevated command prompt and execute a silent install of Discord.
+> **Note:** Chocolatey must be pre-installed. Run `install_chocolatey.txt` first if needed.
 
-> ⚠️ Requires Chocolatey installed prior to execution. See `install_chocolatey.txt`.
+## Usage Instructions
 
----
-
-## 🧰 Usage Instructions
-
-### 1. Save the Payload
-
-- Filename: `install_discord.txt`  
-- Encoding: UTF-8 plain text `.txt`
+### 1. Save the Script
+- Filename: `install_discord.txt`
+- Format: UTF-8 plain text
 
 ### 2. Upload to Flipper
+- Connect Flipper Zero via USB or Bluetooth.
+- Use **qFlipper** or **Flipper Mobile App**.
+- Transfer to: `SD Card/badusb/`.
 
-- Connect Flipper Zero via USB or Bluetooth  
-- Use **qFlipper** or **Flipper Mobile**  
-- Upload to: `SD Card/badusb/`
+### 3. Run the Script
+- On Flipper: Navigate to `Main Menu > Bad USB > install_discord.txt`.
+- Ensure USB mode is active.
+- Connect to the target Windows machine and press **Run**.
 
-### 3. Execute on Target Windows Host
+The script will:
+- Open the Run dialog (`Win + R`).
+- Launch an elevated Command Prompt (`cmd` with `CTRL + SHIFT + ENTER`).
+- Execute: `choco install discord.install -y`.
 
-- Navigate: `Main Menu > Bad USB > install_discord.txt`  
-- Confirm USB mode is active (USB icon displayed)  
-- Plug into target system  
-- Press **Run** to initiate:
+## Installation Verification
 
-Execution Flow:
-- Triggers Windows Run dialog  
-- Launches elevated CMD (`CTRL + SHIFT + ENTER`)  
-- Executes command:  
-  `choco install discord.install -y`
+Discord installs silently if:
+- Chocolatey is installed.
+- Administrative privileges are granted.
+- An internet connection is available.
 
----
+Verify installation via: [Chocolatey Package Page](https://community.chocolatey.org/packages/discord.install). Installs the latest stable version (as of October 2025).
 
-## ✅ Installation Confirmation
+## Requirements
 
-Successful if:
-- Chocolatey is pre-installed  
-- Internet connection is available  
-- Admin privileges are granted  
-- CMD shell accepts Chocolatey commands
+- **OS**: Windows 10/11
+- **Chocolatey**: Must be pre-installed
+- **Flipper Zero**: BadUSB feature enabled
+- **Internet Access**: Required for package download
+- **Admin Privileges**: Needed for elevated Command Prompt
+- **System Specs**: Minimum 4 GB RAM (see [Discord System Requirements](https://support.discord.com/hc/en-us/articles/1500000182362))
 
----
+## Technical Notes
 
-## 📋 Requirements
+- **Chocolatey Dependency**: Requires Chocolatey to be pre-installed.
+- **Elevation**: Uses elevated Command Prompt; may trigger a UAC prompt.
+- **Silent Install**: The `-y` flag suppresses prompts.
+- **Shell**: Uses Command Prompt for maximum compatibility.
+- **Delays**: Includes `DELAY 1000`, `DELAY 500`, and `DELAY 1500`. Adjust for slower systems (e.g., `DELAY 700+`).
+- **Testing**: Validate in a virtual machine or sandbox before deployment.
 
-| Component             | Description                                           |
-|-----------------------|-------------------------------------------------------|
-| Windows OS            | Windows 10/11 recommended                            |
-| Chocolatey            | Pre-installed                                         |
-| Admin Privileges      | Required for elevation and install                   |
-| Internet Connection   | Needed to pull Discord package from repository       |
-| Flipper Zero          | Must have BadUSB enabled and working                 |
-| System Specs          | Minimum 4 GB RAM; check [Discord system requirements](https://support.discord.com/hc/en-us/articles/1500000182362) |
-| CMD Compatibility     | Must be able to run Chocolatey commands              |
+## Disclaimer
 
----
+This script is for **educational purposes only**. Use only on systems you own or have explicit permission to access. The author, SoggyCow, is not liable for misuse, account compromise, or system impact.
 
-## ⚙️ Technical Considerations
+## License
 
-- **Silent Flag:**  
-  `-y` suppresses user prompts during installation
-
-- **Timing Delays:**  
-  `DELAY 1000`, `500`, `1500` used for reliability  
-  Tune delays (e.g., `DELAY 700+`) for slower hosts
-
-- **Elevation Method:**  
-  Simulates `CTRL + SHIFT + ENTER`  
-  May trigger UAC prompt (if enabled)
-
-- **Package Check:**  
-  Confirms installation of latest stable Discord version (e.g., v1.x as of Aug 2025)  
-  Chocolatey page: [discord.install](https://community.chocolatey.org/packages/discord.install)
-
-- **Testing Recommendation:**  
-  Verify payload in sandbox or VM before live deployment
-
----
-
-## 🚨 Disclaimer
-
-This script is distributed **as-is**, intended for educational use only.  
-Use only on systems you **own or are explicitly authorized** to modify.  
-The author (SoggyCow) is not responsible for misuse or unintended outcomes.
-
----
-
-## 📄 License
-
-Released under the **MIT License**  
-Refer to the `LICENSE` file for complete terms.
+Licensed under the MIT License. See the `LICENSE` file for details.

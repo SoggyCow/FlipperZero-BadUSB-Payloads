@@ -1,110 +1,72 @@
-# Docker Desktop Installation Script via Chocolatey for Flipper Zero
+# Docker Desktop Installation Script for Flipper Zero
 
-**Author:** SoggyCow  
+**Author:** [SoggyCow](https://github.com/SoggyCow)  
 **License:** MIT
 
----
+## Overview
 
-## 🐳 Overview
+This script automates the installation of **Docker Desktop** — the official container runtime and development platform — via [Chocolatey](https://chocolatey.org/) on Windows. Using Flipper Zero’s **BadUSB** feature with DuckyScript, it opens an elevated Command Prompt and silently installs Docker Desktop.
 
-This script automates the installation of [Docker Desktop](https://www.docker.com/products/docker-desktop/), a containerized development platform, via [Chocolatey](https://chocolatey.org/) on Windows.  
-Built for **Flipper Zero’s BadUSB** functionality, it leverages **DuckyScript** to emulate keystrokes, open an elevated **Command Prompt (CMD)**, and silently install Docker Desktop.
+> **Important:** Chocolatey must be pre-installed. Run `install_chocolatey.txt` first if needed.
 
-> ⚠️ **Note:** Chocolatey must be installed on the target system prior to running this script.
-
----
-
-## 🚀 Usage Instructions
-
-Designed for execution via Flipper Zero’s **BadUSB keyboard emulation**.
+## Usage Instructions
 
 ### 1. Save the Script
+- Filename: `install_docker.txt`
+- Format: UTF-8 plain text
 
-- Save to a `.txt` file (e.g., `install_docker.txt`)
-
-### 2. Upload to Flipper Zero
-
-- Connect via **USB** or **Bluetooth**
-- Use **qFlipper** or **Flipper Mobile App**
-- Transfer script to:  
-  `SD Card/badusb/`
+### 2. Upload to Flipper
+- Connect Flipper Zero via USB or Bluetooth.
+- Use **qFlipper** or **Flipper Mobile App**.
+- Transfer to: `SD Card/badusb/`.
 
 ### 3. Run the Script
+- On Flipper: Navigate to `Main Menu > Bad USB > install_docker.txt`.
+- Ensure USB mode is active.
+- Connect to the target Windows machine and press **Run**.
 
-- On Flipper:  
-  `Main Menu > Bad USB`
-- Select `install_docker.txt`
-- Confirm USB mode is active
-- Connect Flipper to target Windows machine
-- Press **Run**
+The script will:
+- Open the Run dialog (`Win + R`).
+- Launch an elevated Command Prompt (`cmd` with `CTRL + SHIFT + ENTER`).
+- Execute: `choco install docker-desktop -y`.
 
-Actions performed:
-- Open Windows Run dialog
-- Launch elevated CMD (UAC prompt may appear)
-- Execute Chocolatey install command for Docker Desktop
+## Installation Verification
 
----
+Docker Desktop installs silently if:
+- Chocolatey is installed.
+- Administrative privileges are granted.
+- An internet connection is available.
 
-## ✅ Installation Verification
+Verify installation via: [Chocolatey Package Page](https://community.chocolatey.org/packages/docker-desktop). Installs the latest stable version (as of October 2025).
 
-Docker Desktop installs automatically if:
-- Chocolatey is present  
-- Internet access is available
+## Requirements
 
----
+- **OS**:  
+  Windows 10/11 Pro, Enterprise, or Education (64-bit)  
+  Windows Server 2019/2022  
+- **Virtualization**: WSL 2 (recommended) or Hyper-V enabled
+- **Chocolatey**: Must be pre-installed
+- **Flipper Zero**: BadUSB feature enabled
+- **Internet Access**: Required for package download
+- **Admin Privileges**: Required
+- **Hardware**: Minimum 4 GB RAM (8+ GB recommended)
 
-## 📦 Prerequisites
+## Technical Notes
 
-- Compatible Windows editions:  
-  Windows 10/11 Pro, Enterprise, or Education  
-  Windows Server 2019/2022
+- **Chocolatey Dependency**: Script will fail without Chocolatey.
+- **Elevation**: Uses elevated Command Prompt; may trigger UAC prompt.
+- **Silent Install**: The `-y` flag suppresses all prompts.
+- **Shell**: Uses Command Prompt for maximum compatibility.
+- **Delays**: Includes `DELAY 1000`, `DELAY 500`, and `DELAY 1500`. Adjust for slower systems (e.g., `DELAY 700+`).
+- **Post-Install**: Docker Desktop may require a reboot and manual WSL 2/Hyper-V setup on first launch.
+- **Testing**: Strongly recommended in a virtual machine with a compatible Windows edition.
 
-- Chocolatey pre-installed  
-- Flipper Zero with BadUSB enabled  
-- Active internet connection  
-- Admin privileges on target system  
-- Docker Desktop system requirements:  
-  - WSL 2 or Hyper-V enabled  
-  - Minimum 4 GB RAM
+## Disclaimer
 
----
+This script is for **educational and authorized use only**.  
+Use **only** on systems you own or have explicit permission to modify.  
+The author, SoggyCow, is not liable for system instability, data loss, or misuse.
 
-## ⚙️ Technical Notes
+## License
 
-- **Chocolatey Dependency:**  
-  Run the Chocolatey installer first; script fails if missing.
-
-- **Admin Rights Required:**  
-  CMD launches with elevation; may trigger UAC.
-
-- **Silent Installation:**  
-  `-y` flag skips all user prompts
-
-- **CMD Usage:**  
-  CMD used for compatibility—ensure Chocolatey runs properly from CMD
-
-- **Delay Calibration:**  
-  Defaults: `DELAY 1000`, `DELAY 500`, `DELAY 1500`  
-  For slower systems: increase to `DELAY 700` or higher
-
-- **Docker Requirements:**  
-  May require manual enablement of WSL 2 or Hyper-V  
-  Check [Chocolatey Docker Package](https://community.chocolatey.org/packages/docker-desktop) for latest version info
-
-- **Testing Environment:**  
-  Test in VM with compatible Windows edition before deployment
-
----
-
-## ⚖️ Disclaimer
-
-This script is provided **as-is** for educational use only.  
-Deploy only on systems you **own or have explicit permission** to modify.  
-Author (SoggyCow) assumes **no responsibility** for misuse or system issues.
-
----
-
-## 📄 License
-
-Distributed under the **MIT License**  
-See the [LICENSE](LICENSE) file for details.
+Licensed under the MIT License. See the `LICENSE` file for details.

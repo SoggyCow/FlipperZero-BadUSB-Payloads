@@ -1,97 +1,66 @@
-# Adobe Acrobat Reader Installation Script via Chocolatey for Flipper Zero
+# Adobe Acrobat Reader Installation Script for Flipper Zero
 
-**Author:** SoggyCow  
-**License:** MIT
+Author: [SoggyCow](https://github.com/SoggyCow)  
+License: MIT
 
----
+## Overview
 
-## 📘 Overview
+This script automates the installation of [Adobe Acrobat Reader](https://get.adobe.com/reader/), the standard PDF viewer, via [Chocolatey](https://chocolatey.org/) on Windows systems. Using Flipper Zero’s **BadUSB** feature with DuckyScript, it simulates keyboard input to open an elevated Command Prompt and silently install Adobe Acrobat Reader.
 
-This script automates the installation of [Adobe Acrobat Reader](https://get.adobe.com/reader/), a widely-used PDF viewer, using [Chocolatey](https://chocolatey.org/), a Windows package manager.  
-Built for Flipper Zero's **BadUSB** feature, it uses **DuckyScript** to simulate keyboard input, open an elevated **Command Prompt (CMD)**, and silently install Acrobat Reader.
+> Note: Chocolatey must be pre-installed. Run `install_chocolatey.txt` first if needed.
 
-> ⚠️ **Important:** This script assumes Chocolatey is already installed. Run the Chocolatey install script first.
-
----
-
-## 🧪 Usage
-
-This script runs via Flipper Zero's **BadUSB emulation**, which mimics a keyboard to execute commands.
+## Usage Instructions
 
 ### 1. Save the Script
+- Filename: `install_adobereader.txt`
+- Format: UTF-8 plain text
 
-Save the contents to a `.txt` file (e.g., `install_adobereader.txt`) compatible with Flipper Zero.
+### 2. Upload to Flipper
+- Connect Flipper Zero via USB or Bluetooth.
+- Use **qFlipper** or **Flipper Mobile App**.
+- Transfer to: `SD Card/badusb/`.
 
-### 2. Upload to Flipper Zero
-
-- Connect your Flipper via **USB** or **Bluetooth**
-- Use the **qFlipper app** or **Flipper Mobile app**
-- Transfer the file to:  
-  `SD Card/badusb/`
-
-### 3. Execute the Script
-
-- On Flipper Zero, navigate to:  
-  `Main Menu > Bad USB`
-- Select the script (`install_adobereader.txt`)
-- Confirm USB mode is active (USB logo visible)
-- Connect Flipper to target Windows machine
-- Press **Run**
+### 3. Run the Script
+- On Flipper: Navigate to `Main Menu > Bad USB > install_adobereader.txt`.
+- Ensure USB mode is active.
+- Connect to the target Windows machine and press **Run**.
 
 The script will:
-- Open the Windows Run dialog
-- Launch an elevated Command Prompt (may trigger UAC)
-- Run a Chocolatey command to silently install Acrobat Reader
+- Open the Run dialog (`Win + R`).
+- Launch an elevated Command Prompt (`cmd` with `CTRL + SHIFT + ENTER`).
+- Execute: `choco install adobereader -y`.
 
----
+## Installation Verification
 
-## ✅ Installation Verification
+Adobe Acrobat Reader installs silently if:
+- Chocolatey is installed.
+- Administrative privileges are granted.
+- An internet connection is available.
 
-Provided Chocolatey is installed and internet access is available, Acrobat Reader will install **without user interaction**.
+Verify installation via: [Chocolatey Package Page](https://community.chocolatey.org/packages/adobereader). Installs the latest stable version (as of October 2025).
 
----
+## Requirements
 
-## 📦 Prerequisites
+- **OS**: Windows 10/11
+- **Chocolatey**: Must be pre-installed
+- **Flipper Zero**: BadUSB feature enabled
+- **Internet Access**: Required for package download
+- **Admin Privileges**: Needed for elevated Command Prompt
+- **System Compatibility**: Standard Windows requirements
 
-- Windows OS
-- Chocolatey pre-installed
-- Flipper Zero with BadUSB functionality
-- Internet connection
-- Admin privileges on the target system
+## Technical Notes
 
----
+- **Chocolatey Dependency**: Requires Chocolatey to be pre-installed.
+- **Elevation**: Uses elevated Command Prompt; may trigger a UAC prompt.
+- **Silent Install**: The `-y` flag suppresses prompts.
+- **Shell**: Uses Command Prompt for maximum compatibility.
+- **Delays**: Includes `DELAY 1000`, `DELAY 500`, and `DELAY 1500`. Adjust for slower systems (e.g., `DELAY 700+`).
+- **Testing**: Validate in a virtual machine or sandbox before deployment.
 
-## ⚙️ Technical Notes
+## Disclaimer
 
-- **Chocolatey Dependency:**  
-  Script will fail if Chocolatey is missing.
+This script is for educational purposes only. Use only on systems you own or have explicit permission to access. The author, SoggyCow, is not liable for misuse or system damage.
 
-- **Elevation Required:**  
-  CMD is launched with admin privileges; may prompt for UAC.
+## License
 
-- **Silent Install:**  
-  `-y` flag avoids user prompts.
-
-- **CMD vs. PowerShell:**  
-  This script uses CMD instead of PowerShell for broader compatibility.
-
-- **Delay Calibration:**  
-  Script uses: `DELAY 1000`, `DELAY 500`, `DELAY 1500`. Adjust for slower systems (e.g., `DELAY 700`).
-
-- **Sandbox Testing:**  
-  Run in a virtual environment before live deployment.
-
----
-
-## ⚖️ Disclaimer
-
-This script is provided **as-is** for educational purposes.  
-Use only on systems you **own or have explicit permission** to access.  
-The author (SoggyCow) is **not liable** for any misuse or resulting damage.
-
----
-
-## 📄 License
-
-Licensed under the **MIT License**.  
-See the [LICENSE](LICENSE) file for full terms.
+Licensed under the MIT License. See the `LICENSE` file for details.

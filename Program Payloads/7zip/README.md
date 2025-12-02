@@ -1,104 +1,66 @@
-# 7-Zip Installation Script via Chocolatey for Flipper Zero
+# 7-Zip Installation Script for Flipper Zero
 
-**Author:** SoggyCow  
-**License:** MIT
+Author: [SoggyCow](https://github.com/SoggyCow)  
+License: MIT
 
----
+## Overview
 
-## 📦 Overview
+This script automates the installation of [7-Zip](https://www.7-zip.org/), a lightweight open-source file archiver, via [Chocolatey](https://chocolatey.org/) on Windows systems. Using Flipper Zero’s **BadUSB** feature with DuckyScript, it simulates keyboard input to open an elevated Command Prompt and silently install 7-Zip.
 
-This script installs [7-Zip](https://www.7-zip.org/), a lightweight open-source file archiver, using [Chocolatey](https://chocolatey.org/) on Windows.  
-Crafted for **Flipper Zero's BadUSB** feature, it uses **DuckyScript** to emulate keystrokes, elevate to **CMD**, and silently install 7-Zip.
+> Note: Chocolatey must be pre-installed. Run `install_chocolatey.txt` first if needed.
 
-> ⚠️ **Note:** Ensure Chocolatey is pre-installed before using this script.
+## Usage Instructions
 
----
+### 1. Save the Script
+- Filename: `install_7zip.txt`
+- Format: UTF-8 plain text
 
-## 🧪 Usage
+### 2. Upload to Flipper
+- Connect Flipper Zero via USB or Bluetooth.
+- Use **qFlipper** or **Flipper Mobile App**.
+- Transfer to: `SD Card/badusb/`.
 
-This script runs via Flipper Zero’s **BadUSB keyboard emulation**.
+### 3. Run the Script
+- On Flipper: Navigate to `Main Menu > Bad USB > install_7zip.txt`.
+- Ensure USB mode is active.
+- Connect to the target Windows machine and press **Run**.
 
-### 1. Save Script
+The script will:
+- Open the Run dialog (`Win + R`).
+- Launch an elevated Command Prompt (`cmd` with `CTRL + SHIFT + ENTER`).
+- Execute: `choco install 7zip -y`.
 
-- Save script to a `.txt` file (e.g., `install_7zip.txt`)
+## Installation Verification
 
-### 2. Upload to Flipper Zero
+7-Zip installs silently if:
+- Chocolatey is installed.
+- Administrative privileges are granted.
+- An internet connection is available.
 
-- Connect via **USB** or **Bluetooth**
-- Use **qFlipper** or **Flipper Mobile App**
-- Transfer file to:  
-  `SD Card/badusb/`
+Verify installation via: [Chocolatey Package Page](https://community.chocolatey.org/packages/7zip). Installs the latest stable version (e.g., 24.x as of October 2025).
 
-### 3. Execute Script
+## Requirements
 
-- On Flipper, navigate to:  
-  `Main Menu > Bad USB`
-- Select `install_7zip.txt`
-- Confirm USB mode is active (USB icon visible)
-- Connect to target Windows machine
-- Press **Run**
+- **OS**: Windows 10/11
+- **Chocolatey**: Must be pre-installed
+- **Flipper Zero**: BadUSB feature enabled
+- **Internet Access**: Required for package download
+- **Admin Privileges**: Needed for elevated Command Prompt
+- **System Compatibility**: Lightweight, compatible with 7-Zip requirements
 
-The script:
-- Opens Windows Run dialog
-- Elevates to CMD (UAC may prompt)
-- Executes Chocolatey command for silent 7-Zip install
+## Technical Notes
 
----
+- **Chocolatey Dependency**: Requires Chocolatey to be pre-installed.
+- **Elevation**: Uses elevated Command Prompt; may trigger a UAC prompt.
+- **Silent Install**: The `-y` flag suppresses prompts.
+- **Shell**: Uses Command Prompt for compatibility.
+- **Delays**: Includes `DELAY 1000`, `DELAY 500`, and `DELAY 1500`. Adjust for slower systems (e.g., `DELAY 700+`).
+- **Testing**: Validate in a virtual machine or sandbox before deployment.
 
-## ✅ Verify Installation
+## Disclaimer
 
-7-Zip installs without user prompts if:
-- Chocolatey is available
-- Internet connection is active
+This script is for educational purposes only. Use only on systems you own or have explicit permission to access. The author, SoggyCow, is not liable for misuse or system damage.
 
----
+## License
 
-## 🔧 Prerequisites
-
-- Windows operating system  
-- Chocolatey pre-installed  
-- Flipper Zero with BadUSB enabled  
-- Internet access  
-- Admin rights on target system
-
----
-
-## ⚙️ Technical Notes
-
-- **Chocolatey Dependency:**  
-  Must be installed first or script will fail.
-
-- **Elevation Required:**  
-  CMD runs as administrator; UAC may prompt.
-
-- **Silent Install:**  
-  `-y` flag skips confirmation dialogs.
-
-- **CMD Usage:**  
-  Selected for system compatibility; verify Chocolatey functions under CMD.
-
-- **Delay Calibration:**  
-  Default: `DELAY 1000`, `DELAY 500`, `DELAY 1500`  
-  For lag-prone systems, increase (e.g., `DELAY 700`)
-
-- **7-Zip Version:**  
-  Installs latest stable (e.g., 24.x as of Aug 2025)  
-  Refer to [Chocolatey Package](https://community.chocolatey.org/packages/7zip) for updates
-
-- **Testing:**  
-  Validate in VM before deployment
-
----
-
-## ⚖️ Disclaimer
-
-This script is provided **as-is** for educational purposes.  
-Use only on systems you **own or have permission** to access.  
-Author (SoggyCow) is **not responsible** for misuse or damage.
-
----
-
-## 📄 License
-
-Licensed under the **MIT License**.  
-See the [LICENSE](LICENSE) file for full terms.
+Licensed under the MIT License. See the `LICENSE` file for details.

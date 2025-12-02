@@ -1,100 +1,68 @@
-# Dropbox Installation Script via Chocolatey for Flipper Zero
+# Dropbox Installation Script for Flipper Zero
 
-**Author:** SoggyCow  
+**Author:** [SoggyCow](https://github.com/SoggyCow)  
 **License:** MIT
 
----
+## Overview
 
-## ☁️ Overview
+This script automates the silent installation of **Dropbox**, the popular cloud file synchronization and backup client, via [Chocolatey](https://chocolatey.org/) on Windows systems. Using Flipper Zero’s **BadUSB** feature with DuckyScript, it opens an elevated Command Prompt and installs Dropbox without user interaction.
 
-Automates silent installation of [Dropbox](https://www.dropbox.com), a cloud-based file sync and backup client, via [Chocolatey](https://chocolatey.org/).  
-Leverages **Flipper Zero’s BadUSB** interface with **DuckyScript** to elevate and execute the command chain inside an admin-level CMD session.
+> **Important:** Chocolatey must be pre-installed. Run `install_chocolatey.txt` first if needed.
 
-> 🔔 Chocolatey must be installed beforehand. Run the install payload first.
+## Usage Instructions
 
----
+### 1. Save the Script
+- Filename: `install_dropbox.txt`
+- Format: UTF-8 plain text
 
-## 🎮 Usage Instructions
+### 2. Upload to Flipper
+- Connect Flipper Zero via USB or Bluetooth.
+- Use **qFlipper** or **Flipper Mobile App**.
+- Transfer to: `SD Card/badusb/`.
 
-### 1. Save the Payload
+### 3. Run the Script
+- On Flipper: Navigate to `Main Menu > Bad USB > install_dropbox.txt`.
+- Ensure USB mode is active.
+- Connect to the target Windows machine and press **Run**.
 
-- File name: `install_dropbox.txt`  
-- Format: Plain `.txt` for Flipper Zero compatibility
+The script will:
+- Open the Run dialog (`Win + R`).
+- Launch an elevated Command Prompt (`cmd` with `CTRL + SHIFT + ENTER`).
+- Execute: `choco install dropbox -y`.
 
-### 2. Transfer to Device
+## Installation Verification
 
-- Connect via USB/Bluetooth  
-- Use **qFlipper** or **Flipper Mobile App**  
-- Copy to:  
-  `SD Card/badusb/`
+Dropbox installs silently if:
+- Chocolatey is installed.
+- Administrative privileges are granted.
+- An internet connection is available.
 
-### 3. Execute via BadUSB
+Verify installation via: [Chocolatey Package Page](https://community.chocolatey.org/packages/dropbox). Installs the latest stable version (e.g., 187.4+ as of October 2025).
 
-- Navigate on Flipper:  
-  `Main Menu > Bad USB > install_dropbox.txt`
-- Ensure USB mode is active (USB logo visible)  
-- Plug into target Windows machine  
-- Press **Run**
+## Requirements
 
-Script flow:
-- Opens Run dialog  
-- Elevates CMD prompt (UAC may appear)  
-- Executes install command:  
-  `choco install dropbox -y`
+- **OS**: Windows 10/11
+- **Chocolatey**: Must be pre-installed
+- **Flipper Zero**: BadUSB feature enabled
+- **Internet Access**: Required for package download
+- **Admin Privileges**: Needed for elevated Command Prompt
+- **System Compatibility**: Standard Windows requirements
 
----
+## Technical Notes
 
-## ✔️ Post-Execution Verification
+- **Chocolatey Dependency**: Requires Chocolatey to be pre-installed.
+- **Elevation**: Uses elevated Command Prompt; may trigger a UAC prompt.
+- **Silent Install**: The `-y` flag suppresses all prompts.
+- **Shell**: Uses Command Prompt for maximum compatibility.
+- **Delays**: Includes `DELAY 1000`, `DELAY 500`, and `DELAY 1500`. Adjust for slower systems (e.g., `DELAY 700+`).
+- **Testing**: Validate in a virtual machine or sandbox before deployment.
 
-- Dropbox installs silently  
-- No user interaction required  
-- Internet connection must be active  
-- Version deployed: Latest stable (e.g., 187.4+ as of August 2025)  
-- Chocolatey link: [Dropbox Package](https://community.chocolatey.org/packages/dropbox)
+## Disclaimer
 
----
+This script is for **educational purposes only**.  
+Use **only** on systems you own or have explicit permission to access.  
+The author, SoggyCow, is not liable for misuse, data loss, or system impact.
 
-## 📋 Requirements
+## License
 
-- Windows 10/11  
-- Chocolatey installed  
-- Admin rights on target system  
-- Flipper Zero with BadUSB support  
-- Internet access  
-- CMD shell with Chocolatey compatibility
-
----
-
-## ⚙️ Technical Notes
-
-- **Elevation:**  
-  Triggered via `CTRL-SHIFT ENTER`  
-  UAC confirmation may be required
-
-- **Silent Mode:**  
-  `-y` flag suppresses install prompts
-
-- **Timing Delays:**  
-  `DELAY 1000`, `500`, `1500`  
-  Can be increased for slower hosts (`700+` suggested)
-
-- **Shell Compatibility:**  
-  CMD chosen for broad support across hosts
-
-- **Testing Advice:**  
-  Use sandbox or VM first to validate behavior
-
----
-
-## ⚠️ Disclaimer
-
-This script is provided **as-is**, for educational use only.  
-Deploy only on systems you **own or are authorized to access**.  
-Author assumes no responsibility for misuse or unintended consequences.
-
----
-
-## 📄 License
-
-Licensed under the **MIT License**  
-See [LICENSE](LICENSE) for full text
+Licensed under the MIT License. See the `LICENSE` file for details.

@@ -1,75 +1,66 @@
-# 🛠️ AnyDesk Installation Script via Chocolatey for Flipper Zero
+# AnyDesk Installation Script for Flipper Zero
 
-**Author:** SoggyCow  
-**License:** MIT License
+Author: [SoggyCow](https://github.com/SoggyCow)  
+License: MIT
 
----
+## Overview
 
-## 📋 Overview
+This script automates the installation of [AnyDesk](https://anydesk.com), a popular remote desktop application, via [Chocolatey](https://chocolatey.org/) on Windows systems. Using Flipper Zero’s **BadUSB** feature with DuckyScript, it opens an elevated Command Prompt and silently installs AnyDesk.
 
-This script automates the installation of [AnyDesk](https://anydesk.com), a remote desktop software, using [Chocolatey](https://chocolatey.org), a package manager for Windows.  
-Designed for use with Flipper Zero’s **BadUSB** feature, it leverages DuckyScript to simulate keyboard input and execute a PowerShell command in a hidden window for silent installation.
+> Note: Chocolatey must be pre-installed. Run `install_chocolatey.txt` first if needed.
 
-> ⚠️ **Important**: Chocolatey must be pre-installed. Run the Chocolatey installation script before using this payload.
-
----
-
-## 🚀 Usage
-
-This script is intended for use with Flipper Zero's **BadUSB** functionality. Steps:
+## Usage Instructions
 
 ### 1. Save the Script
-Save the DuckyScript as a `.txt` file, e.g., `install_anydesk.txt`.
+- Filename: `install_anydesk.txt`
+- Format: UTF-8 plain text
 
-### 2. Upload to Flipper Zero
-- Connect your Flipper Zero via USB or Bluetooth.
-- Use the **qFlipper** or **Flipper Mobile** app to transfer the script to:  
-  `SD Card/badusb/install_anydesk.txt`
+### 2. Upload to Flipper
+- Connect Flipper Zero via USB or Bluetooth.
+- Use **qFlipper** or **Flipper Mobile App**.
+- Transfer to: `SD Card/badusb/`.
 
 ### 3. Run the Script
-- On Flipper Zero, navigate to:  
-  `Main Menu > Bad USB`
-- Select `install_anydesk.txt`.
-- Ensure **USB mode** is active (USB logo visible).
-- Connect Flipper Zero to a Windows target via USB.
-- Press **Run** — the script will:
-  - Open the Windows Run dialog.
-  - Execute a hidden PowerShell command to silently install AnyDesk via Chocolatey.
+- On Flipper: Navigate to `Main Menu > Bad USB > install_anydesk.txt`.
+- Ensure USB mode is active.
+- Connect to the target Windows machine and press **Run**.
 
-### ✅ Verify Installation
-AnyDesk will install automatically if Chocolatey is present and the machine has internet access.
+The script will:
+- Open the Run dialog (`Win + R`).
+- Launch an elevated Command Prompt (`cmd` with `CTRL + SHIFT + ENTER`).
+- Execute: `choco install anydesk -y`.
 
----
+## Installation Verification
 
-## 🧰 Prerequisites
+AnyDesk installs silently if:
+- Chocolatey is installed.
+- Administrative privileges are granted.
+- An internet connection is available.
 
-- Windows operating system  
-- Chocolatey installed (run install script first)  
-- Flipper Zero with BadUSB functionality  
-- Active internet connection  
-- Administrative privileges on target system
+Verify installation via: [Chocolatey Package Page](https://community.chocolatey.org/packages/anydesk). Installs the latest stable version (as of October 2025).
 
----
+## Requirements
 
-## ⚠️ Important Notes
+- **OS**: Windows 10/11
+- **Chocolatey**: Must be pre-installed
+- **Flipper Zero**: BadUSB feature enabled
+- **Internet Access**: Required for package download
+- **Admin Privileges**: Needed for elevated Command Prompt
 
-- **Chocolatey Dependency**: This script will fail if Chocolatey is not installed.  
-- **Admin Privileges**: Required to complete installation.  
-- **Silent Installation**: Uses `-y` flag for no prompts.  
-- **Hidden Execution**: PowerShell runs in a hidden window (`-W Hidden`) — some antivirus software may detect this as suspicious behavior.  
-- **Timing Delays**: Script uses `DELAY 1000`, `DELAY 500`. Adjust values upward for slower systems.  
-- **Testing Recommended**: Use a virtual machine or controlled environment when first testing.
+## Technical Notes
 
----
+- **Chocolatey Dependency**: Requires Chocolatey to be pre-installed.
+- **Elevation**: Uses elevated Command Prompt; may trigger a UAC prompt.
+- **Silent Install**: The `-y` flag suppresses prompts.
+- **Shell**: Uses Command Prompt for maximum compatibility and reliability (instead of hidden PowerShell).
+- **Delays**: Includes `DELAY 1000`, `DELAY 500`, and `DELAY 1500`. Adjust for slower systems (e.g., `DELAY 700+`).
+- **Testing**: Validate in a virtual machine or sandbox before deployment.
+- **Security**: Remote access tools like AnyDesk may be flagged by antivirus software. Use only in authorized environments.
 
-## ⚖️ Disclaimer
+## Disclaimer
 
-This script is provided **as-is** for educational purposes.  
-Use responsibly and **only** on systems you own or are authorized to access.  
-The author (**SoggyCow**) is not liable for damage or misuse.
+This script is for educational purposes only. Use only on systems you own or have explicit permission to access. The author, SoggyCow, is not liable for misuse, security implications, or system damage.
 
----
+## License
 
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
+Licensed under the MIT License. See the `LICENSE` file for details.

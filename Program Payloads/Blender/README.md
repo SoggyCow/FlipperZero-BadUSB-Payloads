@@ -1,96 +1,66 @@
-# Blender Installation Script via Chocolatey for Flipper Zero
+# Blender Installation Script for Flipper Zero
 
-**Author:** SoggyCow  
-**License:** MIT
+Author: [SoggyCow](https://github.com/SoggyCow)  
+License: MIT
 
----
+## Overview
 
-## 🧵 Overview
+This script automates the installation of [Blender](https://www.blender.org/), the free and open-source 3D creation suite, via [Chocolatey](https://chocolatey.org/) on Windows systems. Using Flipper Zero’s **BadUSB** feature with DuckyScript, it opens an elevated Command Prompt and silently installs Blender.
 
-Installs [Blender](https://www.blender.org/), a free and open-source 3D creation suite, using [Chocolatey](https://chocolatey.org/)  
-Engineered for **Flipper Zero’s BadUSB** feature via **DuckyScript**—launches elevated CMD and silently installs Blender.
+> Note: Chocolatey must be pre-installed. Run `install_chocolatey.txt` first if needed.
 
-> ⚠️ Requires Chocolatey pre-installation. Run Chocolatey install script first.
+## Usage Instructions
 
----
+### 1. Save the Script
+- Filename: `install_blender.txt`
+- Format: UTF-8 plain text
 
-## 🚀 Usage Guide
+### 2. Upload to Flipper
+- Connect Flipper Zero via USB or Bluetooth.
+- Use **qFlipper** or **Flipper Mobile App**.
+- Transfer to: `SD Card/badusb/`.
 
-### 1. Script Setup
+### 3. Run the Script
+- On Flipper: Navigate to `Main Menu > Bad USB > install_blender.txt`.
+- Ensure USB mode is active.
+- Connect to the target Windows machine and press **Run**.
 
-- Save as: `install_blender.txt`
+The script will:
+- Open the Run dialog (`Win + R`).
+- Launch an elevated Command Prompt (`cmd` with `CTRL + SHIFT + ENTER`).
+- Execute: `choco install blender -y`.
 
-### 2. Upload to Flipper Zero
+## Installation Verification
 
-- Connect via **USB** or **Bluetooth**
-- Use **qFlipper** or **Flipper Mobile**
-- Transfer to:  
-  `SD Card/badusb/`
+Blender installs silently if:
+- Chocolatey is installed.
+- Administrative privileges are granted.
+- An internet connection is available.
 
-### 3. Execution Flow
+Verify installation via: [Chocolatey Package Page](https://community.chocolatey.org/packages/blender). Installs the latest stable version (e.g., 4.x as of October 2025).
 
-- On Flipper:  
-  `Main Menu > Bad USB`
-- Select: `install_blender.txt`
-- Confirm USB mode active (USB icon on screen)
-- Plug into Windows machine
-- Hit **Run**
+## Requirements
 
-This will:
-- Trigger Windows Run dialog  
-- Elevate into CMD (UAC may prompt)  
-- Install Blender via Chocolatey silently
+- **OS**: Windows 10/11
+- **Chocolatey**: Must be pre-installed
+- **Flipper Zero**: BadUSB feature enabled
+- **Internet Access**: Required for package download
+- **Admin Privileges**: Needed for elevated Command Prompt
+- **Hardware**: Recommended 8 GB RAM and dedicated GPU for optimal Blender performance
 
----
+## Technical Notes
 
-## ✅ Verification & Outcome
+- **Chocolatey Dependency**: Requires Chocolatey to be pre-installed.
+- **Elevation**: Uses elevated Command Prompt; may trigger a UAC prompt.
+- **Silent Install**: The `-y` flag suppresses prompts.
+- **Shell**: Uses Command Prompt for compatibility.
+- **Delays**: Includes `DELAY 1000`, `DELAY 500`, and `DELAY 1500`. Adjust for slower systems (e.g., `DELAY 700+`).
+- **Testing**: Validate in a virtual machine or sandbox before deployment.
 
-Installs without user interaction if:
-- Chocolatey is installed  
-- Internet connection available  
-- Admin rights granted
+## Disclaimer
 
----
+This script is for educational purposes only. Use only on systems you own or have explicit permission to access. The author, SoggyCow, is not liable for misuse or system damage.
 
-## 📦 Requirements
+## License
 
-- Windows 10 or 11  
-- Chocolatey installed  
-- Flipper Zero w/ BadUSB  
-- Internet access  
-- Admin privileges  
-- Blender-compatible hardware (GPU, 8GB RAM recommended)
-
----
-
-## ⚙️ Technical Notes
-
-- **Chocolatey Dependency:** Must be installed beforehand
-- **Admin Elevation:** CMD runs as admin—UAC may appear
-- **Silent Install:** `-y` flag used for automated deployment
-- **Shell Choice:** CMD selected for compatibility
-- **Delay Tuning:**  
-  Defaults: `DELAY 1000`, `DELAY 500`, `DELAY 1500`  
-  For laggy systems: try `DELAY 700+`
-
-- **Package Versioning:**  
-  Typically installs latest stable Blender (e.g., 4.x as of August 2025)  
-  See [Chocolatey Package Page](https://community.chocolatey.org/packages/blender) for details
-
-- **Testing Recommendations:**  
-  Validate in VM/sandbox before use in production environments
-
----
-
-## ⚖️ Disclaimer
-
-Educational use only.  
-Run only on systems you **own or are authorized to control**.  
-Author assumes **no responsibility** for script misuse or system impact.
-
----
-
-## 📄 License
-
-Licensed under the **MIT License**  
-See [LICENSE](LICENSE) for terms
+Licensed under the MIT License. See the `LICENSE` file for details.

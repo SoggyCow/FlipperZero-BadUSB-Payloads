@@ -1,92 +1,72 @@
-# Cheat Engine Installation Script via Chocolatey for Flipper Zero
+# Cheat Engine Installation Script for Flipper Zero
 
-**Author:** SoggyCow  
-**License:** MIT
+Author: [SoggyCow](https://github.com/SoggyCow)  
+License: MIT
 
----
+## Overview
 
-## 🎯 Overview
+This script automates the installation of [Cheat Engine](https://cheatengine.org/), an open-source memory scanner, debugger, and trainer-building utility, via [Chocolatey](https://chocolatey.org/) on Windows systems. Using Flipper Zero’s **BadUSB** feature with DuckyScript, it opens an elevated Command Prompt and silently installs Cheat Engine.
 
-Installs [Cheat Engine](https://cheatengine.org/), an open-source memory scanner, debugger, and trainer-building utility widely used for educational and development purposes.  
-This payload leverages **Flipper Zero’s BadUSB** interface via **DuckyScript** to simulate keystrokes, elevate CMD, and trigger a silent install using [Chocolatey](https://chocolatey.org/).
+> Note: Chocolatey must be pre-installed. Run `install_chocolatey.txt` first if needed.
 
-> ⚠️ Requires Chocolatey to be pre-installed. Run `install_chocolatey.txt` first.
+## Usage Instructions
 
----
+### 1. Save the Script
+- Filename: `install_cheatengine.txt`
+- Format: UTF-8 plain text
 
-## 🚀 Deployment Instructions
+### 2. Upload to Flipper
+- Connect Flipper Zero via USB or Bluetooth.
+- Use **qFlipper** or **Flipper Mobile App**.
+- Transfer to: `SD Card/badusb/`.
 
-### 1. Prepare the Payload
+### 3. Run the Script
+- On Flipper: Navigate to `Main Menu > Bad USB > install_cheatengine.txt`.
+- Ensure USB mode is active.
+- Connect to the target Windows machine and press **Run**.
 
-- Filename: `install_cheatengine.txt`  
-- Format: UTF-8 `.txt` compatible with Flipper Zero BadUSB
+The script will:
+- Open the Run dialog (`Win + R`).
+- Launch an elevated Command Prompt (`cmd` with `CTRL + SHIFT + ENTER`).
+- Execute: `choco install cheatengine -y`.
 
-### 2. Upload to Flipper Zero
+## Installation Verification
 
-- Connect via USB or Bluetooth  
-- Use **qFlipper** or **Flipper Mobile App**  
-- Copy to:  
-  `SD Card/badusb/`
+Cheat Engine installs silently if:
+- Chocolatey is installed.
+- Administrative privileges are granted.
+- An internet connection is available.
 
-### 3. Execute on Target Machine
+Verify installation via: [Chocolatey Package Page](https://community.chocolatey.org/packages/cheatengine). Installs the latest stable version (e.g., 7.x as of October 2025).
 
-- On Flipper:  
-  `Main Menu > Bad USB > install_cheatengine.txt`  
-- Ensure USB mode is active (USB icon visible)  
-- Connect Flipper to Windows target  
-- Press **Run**
+## Requirements
 
-Script actions:
-- Opens Windows Run dialog  
-- Launches elevated CMD (UAC prompt may appear)  
-- Executes:  
-  `choco install cheatengine -y`
+- **OS**: Windows 10/11
+- **Chocolatey**: Must be pre-installed
+- **Flipper Zero**: BadUSB feature enabled
+- **Internet Access**: Required for package download
+- **Admin Privileges**: Needed for elevated Command Prompt
+- **System Compatibility**: See [Cheat Engine requirements](https://cheatengine.org/)
 
----
+## Technical Notes
 
-## ✅ Post-Install Validation
+- **Chocolatey Dependency**: Requires Chocolatey to be pre-installed.
+- **Elevation**: Uses elevated Command Prompt; may trigger a UAC prompt.
+- **Silent Install**: The `-y` flag suppresses prompts.
+- **Shell**: Uses Command Prompt for maximum compatibility.
+- **Delays**: Includes `DELAY 1000`, `DELAY 500`, and `DELAY 1500`. Adjust for slower systems (e.g., `DELAY 700+`).
+- **Testing**: Validate in a virtual machine or sandbox before deployment.
 
-- No user interaction required  
-- Latest stable release (e.g., 7.x as of August 2025)  
-- See Chocolatey: [cheatengine package](https://community.chocolatey.org/packages/cheatengine)
+## Responsible Use
 
----
+Cheat Engine is intended for **educational purposes, debugging, and software analysis**.  
+Use **only** on systems and software you own or have explicit permission to test.  
+Many online games and anti-cheat systems detect and ban Cheat Engine usage.
 
-## 📋 Requirements
+## Disclaimer
 
-| Requirement              | Description                                       |
-|--------------------------|---------------------------------------------------|
-| Windows Version          | Windows 10/11                                     |
-| Chocolatey Installed     | Must be pre-installed                             |
-| Admin Privileges         | Required for elevation                            |
-| Internet Connection      | Required to download Cheat Engine                 |
-| Flipper Zero             | BadUSB enabled and functional                     |
-| CMD Compatibility        | Must support Chocolatey                          |
-| Cheat Engine Requirements| See official documentation for system specs       |
+This script is for **educational and authorized testing only**. The author, SoggyCow, is not liable for misuse, bans, account suspensions, legal consequences, or system damage.
 
----
+## License
 
-## ⚙️ Technical Notes
-
-- **Shell Compatibility:** Uses CMD for maximum deployment reach  
-- **Privilege Elevation:** May trigger UAC depending on system security  
-- **Silent Execution:** `-y` flag ensures hands-free installation  
-- **Timing Delays:**  
-  - Defaults: `DELAY 1000`, `500`, `1500`  
-  - Increase delays for sluggish systems (e.g., `DELAY 700+`)  
-- **Testing Protocol:** Validate in sandbox or VM prior to live deployment
-
----
-
-## ⚠️ Responsible Use
-
-Cheat Engine can be flagged by game anti-cheat mechanisms.  
-Deploy **only** in environments where usage is legal, ethical, and **explicitly permitted**.  
-Intended for debugging, education, and software analysis—not for bypassing safeguards.
-
----
-
-## 📄 License
-
-Licensed under the **MIT License**  
-See the `LICENSE` file for full details.
+Licensed under the MIT License. See the `LICENSE` file for details.
