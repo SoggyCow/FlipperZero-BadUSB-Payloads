@@ -1,93 +1,42 @@
-# Java Runtime Environment Installation Script via Chocolatey for Flipper Zero
+# Java Runtime Environment Installation Script for Flipper Zero
 
-**Author:** SoggyCow  
+**Author:** [SoggyCow](https://github.com/SoggyCow)  
 **License:** MIT
 
----
+## Overview
 
-## ☕ Overview
+This script automates the installation of the [Java Runtime Environment (JRE)](https://www.oracle.com/java/technologies/downloads/), the runtime needed to execute Java applications and applets. It is required for running many desktop applications, games (especially older titles), development tools, Minecraft (Java Edition), and various enterprise software that depend on Java.
 
-Installs [Java Runtime Environment 8](https://www.java.com/) using [Chocolatey](https://chocolatey.org/) on Windows.  
-Designed for **Flipper Zero's BadUSB** feature via **DuckyScript**, launching elevated CMD for silent deployment.
+Using Flipper Zero’s **BadUSB** feature with DuckyScript, the script opens an elevated Command Prompt and silently installs the Java Runtime Environment via [Chocolatey](https://chocolatey.org/).
 
-> ⚠️ Requires Chocolatey to be installed before execution.
+> **Note:** Chocolatey must be pre-installed on the target system. If it is not, run a Chocolatey installation payload first.
 
----
+## Usage Instructions
 
-## 🚀 Usage Instructions
+### 1. Save the Script
+- Filename: `install_javaruntime.txt`
+- Format: UTF-8 plain text
 
-### 1. Script Setup
+### 2. Upload to Flipper
+- Connect Flipper Zero via USB or Bluetooth
+- Use **qFlipper** or **Flipper Mobile App**
+- Transfer the file to: `SD Card/badusb/`
 
-- Save file as: `install_java.txt`
-
-### 2. Transfer to Flipper
-
-- Connect via **USB/Bluetooth**
-- Use **qFlipper** or **Flipper Mobile**
-- Upload to:  
-  `SD Card/badusb/`
-
-### 3. Execute on Host System
-
-- On Flipper: `Main Menu > Bad USB`
-- Select script: `install_java.txt`
+### 3. Run the Script
+- On Flipper: Navigate to `Main Menu > Bad USB > install_javaruntime.txt`
 - Ensure USB mode is active
-- Connect to target Windows device
-- Tap **Run**
+- Connect to the target Windows machine and press **Run**
 
-Script performs:
-- Opens Windows Run dialog  
-- Launches elevated CMD (UAC may prompt)  
-- Executes Chocolatey command to install JRE 8 silently
+The script will:
+- Open the Run dialog (`Win + R`)
+- Launch an elevated Command Prompt (`cmd` with `CTRL + SHIFT + ENTER`)
+- Execute: `choco install javaruntime -y && exit`
 
----
+## Installation Verification
 
-## ✅ Installation Confirmation
+The Java Runtime Environment installs silently if:
+- Chocolatey is already installed
+- Administrative privileges are granted (UAC prompt accepted)
+- An internet connection is available
 
-Java SE installs silently if:
-- Chocolatey is present  
-- Admin rights are granted  
-- Internet is available
-
----
-
-## 📦 Requirements
-
-- Windows 10 or 11  
-- Chocolatey pre-installed  
-- Flipper Zero w/ BadUSB enabled  
-- Active internet connection  
-- Admin privileges  
-- System specs compatible with Java Runtime (lightweight footprint)
-
----
-
-## ⚙️ Technical Notes
-
-- **Chocolatey Dependency:** Required prior to execution  
-- **Elevation Handling:** CMD launched with admin rights; UAC may appear  
-- **Silent Install:** `-y` flag suppresses prompts  
-- **Shell Used:** CMD for broad compatibility  
-- **Delay Calibration:**  
-  - Defaults: `DELAY 1000`, `500`, `1500`  
-  - For slower systems: increase to `DELAY 700+`
-
-- **Version Installed:**  
-  Installs JRE (e.g., 8u351 or later as of August 2025)  
-  See [Chocolatey Package Page](https://community.chocolatey.org/packages/jre8)
-
-- **Test Environment:** Run in VM or sandbox before live deployment
-
----
-
-## ⚖️ Disclaimer
-
-Use responsibly and only on systems you **own or have explicit permission to modify**.  
-Provided **as-is**—author is **not liable** for unintended consequences.
-
----
-
-## 📄 License
-
-Licensed under the **MIT License**  
-Refer to [LICENSE](LICENSE) for full terms
+After installation, open a new Command Prompt and run:

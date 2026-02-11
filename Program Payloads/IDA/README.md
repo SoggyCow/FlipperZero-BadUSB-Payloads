@@ -1,106 +1,73 @@
-# IDA Free Installation Script via Chocolatey for Flipper Zero
+# IDA Free Installation Script for Flipper Zero
 
-**Author:** SoggyCow  
+**Author:** [SoggyCow](https://github.com/SoggyCow)  
 **License:** MIT
 
----
+## Overview
 
-## 🧠 Overview
+This script automates the installation of [IDA Free](https://hex-rays.com/ida-free/), the free version of IDA Pro — one of the most powerful and widely recognized disassemblers and debuggers in the world. IDA Free is commonly used for reverse engineering, malware analysis, vulnerability research, binary exploitation, and low-level software inspection.
 
-Installs **IDA Free**, Hex-Rays' respected disassembler and reverse engineering suite, via [Chocolatey](https://chocolatey.org/) using **Flipper Zero’s BadUSB** functionality.  
-Written in **DuckyScript**, the payload simulates elevated keyboard input to silently deploy IDA Free on Windows systems.
+Using Flipper Zero’s **BadUSB** feature with DuckyScript, the script opens an elevated Command Prompt and silently installs IDA Free via [Chocolatey](https://chocolatey.org/).
 
-> ⚠️ Requires prior installation of Chocolatey. Refer to `install_chocolatey.txt` in your payload stack.
+> **Note:** Chocolatey must be pre-installed on the target system. If it is not, run a Chocolatey installation payload first.
 
----
+## Usage Instructions
 
-## 🔧 Usage
+### 1. Save the Script
+- Filename: `install_ida-free.txt`
+- Format: UTF-8 plain text
 
-### 1. Save & Upload
+### 2. Upload to Flipper
+- Connect Flipper Zero via USB or Bluetooth
+- Use **qFlipper** or **Flipper Mobile App**
+- Transfer the file to: `SD Card/badusb/`
 
-- Save as: `install_ida-free.txt`  
-- Format: UTF-8 `.txt` for Flipper Zero compatibility  
-- Upload using **qFlipper** or **Flipper Mobile App** to:  
-  `SD Card/badusb/`
+### 3. Run the Script
+- On Flipper: Navigate to `Main Menu > Bad USB > install_ida-free.txt`
+- Ensure USB mode is active
+- Connect to the target Windows machine and press **Run**
 
-### 2. Deploy via Flipper Zero
+The script will:
+- Open the Run dialog (`Win + R`)
+- Launch an elevated Command Prompt (`cmd` with `CTRL + SHIFT + ENTER`)
+- Execute: `choco install ida-free -y && exit`
 
-- Path: `Main Menu > Bad USB > install_ida-free.txt`  
-- Ensure USB mode is active (USB logo visible)  
-- Connect to target Windows host  
-- Press **Run** to initiate:
+## Installation Verification
 
-Execution Steps:
-- Opens Windows Run dialog  
-- Elevates CMD via simulated `CTRL + SHIFT + ENTER` (may trigger UAC)  
-- Executes:  
-  `choco install ida-free -y`
+IDA Free installs silently if:
+- Chocolatey is already installed
+- Administrative privileges are granted (UAC prompt accepted)
+- An internet connection is available
 
----
+After installation:
+- Look for “IDA Freeware” in the Start menu
+- Or check for the executable in `C:\Program Files\IDA Freeware X.X`
+- Launch IDA Free to confirm it opens (you may need to accept the license agreement on first run)
 
-## ✅ Installation Confirmation
+## Requirements
 
-Successful if:
-- Chocolatey is installed and functioning  
-- System has internet connectivity  
-- CMD accepts Chocolatey commands  
-- Admin privileges granted
+- **OS**: Windows 10 / 11
+- **Chocolatey**: Must be pre-installed
+- **Flipper Zero**: BadUSB feature enabled
+- **Internet Access**: Required for Chocolatey package download
+- **Admin Privileges**: Required for elevated Command Prompt
 
----
+## Technical Notes
 
-## 📋 Requirements
+- **Chocolatey Dependency**: The script assumes Chocolatey is already present
+- **Elevation**: Opens an elevated cmd.exe (may show UAC prompt)
+- **Silent Install**: Uses `-y` to suppress all prompts
+- **Shell**: Uses Command Prompt (cmd) for broad compatibility
+- **Delays**: Standard timing (`DELAY 1000`, `500`, `1500`). Increase if the target system is slow
+- **Testing Recommendation**: Always test in a virtual machine or isolated environment first
+- **Security**: Reverse engineering tools like IDA are frequently flagged by antivirus/EDR software due to their common use in malware analysis and offensive security. Use only in authorized environments
 
-| Component           | Details                                                   |
-|---------------------|------------------------------------------------------------|
-| OS                  | Windows 10/11, 64-bit required for IDA Free               |
-| Chocolatey          | Must be installed beforehand                              |
-| Admin Privileges    | Required for elevation                                    |
-| Internet Access     | Needed to fetch IDA Free via Chocolatey                   |
-| Flipper Zero        | With BadUSB functionality enabled                         |
-| System Specs        | Minimum: 4 GB RAM, 1 GB disk; verify via Hex-Rays docs    |
-| CMD Shell           | Must support Chocolatey execution                         |
+## Disclaimer
 
----
+This script is provided for educational and research purposes only.  
+Use it exclusively on systems you own or have explicit written permission to access.  
+The author is not responsible for any misuse, security incidents, or damage resulting from the use of this script.
 
-## ⚙️ Technical Notes
+## License
 
-- **Delay Tuning:**  
-  Uses `DELAY 1000`, `500`, `1500` for reliability  
-  Adjust for slower systems (`DELAY 700+` if needed)
-
-- **Elevation Method:**  
-  Simulates `CTRL + SHIFT + ENTER` to trigger elevated CMD  
-  May prompt UAC
-
-- **Silent Install Flag:**  
-  `-y` ensures no prompts during install
-
-- **Package Versioning:**  
-  Installs latest available IDA Free (e.g., v8.x as of August 2025)  
-  Validate on [Chocolatey Package Page](https://community.chocolatey.org/packages/ida-free)
-
-- **Controlled Testing:**  
-  Run in a sandbox or VM before deploying on live hosts
-
----
-
-## 🔐 Responsible Use
-
-IDA Free is a powerful reverse engineering tool.  
-Use only for legitimate educational or security research purposes.  
-Respect software licensing and local laws.
-
----
-
-## ⚠️ Disclaimer
-
-This script is provided **as-is** for educational use.  
-Use only on systems you **own or have explicit authorization** for.  
-The author (SoggyCow) is not liable for any misuse or resulting damage.
-
----
-
-## 📄 License
-
-Released under the **MIT License**  
-See accompanying `LICENSE` file for full terms.
+Licensed under the MIT License. See the `LICENSE` file for full details.

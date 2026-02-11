@@ -1,103 +1,42 @@
-# Git Installation Script via Chocolatey for Flipper Zero
+# Git Installation Script for Flipper Zero
 
-**Author:** SoggyCow  
+**Author:** [SoggyCow](https://github.com/SoggyCow)  
 **License:** MIT
 
----
+## Overview
 
-## 🗃️ Overview
+This script automates the installation of [Git](https://git-scm.com/), the most widely used distributed version control system. Git is essential for source code management, enabling developers to track changes, collaborate on projects, create branches, and manage repositories locally and remotely (e.g. GitHub, GitLab, Bitbucket).
 
-This script installs [Git](https://git-scm.com/), a widely-used version control system, via [Chocolatey](https://chocolatey.org/) on Windows.  
-Designed for **Flipper Zero's BadUSB** feature, it uses **DuckyScript** to emulate keystrokes, open an elevated **Command Prompt (CMD)**, and silently deploy Git.
+Using Flipper Zero’s **BadUSB** feature with DuckyScript, the script opens an elevated Command Prompt and silently installs Git via [Chocolatey](https://chocolatey.org/).
 
-> ⚠️ **Note:** Chocolatey must be pre-installed. Run the Chocolatey installation script before using this module.
+> **Note:** Chocolatey must be pre-installed on the target system. If it is not, run a Chocolatey installation payload first.
 
----
-
-## 🚀 Usage
-
-Runs via Flipper Zero's **BadUSB keyboard emulation**.
+## Usage Instructions
 
 ### 1. Save the Script
+- Filename: `install_git.txt`
+- Format: UTF-8 plain text
 
-- Save to a `.txt` file (e.g., `install_git.txt`)
-
-### 2. Upload to Flipper Zero
-
-- Connect via **USB** or **Bluetooth**
+### 2. Upload to Flipper
+- Connect Flipper Zero via USB or Bluetooth
 - Use **qFlipper** or **Flipper Mobile App**
-- Transfer script to:  
-  `SD Card/badusb/`
+- Transfer the file to: `SD Card/badusb/`
 
-### 3. Execute the Script
+### 3. Run the Script
+- On Flipper: Navigate to `Main Menu > Bad USB > install_git.txt`
+- Ensure USB mode is active
+- Connect to the target Windows machine and press **Run**
 
-- Navigate:  
-  `Main Menu > Bad USB`
-- Select `install_git.txt`
-- Confirm USB mode is active (USB icon displayed)
-- Connect Flipper to target Windows device
-- Press **Run**
+The script will:
+- Open the Run dialog (`Win + R`)
+- Launch an elevated Command Prompt (`cmd` with `CTRL + SHIFT + ENTER`)
+- Execute: `choco install git.install -y && exit`
 
-Script will:
-- Open Windows Run dialog
-- Elevate to Command Prompt (UAC may trigger)
-- Run Chocolatey command to silently install Git
-
----
-
-## ✅ Installation Verification
+## Installation Verification
 
 Git installs silently if:
-- Chocolatey is installed  
-- Internet connection is active
+- Chocolatey is already installed
+- Administrative privileges are granted (UAC prompt accepted)
+- An internet connection is available
 
----
-
-## 📦 Prerequisites
-
-- Windows operating system  
-- Chocolatey installed  
-- Flipper Zero with BadUSB enabled  
-- Active internet connection  
-- Admin privileges on target system
-
----
-
-## ⚙️ Technical Notes
-
-- **Chocolatey Dependency:**  
-  Script will fail if Chocolatey isn’t present.
-
-- **Elevation Required:**  
-  CMD is elevated. UAC prompt may appear.
-
-- **Silent Install:**  
-  Uses `-y` flag to skip prompts.
-
-- **CMD Compatibility:**  
-  CMD selected for broader support; ensure Chocolatey is functional via CMD.
-
-- **Delay Timing:**  
-  Default: `DELAY 1000`, `DELAY 500`, `DELAY 1500`. For slower systems, increase to `DELAY 700`.
-
-- **Git Version:**  
-  Installs latest stable release (e.g., 2.46.x as of August 2025)  
-  See [Chocolatey Git Package](https://community.chocolatey.org/packages/git) for details
-
-- **Environment Safety:**  
-  Test in a VM or sandbox first
-
----
-
-## ⚖️ Disclaimer
-
-This script is provided **as-is** for educational purposes.  
-Use only on systems you **own or have permission** to access.  
-Author (SoggyCow) assumes **no responsibility** for misuse or consequences.
-
----
-
-## 📄 License
-
-Licensed under the **MIT License**.  
-See the [LICENSE](LICENSE) file for terms.
+After installation, open a new Command Prompt or PowerShell and run:

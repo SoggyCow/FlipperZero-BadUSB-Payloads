@@ -1,97 +1,73 @@
-# HxD Installation Script via Chocolatey for Flipper Zero
+# H2testw Installation Script for Flipper Zero
 
-**Author:** SoggyCow  
+**Author:** [SoggyCow](https://github.com/SoggyCow)  
 **License:** MIT
 
----
+## Overview
 
-## 🔍 Overview
+This script automates the installation of [H2testw](https://www.heise.de/download/product/h2testw-30375), a free and widely trusted tool for testing the actual capacity and reliability of storage devices (USB flash drives, SD cards, external HDDs/SSDs, etc.). It writes test data to the entire device and verifies it to detect fake capacity, bad sectors, or data corruption.
 
-Installs [HxD](https://mh-nexus.de/en/hxd/), a lightweight and feature-rich hex editor, using [Chocolatey](https://chocolatey.org/).  
-Built for **Flipper Zero’s BadUSB**, this DuckyScript payload automates a silent, elevated installation via simulated keystrokes.
+Using Flipper Zero’s **BadUSB** feature with DuckyScript, the script opens an elevated Command Prompt and silently installs H2testw via [Chocolatey](https://chocolatey.org/).
 
-> ⚠️ **Chocolatey must be installed prior to executing this script.** See `install_chocolatey.txt`.
+> **Note:** Chocolatey must be pre-installed on the target system. If it is not, run a Chocolatey installation payload first.
 
----
+## Usage Instructions
 
-## 🚀 Deployment Instructions
-
-### 1. Prepare the Script
-
-- Save as: `install_hxd.txt`  
-- Format: Plain UTF-8 `.txt` compatible with Flipper Zero
+### 1. Save the Script
+- Filename: `install_h2testw.txt`
+- Format: UTF-8 plain text
 
 ### 2. Upload to Flipper
+- Connect Flipper Zero via USB or Bluetooth
+- Use **qFlipper** or **Flipper Mobile App**
+- Transfer the file to: `SD Card/badusb/`
 
-- Connect via USB or Bluetooth  
-- Use **qFlipper** or **Flipper Mobile**  
-- Place in:  
-  `SD Card/badusb/`
-
-### 3. Run on Target Machine
-
-- On Flipper Zero:  
-  `Main Menu > Bad USB > install_hxd.txt`
-- Confirm USB mode is active  
-- Connect to Windows machine  
-- Press **Run**
+### 3. Run the Script
+- On Flipper: Navigate to `Main Menu > Bad USB > install_h2testw.txt`
+- Ensure USB mode is active
+- Connect to the target Windows machine and press **Run**
 
 The script will:
-- Open the Windows Run dialog  
-- Launch elevated CMD (may trigger UAC)  
-- Execute:  
-  `choco install hxd -y`
+- Open the Run dialog (`Win + R`)
+- Launch an elevated Command Prompt (`cmd` with `CTRL + SHIFT + ENTER`)
+- Execute: `choco install h2testw -y && exit`
 
----
+## Installation Verification
 
-## ✅ Installation Check
+H2testw installs silently if:
+- Chocolatey is already installed
+- Administrative privileges are granted (UAC prompt accepted)
+- An internet connection is available
 
-- Installs silently with admin rights  
-- Requires active internet  
-- Latest stable version (e.g., 2.5+ as of August 2025)  
-- Chocolatey package: [hxd](https://community.chocolatey.org/packages/hxd)
+After installation:
+- Look for `h2testw.exe` in the Start menu or in `C:\Program Files\H2testw`
+- Or search for “H2testw” in the Start menu
+- Launch the program to confirm it starts correctly
 
----
+## Requirements
 
-## 📋 Prerequisites
+- **OS**: Windows 10 / 11
+- **Chocolatey**: Must be pre-installed
+- **Flipper Zero**: BadUSB feature enabled
+- **Internet Access**: Required for Chocolatey package download
+- **Admin Privileges**: Required for elevated Command Prompt
 
-| Requirement                        | Details                                    |
-|------------------------------------|--------------------------------------------|
-| OS                                 | Windows 10/11                              |
-| Chocolatey                         | Must be installed                          |
-| Privileges                         | Admin required                             |
-| Internet Connection                | Required for Chocolatey install            |
-| Flipper Zero with BadUSB           | Enabled and functional                     |
-| CMD Compatibility                  | Must support Chocolatey commands           |
+## Technical Notes
 
----
+- **Chocolatey Dependency**: The script assumes Chocolatey is already present
+- **Elevation**: Opens an elevated cmd.exe (may show UAC prompt)
+- **Silent Install**: Uses `-y` to suppress all prompts
+- **Shell**: Uses Command Prompt (cmd) for broad compatibility
+- **Delays**: Standard timing (`DELAY 1000`, `500`, `1500`). Increase if the target system is slow
+- **Testing Recommendation**: Always test in a virtual machine or isolated environment first
+- **Security**: Storage testing tools are generally not flagged by AV, but use only in authorized environments
 
-## ⚙️ Technical Notes
+## Disclaimer
 
-- **Elevation Trigger:**  
-  UAC prompt may surface depending on system settings
+This script is provided for educational and research purposes only.  
+Use it exclusively on systems you own or have explicit written permission to access.  
+The author is not responsible for any misuse, security incidents, or damage resulting from the use of this script.
 
-- **Delay Values:**  
-  Defaults: `DELAY 1000`, `500`, `1500`  
-  Increase for slower machines (e.g., `DELAY 700+`)
+## License
 
-- **Shell Compatibility:**  
-  Uses CMD for universal support
-
-- **Controlled Testing:**  
-  Recommend VM or sandbox before production use
-
----
-
-## ⚠️ Disclaimer
-
-Provided as-is for **educational purposes**.  
-Use only on systems you **own or have authorized access** to.  
-Author not responsible for misuse or deployment consequences.
-
----
-
-## 📄 License
-
-Licensed under the **MIT License**  
-See `LICENSE` file for full terms.
+Licensed under the MIT License. See the `LICENSE` file for full details.
