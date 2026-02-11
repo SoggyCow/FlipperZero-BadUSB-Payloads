@@ -1,103 +1,73 @@
-# Quick CPU Installation Script via Chocolatey for Flipper Zero
+# Quick CPU Installation Script for Flipper Zero
 
-**Author:** SoggyCow  
+**Author:** [SoggyCow](https://github.com/SoggyCow)  
 **License:** MIT
 
----
+## Overview
 
-## 🚀 Overview
+This script automates the installation of [Quick CPU](https://coderbag.com/product/quickcpu), a lightweight and powerful utility for monitoring and fine-tuning CPU performance on Windows. It allows real-time viewing of core usage, clock speeds, temperatures, power consumption, and turbo boost behavior, and provides advanced control over CPU throttling, power plans, core parking, and frequency/voltage settings.
 
-Installs [Quick CPU](https://coderbag.com/product/quickcpu), a lightweight utility for tuning CPU performance, power settings, and thermal management, via [Chocolatey](https://chocolatey.org/) on Windows.  
-Built for **Flipper Zero’s BadUSB**, this payload uses **DuckyScript** to simulate keystrokes and launch an elevated CMD session for a hands-free install.
+Using Flipper Zero’s **BadUSB** feature with DuckyScript, the script opens an elevated Command Prompt and silently installs Quick CPU via [Chocolatey](https://chocolatey.org/).
 
-> ⚠️ Requires Chocolatey to be installed prior to execution. See `install_chocolatey.txt`.
+> **Note:** Chocolatey must be pre-installed on the target system. If it is not, run a Chocolatey installation payload first.
 
----
+## Usage Instructions
 
-## 🧠 Usage Instructions
+### 1. Save the Script
+- Filename: `install_quickcpu.txt`
+- Format: UTF-8 plain text
 
-### 1. Prepare the Payload
+### 2. Upload to Flipper
+- Connect Flipper Zero via USB or Bluetooth
+- Use **qFlipper** or **Flipper Mobile App**
+- Transfer the file to: `SD Card/badusb/`
 
-- Filename: `install_quickcpu.txt`  
-- Format: UTF-8 plain `.txt` for Flipper Zero compatibility
+### 3. Run the Script
+- On Flipper: Navigate to `Main Menu > Bad USB > install_quickcpu.txt`
+- Ensure USB mode is active
+- Connect to the target Windows machine and press **Run**
 
-### 2. Upload to Flipper Zero
+The script will:
+- Open the Run dialog (`Win + R`)
+- Launch an elevated Command Prompt (`cmd` with `CTRL + SHIFT + ENTER`)
+- Execute: `choco install quickcpu -y && exit`
 
-- Connect via USB/Bluetooth  
-- Use **qFlipper** or **Flipper Mobile App**  
-- Upload to:  
-  `SD Card/badusb/`
+## Installation Verification
 
-### 3. Deploy on Target System
+Quick CPU installs silently if:
+- Chocolatey is already installed
+- Administrative privileges are granted (UAC prompt accepted)
+- An internet connection is available
 
-- Menu Navigation:  
-  `Main Menu > Bad USB > install_quickcpu.txt`  
-- Ensure USB mode is active  
-- Connect to Windows machine  
-- Press **Run**
+After installation:
+- Look for “Quick CPU” in the Start menu
+- Or check for `QuickCPU.exe` in `C:\Program Files\QuickCPU`
+- Launch the application to confirm it opens and displays CPU information
 
-Execution flow:
-- Opens Windows Run dialog  
-- Launches elevated CMD (UAC prompt may appear)  
-- Executes:  
-  `choco install quickcpu -y`
+## Requirements
 
----
+- **OS**: Windows 10 / 11
+- **Chocolatey**: Must be pre-installed
+- **Flipper Zero**: BadUSB feature enabled
+- **Internet Access**: Required for Chocolatey package download
+- **Admin Privileges**: Required for elevated Command Prompt
 
-## ✅ Installation Verification
+## Technical Notes
 
-- Installs silently if Chocolatey and internet access are available  
-- As of August 2025, package availability should be verified:  
-  [Chocolatey Package Page](https://community.chocolatey.org/packages/quickcpu)
+- **Chocolatey Dependency**: The script assumes Chocolatey is already present
+- **Elevation**: Opens an elevated cmd.exe (may show UAC prompt)
+- **Silent Install**: Uses `-y` to suppress all prompts
+- **Shell**: Uses Command Prompt (cmd) for broad compatibility
+- **Delays**: Standard timing (`DELAY 1000`, `500`, `1500`). Increase if the target system is slow
+- **Testing Recommendation**: Always test in a virtual machine or isolated environment first
+- **Security**: CPU tuning tools may require elevated privileges to function fully. Use only in authorized environments
 
----
+## Disclaimer
 
-## 📋 Requirements
+This script is provided for educational and research purposes only.  
+Use it exclusively on systems you own or have explicit written permission to access.  
+The author is not responsible for any misuse, security incidents, or damage resulting from the use of this script.
 
-| Requirement               | Description                                       |
-|---------------------------|---------------------------------------------------|
-| OS                        | Windows 10/11                                     |
-| Chocolatey Installed      | Must be pre-installed                             |
-| Admin Privileges          | Required for elevation                            |
-| Internet Connection       | Required to download package                      |
-| Flipper Zero              | BadUSB enabled and functional                     |
-| CMD Compatibility         | Must support Chocolatey commands                  |
-| Quick CPU Compatibility   | Refer to vendor specs (minimal requirements)      |
+## License
 
----
-
-## ⚙️ Technical Notes
-
-- **Privilege Elevation:**  
-  Uses `CTRL-SHIFT ENTER` to elevate CMD; UAC may appear
-
-- **Silent Install Flag:**  
-  `-y` suppresses any user prompts
-
-- **Timing Delays:**  
-  Default: `DELAY 1000`, `500`, `1500`  
-  Adjust for slower systems: try `DELAY 700+`
-
-- **Shell Selection:**  
-  CMD chosen for compatibility across host configurations
-
-- **Testing Recommendation:**  
-  Validate in sandbox, VM, or offline testbed before live deployment
-
-- **Package Availability:**  
-  Quick CPU may not always be present in Chocolatey repo—verify manually
-
----
-
-## ⚠️ Disclaimer
-
-This script is provided **as-is** for educational purposes.  
-Use only on machines you **own or are explicitly authorized** to configure.  
-Author disclaims responsibility for misuse, damage, or side effects.
-
----
-
-## 📄 License
-
-Licensed under the **MIT License**  
-Refer to the `LICENSE` file for full details.
+Licensed under the MIT License. See the `LICENSE` file for full details.
