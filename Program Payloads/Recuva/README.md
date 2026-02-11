@@ -1,96 +1,74 @@
-# Recuva Installation Script via Chocolatey for Flipper Zero
+# Recuva Installation Script for Flipper Zero
 
-**Author:** SoggyCow  
+**Author:** [SoggyCow](https://github.com/SoggyCow)  
 **License:** MIT
 
----
+## Overview
 
-## 📦 Overview
+This script automates the installation of [Recuva](https://www.ccleaner.com/recuva), a popular free data recovery tool developed by Piriform (now part of Avast/Gen Digital).  
+Recuva is used to recover permanently deleted files from hard drives, USB flash drives, memory cards, external drives, and other storage media — even after emptying the Recycle Bin or formatting a drive (in many cases).
 
-Installs [Recuva](https://www.ccleaner.com/recuva), a user-friendly data recovery tool for retrieving deleted files from HDDs, USB drives, SD cards, and more.  
-Engineered for **Flipper Zero’s BadUSB** using **DuckyScript**.  
-Script launches elevated **CMD**, then uses **Chocolatey** for silent deployment.
+Using Flipper Zero’s **BadUSB** feature with DuckyScript, the script opens an elevated Command Prompt and silently installs Recuva via [Chocolatey](https://chocolatey.org/).
 
-> 🔔 Chocolatey **must be installed** prior to running this payload.
+> **Note:** Chocolatey must be pre-installed on the target system. If it is not, run a Chocolatey installation payload first.
 
----
+## Usage Instructions
 
-## 🎮 Usage Instructions
+### 1. Save the Script
+- Filename: `install_recuva.txt`
+- Format: UTF-8 plain text
 
-### 1. Prepare the Payload
+### 2. Upload to Flipper
+- Connect Flipper Zero via USB or Bluetooth
+- Use **qFlipper** or **Flipper Mobile App**
+- Transfer the file to: `SD Card/badusb/`
 
-- Filename: `install_recuva.txt`  
-- Format: `.txt` compatible with Flipper Zero
+### 3. Run the Script
+- On Flipper: Navigate to `Main Menu > Bad USB > install_recuva.txt`
+- Ensure USB mode is active
+- Connect to the target Windows machine and press **Run**
 
-### 2. Transfer to Device
+The script will:
+- Open the Run dialog (Win + R)
+- Launch an elevated Command Prompt (cmd with CTRL + SHIFT + ENTER)
+- Execute: choco install recuva -y && exit
 
-- Connect via USB/Bluetooth  
-- Use **qFlipper** or **Flipper Mobile App**  
-- Target directory:  
-  `SD Card/badusb/`
+## Installation Verification
 
-### 3. Execution Flow
+Recuva installs silently if:
+- Chocolatey is already installed
+- Administrative privileges are granted (UAC prompt accepted)
+- An internet connection is available
 
-- Navigate:  
-  `Main Menu > Bad USB > install_recuva.txt`
-- Confirm: USB mode enabled (USB icon visible)  
-- Plug into target Windows system  
-- Press **Run**
+After installation:
+- Look for “Recuva” in the Start menu
+- Or check the installation path (typically `C:\Program Files\Recuva`)
+- Launch Recuva to confirm the main recovery wizard interface opens
 
-Payload performs:
-- Opens **Run dialog**  
-- Elevates to **Admin CMD**  
-- Executes silently:  
-  `choco install recuva -y`
+## Requirements
 
----
+- **OS**: Windows 10 / 11
+- **Chocolatey**: Must be pre-installed
+- **Flipper Zero**: BadUSB feature enabled
+- **Internet Access**: Required for Chocolatey package download
+- **Admin Privileges**: Required for elevated Command Prompt
 
-## ✔️ Verification Steps
+## Technical Notes
 
-- Recuva installs without prompts  
-- Latest version deployed (e.g. 1.53+)  
-- Target system must have internet access  
-- View Chocolatey listing: [chocolatey.org/packages/recuva](https://community.chocolatey.org/packages/recuva)
+- **Chocolatey Dependency**: The script assumes Chocolatey is already present
+- **Elevation**: Opens an elevated cmd.exe (may show UAC prompt)
+- **Silent Install**: Uses -y to suppress all prompts
+- **Shell**: Uses Command Prompt (cmd) for broad compatibility
+- **Delays**: Standard timing (DELAY 1000, 500, 1500). Increase if the target system is slow
+- **Testing Recommendation**: Always test in a virtual machine or isolated environment first
+- **Security**: File recovery tools are generally not flagged by antivirus, but use only in authorized environments
 
----
+## Disclaimer
 
-## ⚙️ Requirements
+This script is provided for educational and research purposes only.  
+Use it exclusively on systems you own or have explicit written permission to access.  
+The author is not responsible for any misuse, security incidents, or damage resulting from the use of this script.
 
-- Windows 10/11  
-- Chocolatey pre-installed  
-- Flipper Zero BadUSB enabled  
-- Internet connection  
-- Admin rights  
-- CMD compatibility with Chocolatey
+## License
 
----
-
-## 🧪 Notes & Adjustments
-
-- **Delays Used:**  
-  `DELAY 1000`, `500`, `1500`  
-  ⏱ Increase delay values for slower hosts: try `700+`
-
-- **Elevation Trigger:**  
-  Uses `CTRL-SHIFT ENTER`; UAC dialog may appear
-
-- **Silent Install:**  
-  `-y` flag bypasses prompts
-
-- **Testing Recommendation:**  
-  Verify payload in VM or sandboxed machine first
-
----
-
-## ⚠️ Disclaimer
-
-This payload is provided **as-is** for educational use.  
-Use only on systems you **own or are authorized to access**.  
-No responsibility taken for misuse or system impact.
-
----
-
-## 📄 License
-
-Licensed under the **MIT License**  
-See [LICENSE](LICENSE) for terms
+Licensed under the MIT License. See the `LICENSE` file for full details.

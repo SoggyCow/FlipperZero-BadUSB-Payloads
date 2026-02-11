@@ -1,96 +1,73 @@
-# Rename My TV Series 2 Installation Script via Chocolatey for Flipper Zero
+# Rename My TV Series 2 Installation Script for Flipper Zero
 
-**Author:** SoggyCow  
+**Author:** [SoggyCow](https://github.com/SoggyCow)  
 **License:** MIT
 
----
+## Overview
 
-## 🎬 Overview
+This script automates the installation of [Rename My TV Series 2](https://www.rename-my-tv-series.com/), a popular utility for automatically renaming and organizing TV show episode files. It uses online databases (such as TheTVDB) to fetch episode titles, seasons, and episode numbers, then renames files in the correct format (e.g. "Show.Name.S01E01.Episode.Title.720p.mkv") and can move them into season folders.
 
-Installs **Rename My TV Series 2**, a utility for renaming episode files using online TV database info, via [Chocolatey](https://chocolatey.org/) on Windows.  
-Scripted for **Flipper Zero’s BadUSB**, this DuckyScript payload simulates keystrokes to launch an elevated CMD and silently deploy the application.
+Using Flipper Zero’s **BadUSB** feature with DuckyScript, the script opens an elevated Command Prompt and silently installs Rename My TV Series 2 via [Chocolatey](https://chocolatey.org/).
 
-> ⚠️ Requires Chocolatey pre-installed. Use `install_chocolatey.txt` before running this script.
+> **Note:** Chocolatey must be pre-installed on the target system. If it is not, run a Chocolatey installation payload first.
 
----
+## Usage Instructions
 
-## 🚀 Usage Instructions
+### 1. Save the Script
+- Filename: `install_renamemytvseries2.txt`
+- Format: UTF-8 plain text
 
-### 1. Prepare the Payload
+### 2. Upload to Flipper
+- Connect Flipper Zero via USB or Bluetooth
+- Use **qFlipper** or **Flipper Mobile App**
+- Transfer the file to: `SD Card/badusb/`
 
-- Filename: `install_renamemytvseries2.txt`  
-- Format: UTF-8 plain text `.txt` compatible with Flipper Zero
+### 3. Run the Script
+- On Flipper: Navigate to `Main Menu > Bad USB > install_renamemytvseries2.txt`
+- Ensure USB mode is active
+- Connect to the target Windows machine and press **Run**
 
-### 2. Upload to Flipper Zero
+The script will:
+- Open the Run dialog (Win + R)
+- Launch an elevated Command Prompt (cmd with CTRL + SHIFT + ENTER)
+- Execute: choco install renamemytvseries2 -y && exit
 
-- Connect via USB/Bluetooth  
-- Use **qFlipper** or **Flipper Mobile App**  
-- Destination:  
-  `SD Card/badusb/`
+## Installation Verification
 
-### 3. Execute on Target Machine
+Rename My TV Series 2 installs silently if:
+- Chocolatey is already installed
+- Administrative privileges are granted (UAC prompt accepted)
+- An internet connection is available
 
-- Menu: `Main Menu > Bad USB > install_renamemytvseries2.txt`  
-- Ensure USB mode is active (USB icon visible)  
-- Connect to a Windows system  
-- Press **Run**
+After installation:
+- Look for “Rename My TV Series 2” in the Start menu
+- Or check the installation path (typically `C:\Program Files\Rename My TV Series 2`)
+- Launch the program to confirm the interface opens correctly
 
-Payload performs:
-- Opens Windows Run dialog  
-- Elevates to CMD via simulated `CTRL + SHIFT + ENTER` (UAC may appear)  
-- Executes:  
-  `choco install renamemytvseries2 -y`
+## Requirements
 
----
+- **OS**: Windows 10 / 11
+- **Chocolatey**: Must be pre-installed
+- **Flipper Zero**: BadUSB feature enabled
+- **Internet Access**: Required for Chocolatey package download
+- **Admin Privileges**: Required for elevated Command Prompt
 
-## ✅ Verification
+## Technical Notes
 
-- Installs silently if Chocolatey and internet access are present  
-- Package version: latest stable (as of August 2025)  
-- Check availability: [Chocolatey Package Page](https://community.chocolatey.org/packages/renamemytvseries2)
+- **Chocolatey Dependency**: The script assumes Chocolatey is already present
+- **Elevation**: Opens an elevated cmd.exe (may show UAC prompt)
+- **Silent Install**: Uses -y to suppress all prompts
+- **Shell**: Uses Command Prompt (cmd) for broad compatibility
+- **Delays**: Standard timing (DELAY 1000, 500, 1500). Increase if the target system is slow
+- **Testing Recommendation**: Always test in a virtual machine or isolated environment first
+- **Security**: Media management tools are rarely flagged by antivirus, but use only in authorized environments
 
----
+## Disclaimer
 
-## 📋 Requirements
+This script is provided for educational and research purposes only.  
+Use it exclusively on systems you own or have explicit written permission to access.  
+The author is not responsible for any misuse, security incidents, or damage resulting from the use of this script.
 
-| Component                   | Description                                     |
-|----------------------------|-------------------------------------------------|
-| OS                         | Windows 10/11                                   |
-| Chocolatey                 | Must be installed beforehand                    |
-| Internet Connection        | Required to fetch package                       |
-| Admin Privileges           | Needed for elevation and installation           |
-| Flipper Zero               | BadUSB enabled                                  |
-| CMD Shell                  | Must support Chocolatey                         |
-| RAM & Disk                 | Typically lightweight (verify vendor specs)     |
+## License
 
----
-
-## ⚙️ Technical Notes
-
-- **Timing Delays:**  
-  Defaults: `DELAY 1000`, `500`, `1500`  
-  Use `DELAY 700+` for slower systems
-
-- **Silent Flag:**  
-  `-y` bypasses install prompts
-
-- **Package Availability Warning:**  
-  Package may not be available on Chocolatey—verify before execution
-
-- **Testing Advice:**  
-  Deploy first in VM or sandbox before live use
-
----
-
-## ⚠️ Disclaimer
-
-For educational use only.  
-Deploy only on systems you **own or are explicitly authorized** to modify.  
-Author is not liable for misuse or unintended results.
-
----
-
-## 📄 License
-
-Licensed under the **MIT License**  
-See `LICENSE` file for full terms.
+Licensed under the MIT License. See the `LICENSE` file for full details.

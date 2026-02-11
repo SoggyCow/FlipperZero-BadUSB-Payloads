@@ -1,90 +1,75 @@
-# ResourceHacker Installation Script via Chocolatey for Flipper Zero
+# Resource Hacker Installation Script for Flipper Zero
 
-**Author:** SoggyCow  
+**Author:** [SoggyCow](https://github.com/SoggyCow)  
 **License:** MIT
 
----
+## Overview
 
-## 🛠️ Overview
+This script automates the installation of [Resource Hacker](http://www.angusj.com/resourcehacker/), a free tool for viewing, modifying, renaming, adding, deleting and extracting resources in 32-bit and 64-bit Windows executables and resource files (.exe, .dll, .scr, .mui, .cpl, etc.).  
+It is widely used for customizing application icons, version information, dialogs, menus, strings, accelerators, and other embedded resources, as well as for reverse engineering and modding purposes.
 
-Installs [ResourceHacker](http://www.angusj.com/resourcehacker/), a free utility for viewing, extracting, and editing resources in Windows executables.  
-This payload uses **Flipper Zero’s BadUSB** and **DuckyScript** to simulate keystrokes, elevate CMD, and install the **portable version** via [Chocolatey](https://chocolatey.org/).
+Using Flipper Zero’s **BadUSB** feature with DuckyScript, the script opens an elevated Command Prompt and silently installs the portable version of Resource Hacker via [Chocolatey](https://chocolatey.org/).
 
-> ⚠️ Requires Chocolatey. Deploy `install_chocolatey.txt` before running this script.
+> **Note:** Chocolatey must be pre-installed on the target system. If it is not, run a Chocolatey installation payload first.
 
----
+## Usage Instructions
 
-## 🚀 Usage Guide
+### 1. Save the Script
+- Filename: `install_resourcehacker.txt`
+- Format: UTF-8 plain text
 
-### Step 1: Save the Script
+### 2. Upload to Flipper
+- Connect Flipper Zero via USB or Bluetooth
+- Use **qFlipper** or **Flipper Mobile App**
+- Transfer the file to: `SD Card/badusb/`
 
-- Filename: `install_resourcehacker.txt`  
-- Format: UTF-8 `.txt` for BadUSB compatibility
-
-### Step 2: Upload to Flipper Zero
-
-- Connect via USB or Bluetooth  
-- Use **qFlipper** or **Flipper Mobile**  
-- Path: `SD Card/badusb/`
-
-### Step 3: Run on Target System
-
-- On Flipper:  
-  `Main Menu > Bad USB > install_resourcehacker.txt`
-- Ensure USB mode is enabled (USB icon visible)  
-- Plug into target Windows machine  
-- Press **Run**
+### 3. Run the Script
+- On Flipper: Navigate to `Main Menu > Bad USB > install_resourcehacker.txt`
+- Ensure USB mode is active
+- Connect to the target Windows machine and press **Run**
 
 The script will:
-- Open Windows Run dialog  
-- Elevate to admin CMD (UAC may appear)  
-- Execute:  
-  `choco install resourcehacker.portable -y`
+- Open the Run dialog (Win + R)
+- Launch an elevated Command Prompt (cmd with CTRL + SHIFT + ENTER)
+- Execute: choco install resourcehacker.portable -y && exit
 
----
+## Installation Verification
 
-## ✅ Verify Installation
+Resource Hacker installs silently if:
+- Chocolatey is already installed
+- Administrative privileges are granted (UAC prompt accepted)
+- An internet connection is available
 
-- Silent install with no user interaction  
-- Portable version requires no registry or system integration  
-- Chocolatey package: [resourcehacker.portable](https://community.chocolatey.org/packages/resourcehacker.portable)
+After installation:
+- Look for ResourceHacker.exe in the Start menu or search for “Resource Hacker”
+- Or check the installation path (typically `C:\ProgramData\chocolatey\lib\resourcehacker.portable\tools`)
+- Launch ResourceHacker.exe to confirm the interface opens correctly
 
----
+## Requirements
 
-## 📋 Requirements
+- **OS**: Windows 10 / 11
+- **Chocolatey**: Must be pre-installed
+- **Flipper Zero**: BadUSB feature enabled
+- **Internet Access**: Required for Chocolatey package download
+- **Admin Privileges**: Required for elevated Command Prompt
 
-| Requirement                | Details                                           |
-|----------------------------|---------------------------------------------------|
-| OS                         | Windows 10/11                                     |
-| Chocolatey                 | Must be pre-installed                             |
-| Admin Privileges           | Required for elevation                            |
-| Internet Connection        | Required to download package                      |
-| Flipper Zero               | BadUSB mode enabled                               |
-| CMD Compatibility          | Must support Chocolatey commands                  |
+## Technical Notes
 
----
+- **Chocolatey Dependency**: The script assumes Chocolatey is already present
+- **Elevation**: Opens an elevated cmd.exe (may show UAC prompt)
+- **Silent Install**: Uses -y to suppress all prompts
+- **Shell**: Uses Command Prompt (cmd) for broad compatibility
+- **Package**: Installs the portable version (resourcehacker.portable) – no system-wide installation, no registry changes
+- **Delays**: Standard timing (DELAY 1000, 500, 1500). Increase if the target system is slow
+- **Testing Recommendation**: Always test in a virtual machine or isolated environment first
+- **Security**: Resource editing tools are frequently flagged by antivirus software due to their common use in software cracking and malware modification. Use only in authorized environments
 
-## ⚙️ Technical Details
+## Disclaimer
 
-- **Shell Choice:** CMD for universal compatibility  
-- **Elevation:** May trigger User Account Control (UAC)  
-- **Timing Delays:**  
-  - Defaults: `DELAY 1000`, `500`, `1500`  
-  - Adjust upward for slow systems (e.g., `DELAY 700+`)  
-- **Package Version:** 5.x or newer as of August 2025  
-- **Testing Strategy:** Always validate in sandbox or VM environment
+This script is provided for educational and research purposes only.  
+Use it exclusively on systems you own or have explicit written permission to access.  
+The author is not responsible for any misuse, security incidents, or damage resulting from the use of this script.
 
----
+## License
 
-## ⚠️ Disclaimer
-
-For educational and authorized use only.  
-Deploy only on systems you **own or have explicit permission** to control.  
-Author assumes no responsibility for misuse or outcomes of deployment.
-
----
-
-## 📄 License
-
-Licensed under the **MIT License**  
-See the included `LICENSE` file for full terms.
+Licensed under the MIT License. See the `LICENSE` file for full details.
