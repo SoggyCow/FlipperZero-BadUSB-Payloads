@@ -1,107 +1,74 @@
-# Rufus Installation Script via Chocolatey for Flipper Zero
+# Rufus Installation Script for Flipper Zero
 
-**Author:** SoggyCow  
+**Author:** [SoggyCow](https://github.com/SoggyCow)  
 **License:** MIT
 
----
+## Overview
 
-## 🛠 Overview
+This script automates the installation of [Rufus](https://rufus.ie/), a free and open-source utility for creating bootable USB drives.  
+Rufus is widely used to make bootable USB flash drives from ISO files (Windows installation media, Linux distributions, rescue tools, diagnostic utilities, antivirus live CDs, etc.). It supports UEFI/GPT, BIOS/MBR, DD Image mode, persistent partitions, and offers fast formatting with advanced options.
 
-Deploys [Rufus](https://rufus.ie)—the trusted utility for creating bootable USB drives—via [Chocolatey](https://chocolatey.org/) on Windows using **Flipper Zero’s BadUSB** functionality.  
-Scripted in **DuckyScript**, it simulates keystrokes to open an elevated CMD and perform a silent Rufus install.
+Using Flipper Zero’s **BadUSB** feature with DuckyScript, the script opens an elevated Command Prompt and silently installs Rufus via [Chocolatey](https://chocolatey.org/).
 
-> ⚠️ Requires Chocolatey pre-installed. See `install_chocolatey.txt`.
+> **Note:** Chocolatey must be pre-installed on the target system. If it is not, run a Chocolatey installation payload first.
 
----
+## Usage Instructions
 
-## 🔧 Usage
+### 1. Save the Script
+- Filename: `install_rufus.txt`
+- Format: UTF-8 plain text
 
-### 1. Prepare Payload
+### 2. Upload to Flipper
+- Connect Flipper Zero via USB or Bluetooth
+- Use **qFlipper** or **Flipper Mobile App**
+- Transfer the file to: `SD Card/badusb/`
 
-- File name: `install_rufus.txt`  
-- Format: UTF-8 `.txt` for Flipper Zero compatibility
+### 3. Run the Script
+- On Flipper: Navigate to `Main Menu > Bad USB > install_rufus.txt`
+- Ensure USB mode is active
+- Connect to the target Windows machine and press **Run**
 
-### 2. Upload to Flipper Zero
+The script will:
+- Open the Run dialog (Win + R)
+- Launch an elevated Command Prompt (cmd with CTRL + SHIFT + ENTER)
+- Execute: choco install rufus -y && exit
 
-- Connect via USB/Bluetooth  
-- Use **qFlipper** or **Flipper Mobile App**  
-- Transfer to:  
-  `SD Card/badusb/`
+## Installation Verification
 
-### 3. Deploy on Target System
+Rufus installs silently if:
+- Chocolatey is already installed
+- Administrative privileges are granted (UAC prompt accepted)
+- An internet connection is available
 
-- From Flipper Menu:  
-  `Main Menu > Bad USB > install_rufus.txt`  
-- Confirm USB mode is active  
-- Connect to target system  
-- Run the script to:
+After installation:
+- Look for “Rufus” in the Start menu or search for “Rufus”
+- Or check the installation path (typically `C:\Program Files\Rufus`)
+- Launch Rufus to confirm the main window opens correctly
 
-Execution Steps:
-- Open Windows Run dialog  
-- Launch elevated CMD (UAC may appear)  
-- Execute:  
-  `choco install rufus -y`
+## Requirements
 
----
+- **OS**: Windows 10 / 11
+- **Chocolatey**: Must be pre-installed
+- **Flipper Zero**: BadUSB feature enabled
+- **Internet Access**: Required for Chocolatey package download
+- **Admin Privileges**: Required for elevated Command Prompt
 
-## ✅ Verification
+## Technical Notes
 
-Rufus installs automatically assuming:
-- Chocolatey is present  
-- Internet connection available  
-- Admin privileges granted  
-- CMD compatible with Chocolatey
+- **Chocolatey Dependency**: The script assumes Chocolatey is already present
+- **Elevation**: Opens an elevated cmd.exe (may show UAC prompt)
+- **Silent Install**: Uses -y to suppress all prompts
+- **Shell**: Uses Command Prompt (cmd) for broad compatibility
+- **Delays**: Standard timing (DELAY 1000, 500, 1500). Increase if the target system is slow
+- **Testing Recommendation**: Always test in a virtual machine or isolated environment first
+- **Security**: Bootable media creation tools are rarely flagged by antivirus, but use only in authorized environments
 
----
+## Disclaimer
 
-## 🧾 Requirements
+This script is provided for educational and research purposes only.  
+Use it exclusively on systems you own or have explicit written permission to access.  
+The author is not responsible for any misuse, security incidents, or damage resulting from the use of this script.
 
-| Component            | Details                                              |
-|---------------------|------------------------------------------------------|
-| Windows OS          | Windows 10/11 recommended                            |
-| Chocolatey          | Must be installed beforehand                         |
-| Admin Privileges    | Needed for install                                    |
-| Internet Access     | Required to fetch Chocolatey package                 |
-| Flipper Zero        | BadUSB functionality enabled                         |
-| CMD Compatibility   | Chocolatey must work from command line               |
-| Rufus Compatibility | Generally lightweight—check vendor documentation     |
+## License
 
----
-
-## 🧪 Deployment Tips
-
-- **Timing Delays:**  
-  Default delays: `DELAY 1000`, `500`, `1500`  
-  Tune delays for slower hosts (e.g. `DELAY 700+`)
-
-- **Silent Install:**  
-  `-y` flag ensures no user prompts
-
-- **Elevation Method:**  
-  Simulates `CTRL + SHIFT + ENTER` to elevate CMD (triggers UAC)
-
-- **Chocolatey Check:**  
-  If install fails, verify Chocolatey presence via:  
-  `choco -v`
-
-- **Package Version:**  
-  Rufus typically installs v4.x+ — verify at:  
-  [Chocolatey Rufus Package](https://community.chocolatey.org/packages/rufus)
-
-- **Safe Testing:**  
-  Recommend sandbox or virtual machine for dry runs
-
----
-
-## ⚠️ Disclaimer
-
-Provided **as-is** for educational/authorized use only.  
-Use on machines you **own or are authorized** to configure.  
-The author disclaims liability for misuse or unintended effects.
-
----
-
-## 📄 License
-
-Licensed under the **MIT License**  
-Refer to the `LICENSE` file for full terms.
+Licensed under the MIT License. See the `LICENSE` file for full details.
