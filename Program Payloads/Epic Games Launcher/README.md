@@ -1,98 +1,71 @@
-# Epic Games Launcher Installation Script via Chocolatey for Flipper Zero
+# Epic Games Launcher Installation Script for Flipper Zero
 
-**Author:** SoggyCow  
+**Author:** [SoggyCow](https://github.com/SoggyCow)  
 **License:** MIT
 
----
+## Overview
 
-## 🎮 Overview
+This script automates the installation of [Epic Games Launcher](https://store.epicgames.com/en-US/download), the official client for the Epic Games Store. It serves as a digital distribution platform for purchasing, downloading, and playing games (including Fortnite, free weekly titles, and many third-party releases), as well as accessing Unreal Engine and various development tools.
 
-Installs the [Epic Games Launcher](https://www.epicgames.com/store/en-US/download), a digital storefront and game manager, using [Chocolatey](https://chocolatey.org/) on Windows.  
-Built for **Flipper Zero’s BadUSB**, the script simulates keystrokes via **DuckyScript** to elevate CMD and silently install the launcher.
+Using Flipper Zero’s **BadUSB** feature with DuckyScript, the script opens an elevated Command Prompt and silently installs the Epic Games Launcher via [Chocolatey](https://chocolatey.org/).
 
-> ⚠️ Requires Chocolatey pre-installed. Use `install_chocolatey.txt` prior to deployment.
+> **Note:** Chocolatey must be pre-installed on the target system. If it is not, run a Chocolatey installation payload first.
 
----
-
-## 🚀 Usage Instructions
+## Usage Instructions
 
 ### 1. Save the Script
-
-- Filename: `install_epicgameslauncher.txt`  
-- Encoding: UTF-8 `.txt` for Flipper Zero compatibility
+- Filename: `install_epicgameslauncher.txt`
+- Format: UTF-8 plain text
 
 ### 2. Upload to Flipper
+- Connect Flipper Zero via USB or Bluetooth
+- Use **qFlipper** or **Flipper Mobile App**
+- Transfer the file to: `SD Card/badusb/`
 
-- Connect via **USB/Bluetooth**  
-- Use **qFlipper** or **Flipper Mobile App**  
-- Upload to:  
-  `SD Card/badusb/`
+### 3. Run the Script
+- On Flipper: Navigate to `Main Menu > Bad USB > install_epicgameslauncher.txt`
+- Ensure USB mode is active
+- Connect to the target Windows machine and press **Run**
 
-### 3. Execute on Target Machine
+The script will:
+- Open the Run dialog (`Win + R`)
+- Launch an elevated Command Prompt (`cmd` with `CTRL + SHIFT + ENTER`)
+- Execute: `choco install epicgameslauncher -y && exit`
 
-- On Flipper:  
-  `Main Menu > Bad USB > install_epicgameslauncher.txt`
-- Confirm USB mode active (USB icon visible)  
-- Connect Flipper to target system  
-- Press **Run**
+## Installation Verification
 
-Execution steps:
-- Triggers Windows Run dialog  
-- Opens elevated CMD (may show UAC prompt)  
-- Runs silent install:  
-  `choco install epicgameslauncher -y`
+The Epic Games Launcher installs silently if:
+- Chocolatey is already installed
+- Administrative privileges are granted (UAC prompt accepted)
+- An internet connection is available
 
----
+After installation, the launcher should appear in the Start menu or on the desktop.  
+Launch it and sign in with an Epic Games account to verify functionality.
 
-## ✅ Installation Verification
+## Requirements
 
-- Requires no user input  
-- Epic Games Launcher installs quietly if Chocolatey is present and internet is active  
-- Version: Latest stable per Chocolatey's package [listing](https://community.chocolatey.org/packages/epicgameslauncher)
+- **OS**: Windows 10 / 11
+- **Chocolatey**: Must be pre-installed
+- **Flipper Zero**: BadUSB feature enabled
+- **Internet Access**: Required for Chocolatey package download
+- **Admin Privileges**: Required for elevated Command Prompt
 
----
+## Technical Notes
 
-## 📋 Prerequisites
+- **Chocolatey Dependency**: The script assumes Chocolatey is already present
+- **Elevation**: Opens an elevated cmd.exe (may show UAC prompt)
+- **Silent Install**: Uses `-y` to suppress all prompts
+- **Shell**: Uses Command Prompt (cmd) for broad compatibility
+- **Delays**: Standard timing (`DELAY 1000`, `500`, `1500`). Increase if the target system is slow
+- **Testing Recommendation**: Always test in a virtual machine or isolated environment first
+- **Security**: Game launchers and download managers can be flagged by AV/EDR. Use only in authorized environments
 
-- OS: Windows 10/11  
-- Chocolatey installed  
-- Admin rights  
-- Flipper Zero with BadUSB enabled  
-- Active internet connection  
-- CMD must support Chocolatey  
-- Hardware compatibility with Epic Games Launcher (e.g., ≥4GB RAM, supported GPU)
+## Disclaimer
 
----
+This script is provided for educational and research purposes only.  
+Use it exclusively on systems you own or have explicit written permission to access.  
+The author is not responsible for any misuse, security incidents, or damage resulting from the use of this script.
 
-## ⚙️ Technical Notes
+## License
 
-- **Admin Elevation:**  
-  May trigger UAC on systems with default security
-
-- **Silent Mode:**  
-  `-y` suppresses installer prompts
-
-- **Timing Delays:**  
-  Defaults: `DELAY 1000`, `500`, `1500`  
-  Adjust upward for laggy systems
-
-- **Shell Choice:**  
-  CMD selected for universal system compatibility
-
-- **Deployment Testing:**  
-  Use VMs or sandboxed environments for first-run validation
-
----
-
-## ⚠️ Disclaimer
-
-Educational use only.  
-Deploy only to machines you **own or have permission to access**.  
-No responsibility assumed by the author for misuse or system impact.
-
----
-
-## 📄 License
-
-Licensed under the **MIT License**  
-Full terms in the [LICENSE](LICENSE) file
+Licensed under the MIT License. See the `LICENSE` file for full details.
