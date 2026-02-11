@@ -1,31 +1,68 @@
-**Author:** [SoggyCow](https://github.com/SoggyCow)
+# iPerf3 Installation Script for Flipper Zero
 
-# Flipper Zero BadUSB – Install iPerf3 via Chocolatey
+**Author:** [SoggyCow](https://github.com/SoggyCow)  
+**License:** MIT
 
-**Target:** Windows  
-**Requirements:**  
-- Chocolatey package manager already installed on the target system  
-- Ability to elevate to administrator privileges
+## Overview
 
-### Description
+This script automates the installation of [iPerf3](https://iperf.fr/), a widely used open-source tool for measuring TCP, UDP, and SCTP bandwidth performance on IP networks. iPerf3 allows users to test network throughput, latency, jitter, and packet loss between two endpoints (client/server mode), making it essential for network diagnostics, benchmarking, and troubleshooting.
 
-This BadUSB payload opens an elevated Command Prompt and silently installs iPerf3 using Chocolatey with automatic confirmation. The terminal window closes immediately after execution completes.
+The script uses Flipper Zero’s **BadUSB** feature with DuckyScript to open an elevated Command Prompt and silently install iPerf3 via [Chocolatey](https://chocolatey.org/).
 
-### Usage
+> Note: Chocolatey must be pre-installed. Run a Chocolatey installation script first if needed.
 
-1. Place the payload file in the `/badusb/` directory on the Flipper Zero SD card  
-2. Select and execute the file from the BadUSB menu
+## Usage Instructions
 
-### Behavior Notes
+### 1. Save the Script
+- Filename: `install_iperf3.txt`
+- Format: UTF-8 plain text
 
-- A delay is included after triggering the run dialog to allow time for the UAC elevation prompt  
-- If Chocolatey is not installed, the command will fail silently after the prompt is accepted  
-- No error checking or fallback behavior is implemented
+### 2. Upload to Flipper
+- Connect Flipper Zero via USB or Bluetooth.
+- Use **qFlipper** or **Flipper Mobile App**.
+- Transfer to: `SD Card/badusb/`.
 
-### Limitations
+### 3. Run the Script
+- On Flipper: Navigate to `Main Menu > Bad USB > install_iperf3.txt`.
+- Ensure USB mode is active.
+- Connect to the target Windows machine and press **Run**.
 
-- Requires Chocolatey to be pre-installed  
-- UAC elevation prompt requires manual confirmation unless UAC is disabled on the target  
-- No mechanism is included to install Chocolatey itself
+The script will:
+- Open the Run dialog (`Win + R`).
+- Launch an elevated Command Prompt (`cmd` with `CTRL + SHIFT + ENTER`).
+- Execute: `choco install iperf3 -y && exit`.
 
-Repository maintained by @SoggyCow
+## Installation Verification
+
+iPerf3 installs silently if:
+- Chocolatey is installed.
+- Administrative privileges are granted.
+- An internet connection is available.
+
+After installation, verify by running `iperf3 --version` in a new Command Prompt.
+
+## Requirements
+
+- **OS**: Windows 10/11
+- **Chocolatey**: Must be pre-installed
+- **Flipper Zero**: BadUSB feature enabled
+- **Internet Access**: Required for package download
+- **Admin Privileges**: Needed for elevated Command Prompt
+
+## Technical Notes
+
+- **Chocolatey Dependency**: Requires Chocolatey to be pre-installed.
+- **Elevation**: Uses elevated Command Prompt; may trigger a UAC prompt.
+- **Silent Install**: The `-y` flag suppresses confirmation prompts.
+- **Shell**: Uses Command Prompt for maximum compatibility.
+- **Delays**: Includes standard delays (`DELAY 1000`, `DELAY 500`, `DELAY 1500`). Increase values for slower systems if needed.
+- **Testing**: Always test in a virtual machine or isolated environment first.
+- **Security**: Network testing tools may be flagged by security software. Use only in authorized environments.
+
+## Disclaimer
+
+This script is provided for educational and research purposes only. Use exclusively on systems you own or have explicit written permission to access. The author is not responsible for any misuse, security incidents, or damage resulting from the use of this script.
+
+## License
+
+Licensed under the MIT License. See the `LICENSE` file for full details.
