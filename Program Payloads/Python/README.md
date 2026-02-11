@@ -1,4 +1,3 @@
-```markdown
 # Python Installation Script for Flipper Zero
 
 **Author:** [SoggyCow](https://github.com/SoggyCow)  
@@ -29,9 +28,9 @@ Using Flipper Zero’s **BadUSB** feature with DuckyScript, the script opens an 
 - Connect to the target Windows machine and press **Run**
 
 The script will:
-- Open the Run dialog (`Win + R`)
-- Launch an elevated Command Prompt (`cmd` with `CTRL + SHIFT + ENTER`)
-- Execute: `choco install python -y && exit`
+- Open the Run dialog (Win + R)
+- Launch an elevated Command Prompt (cmd with CTRL + SHIFT + ENTER)
+- Execute: choco install python -y && exit
 
 ## Installation Verification
 
@@ -42,18 +41,14 @@ Python installs silently if:
 
 After installation, open a new Command Prompt and run:
 
-```
 python --version
-```
 
 or
 
-```
 py --version
-```
 
 You should see output similar to:  
-`Python 3.12.5` (or the latest version available at the time of installation)
+Python 3.12.5 (or the latest version available at the time of installation)
 
 ## Requirements
 
@@ -67,10 +62,10 @@ You should see output similar to:
 
 - **Chocolatey Dependency**: The script assumes Chocolatey is already present
 - **Elevation**: Opens an elevated cmd.exe (may show UAC prompt)
-- **Silent Install**: Uses `-y` to suppress all prompts
+- **Silent Install**: Uses -y to suppress all prompts
 - **Shell**: Uses Command Prompt (cmd) for broad compatibility
-- **Package Behavior**: The `python` Chocolatey package typically installs the latest stable Python 3.x release and adds it to PATH
-- **Delays**: Standard timing (`DELAY 1000`, `500`, `1500`). Increase if the target system is slow
+- **Package Behavior**: The python Chocolatey package typically installs the latest stable Python 3.x release and adds it to PATH
+- **Delays**: Standard timing (DELAY 1000, 500, 1500). Increase if the target system is slow
 - **Testing Recommendation**: Always test in a virtual machine or isolated environment first
 - **Security**: Python itself is not usually flagged, but many security tools and scripts written in Python may be. Use only in authorized environments
 
@@ -83,4 +78,3 @@ The author is not responsible for any misuse, security incidents, or damage resu
 ## License
 
 Licensed under the MIT License. See the `LICENSE` file for full details.
-```
