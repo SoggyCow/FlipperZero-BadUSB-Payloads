@@ -1,3 +1,5 @@
+**Author:** [SoggyCow](https://github.com/SoggyCow)
+
 # Flipper Zero BadUSB – Install iPerf3 via Chocolatey
 
 **Target:** Windows  
