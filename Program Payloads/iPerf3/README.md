@@ -1,98 +1,100 @@
-# iPerf3 Installation Script via Chocolatey for Flipper Zero
+```markdown
+# iPerf3 Installation Script for Flipper Zero
 
-**Author:** SoggyCow  
-**License:** MIT
+Author: [SoggyCow](https://github.com/SoggyCow)  
+License: MIT
 
----
+## Overview
 
-## 🌐 Overview
+This script silently installs [iPerf3](https://iperf.fr/), the industry-standard network performance testing tool, via [Chocolatey](https://chocolatey.org/) on Windows systems. Using Flipper Zero’s **BadUSB** feature with DuckyScript, it opens an elevated Command Prompt and performs a quiet installation.
 
-Automates installation of **iPerf3**, a lightweight, open-source utility for testing network throughput and performance.  
-Uses **Flipper Zero’s BadUSB** DuckyScript to simulate keyboard input, launch elevated CMD, and run Chocolatey install command.
+> Note: Chocolatey must be pre-installed. Run a separate Chocolatey installation script first if needed.
 
-> ⚠️ Requires Chocolatey pre-installed (`install_chocolatey.txt` should be run first)
-
----
-
-## 🧪 Use Case
-
-Ideal for network diagnostics, bandwidth benchmarking, or validating tunnel throughput.  
-This script can be paired with client/server deployments for LAN/WAN profiling.
-
----
-
-## 📦 Setup & Execution
+## Usage Instructions
 
 ### 1. Save the Script
+- Filename: `install_iperf3.txt`
+- Format: UTF-8 plain text
 
-- File name: `install_iperf3.txt`  
-- Encoding: Plain `.txt`, UTF-8
+### 2. Upload to Flipper
+- Connect Flipper Zero via USB or Bluetooth.
+- Use **qFlipper** or **Flipper Mobile App**.
+- Transfer to: `SD Card/badusb/`.
 
-### 2. Upload to Flipper Zero
+### 3. Run the Script
+- On Flipper: Navigate to `Main Menu > Bad USB > install_iperf3.txt`.
+- Ensure USB mode is active.
+- Connect to the target Windows machine and press **Run**.
 
-- Connect via USB/Bluetooth  
-- Transfer via **qFlipper** or **Flipper Mobile**  
-- Path:  
-  `SD Card/badusb/`
+The script will:
+- Open the Run dialog (`Win + R`).
+- Launch an elevated Command Prompt (`cmd` with `CTRL + SHIFT + ENTER`).
+- Execute: `choco install iperf3 -y && exit`
 
-### 3. Execute on Target Windows System
+## Installation Verification
 
-- Flipper navigation:  
-  `Main Menu > Bad USB > install_iperf3.txt`  
-- Confirm USB mode active (USB icon visible)  
-- Plug Flipper into target host  
-- Tap **Run**
+iPerf3 installs silently if:
+- Chocolatey is already installed
+- Administrative privileges are granted (UAC accepted)
+- An internet connection is available
 
-Payload actions:
-- Launches Run dialog  
-- Opens elevated CMD (`CTRL + SHIFT + ENTER`)  
-- Executes:  
-  `choco install iperf3 -y`
+After installation, verify by opening a terminal and running:
 
----
+```bash
+iperf3 --version
+```
 
-## 🔍 Installation Checklist
+You can also check the [Chocolatey Package Page](https://community.chocolatey.org/packages/iperf3).
 
-| Item                    | Detail                                            |
-|-------------------------|----------------------------------------------------|
-| OS                      | Windows 10/11 recommended                          |
-| Chocolatey              | Required prior to execution                        |
-| Admin Privileges        | Required for elevated CMD                          |
-| Internet Connectivity   | Necessary for package retrieval                    |
-| CMD Compatibility       | Should support Chocolatey commands                 |
-| System Requirements     | Lightweight; see [iperf3 specs](https://iperf.fr)  |
+## Requirements
 
----
+- **OS**: Windows 10 / 11
+- **Chocolatey**: Must be pre-installed
+- **Flipper Zero**: BadUSB feature enabled
+- **Internet Access**: Required for package download
+- **Admin Privileges**: Needed for elevated Command Prompt
 
-## ⚙️ Technical Notes
+## Technical Notes
 
-- **Timing Delays:**  
-  Uses `DELAY 1000`, `500`, `1500` — adjust upward for slower machines
+- **Chocolatey Dependency**: Requires Chocolatey to be pre-installed.
+- **Elevation**: Opens an elevated Command Prompt; may trigger a UAC prompt.
+- **Silent Install**: The `-y` flag suppresses all prompts.
+- **Auto-close**: `&& exit` closes the terminal window when finished.
+- **Delays**: Includes `DELAY 1000`, `DELAY 500`, and `DELAY 1500`. Increase delays (e.g. 800–2000 ms) on slower systems or if UAC takes longer.
+- **Testing**: Always test in a virtual machine or sandbox environment first.
 
-- **Elevation Protocol:**  
-  Simulates `CTRL + SHIFT + ENTER`, may trigger UAC
+## Script Source
 
-- **Silent Install Flag:**  
-  `-y` ensures no user prompts
+```text
+REM Title: Install iPerf3 via Chocolatey (Admin CMD)
+REM Author: SoggyCow
+REM Description: Assumes Chocolatey is pre-installed; installs iPerf3 silently and closes terminal
 
-- **Chocolatey Repository Status:**  
-  Installs latest stable `iperf3` (typically 3.x as of August 2025)  
-  Check package: [iperf3 on Chocolatey](https://community.chocolatey.org/packages/iperf3)
+DELAY 1000
+GUI r
+DELAY 500
+STRING cmd
+CTRL-SHIFT ENTER
+DELAY 1500
+STRING choco install iperf3 -y && exit
+ENTER
+```
 
-- **Test Environment Recommendation:**  
-  Initial deployment should be tested in VM/sandbox
+## Disclaimer
 
----
+This script is provided for **educational**, **security research**, and **authorized penetration testing** purposes only.  
+Do not use on systems you do not own or have explicit written permission to access.  
+The author, SoggyCow, is not responsible for any misuse or damage caused by this script.
 
-## ⚠️ Disclaimer
+## License
 
-This script is provided **as-is** for educational use only.  
-Run on devices you **own or have permission to modify**.  
-Author assumes no responsibility for misuse or consequences.
+Licensed under the MIT License. See the `LICENSE` file for details.
+```
 
----
+Feel free to copy this directly into your repository.
 
-## 📄 License
-
-Distributed under the **MIT License**  
-See included `LICENSE` file for details
+Let me know if you'd like to add sections like:
+- common post-install test commands
+- how to install a specific version
+- error troubleshooting tips
+- or a more "red team" flavored tone
