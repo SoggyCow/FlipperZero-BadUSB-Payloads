@@ -1,0 +1,13 @@
+REM Title: Enable Windows Hyper-V (Win+X method)
+REM Author: SoggyCow
+REM Description: Opens elevated PowerShell via Win+X > A then enables Hyper-V without restart
+DELAY 1000
+GUI x
+DELAY 400
+STRING a
+DELAY 1200
+STRING Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All -NoRestart
+ENTER
+DELAY 500
+STRING exit
+ENTER
