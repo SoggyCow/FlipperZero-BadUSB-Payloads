@@ -5,7 +5,7 @@ License: MIT
 
 ## Purpose
 
-This repository is a collection of **BadUSB payloads** designed for [Flipper Zero](https://flipperzero.one/), utilizing **DuckyScript** to leverage its USB emulation capabilities. The scripts range from practical utilities to creative automations and software installations, created to support the Flipper Zero community and showcase adversarial testing and automation techniques.
+This repository is a collection of **BadUSB payloads** designed by SoggyCow for [Flipper Zero](https://flipperzero.one/), utilizing **DuckyScript** to leverage its USB emulation capabilities. The scripts range from practical utilities to creative automations and software installations, created to support the Flipper Zero community and showcase adversarial testing and automation techniques.
 
 ## Contents
 
