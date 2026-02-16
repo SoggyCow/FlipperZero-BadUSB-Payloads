@@ -15,7 +15,7 @@ Using Flipper Zero’s **BadUSB** feature with DuckyScript, the script opens an 
 ## Usage Instructions
 
 ### 1. Save the Script
-- Filename: `install_teamspeak.txt`
+- Filename: `install_teamspeak3-client.txt`
 - Format: UTF-8 plain text
 
 ### 2. Upload to Flipper
@@ -24,7 +24,7 @@ Using Flipper Zero’s **BadUSB** feature with DuckyScript, the script opens an 
 - Transfer the file to: `SD Card/badusb/`
 
 ### 3. Run the Script
-- On Flipper: Navigate to `Main Menu > Bad USB > install_teamspeak.txt`
+- On Flipper: Navigate to `Main Menu > Bad USB > install_teamspeak3-client.txt`
 - Ensure USB mode is active
 - Connect to the target Windows machine and press **Run**
 
