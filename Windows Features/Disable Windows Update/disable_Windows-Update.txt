@@ -1,0 +1,94 @@
+REM ================================================
+REM GoodUSB Payload: Disable Windows 11 Automatic Updates
+REM Created by SoggyCow (GitHub: SoggyCow)
+REM Purpose: Disable automatic Windows Update checks/downloads/installs
+REM          (Not recommended - increases security risk)
+REM Requires: Windows 11, internet (optional), administrator privileges
+REM Note: Changes are via service + registry; may be partially reverted by system
+REM       mechanisms over time. Reboot recommended after execution.
+REM ================================================
+
+DELAY 500
+GUI r
+DELAY 1000
+STRING notepad.exe
+ENTER
+DELAY 1000
+
+REM Introduction text
+STRING This is GoodUSB - a security payload developed by SoggyCow (GitHub: SoggyCow).
+ENTER
+STRING It disables automatic Windows Update on Windows 11.
+ENTER
+STRING This prevents automatic downloading and installation of updates.
+ENTER
+ENTER
+STRING WARNING: Disabling updates increases security vulnerability.
+ENTER
+STRING Use only on isolated/test systems. Not for production devices.
+ENTER
+STRING Developed and shared by SoggyCow. Source available on GitHub.
+ENTER
+STRING Unplug the device to cancel at any time.
+ENTER
+STRING Process will begin in 5...
+DELAY 3000
+STRING 4...
+DELAY 3000
+STRING 3...
+DELAY 3000
+STRING 2...
+DELAY 3000
+STRING 1...
+DELAY 3000
+STRING Proceeding.
+ENTER
+ENTER
+STRING Closing Notepad without saving.
+DELAY 1000
+ALT F4
+DELAY 1000
+ALT N
+
+REM Open Run dialog
+GUI r
+DELAY 1000
+STRING powershell.exe
+ENTER
+DELAY 1000
+
+REM Elevate to Administrator
+STRING Start-Process powershell -Verb runAs ; exit
+ENTER
+DELAY 4000
+LEFT
+ENTER
+DELAY 4000
+
+REM PowerShell execution block
+STRING Clear-Host; Write-Host "GoodUSB Payload - Developed by SoggyCow (GitHub: SoggyCow)" -ForegroundColor Cyan; Write-Host "Disabling Windows Automatic Updates..." -ForegroundColor Red; Write-Host "Press Enter to continue (this is irreversible without manual revert)..." -ForegroundColor Yellow; pause
+ENTER
+DELAY 2000
+
+REM Stop and disable Windows Update service + related
+STRING Stop-Service -Name wuauserv -Force -ErrorAction SilentlyContinue; Set-Service -Name wuauserv -StartupType Disabled -ErrorAction SilentlyContinue; Stop-Service -Name bits -Force -ErrorAction SilentlyContinue; Set-Service -Name bits -StartupType Disabled -ErrorAction SilentlyContinue; Stop-Service -Name WaaSMedicSvc -Force -ErrorAction SilentlyContinue; Set-Service -Name WaaSMedicSvc -StartupType Disabled -ErrorAction SilentlyContinue
+ENTER
+DELAY 3000
+
+REM Registry: Disable auto-updates (main key)
+STRING New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" -Force | Out-Null; Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" -Name "NoAutoUpdate" -Value 1 -Type DWord -Force
+ENTER
+DELAY 2000
+
+REM Optional extra: Pause updates far into future (via metering or target version trick fallback)
+STRING Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" -Name "PauseUpdatesExpiryTime" -Value "2099-12-31T23:59:59Z" -Type String -Force -ErrorAction SilentlyContinue
+ENTER
+DELAY 1000
+
+REM Final message
+STRING Write-Host "Automatic Windows Updates have been disabled." -ForegroundColor Green; Write-Host "Services stopped/disabled + registry updated." -ForegroundColor Green; Write-Host "Reboot the system for full effect." -ForegroundColor Yellow; Write-Host "Source and updates: GitHub - SoggyCow" -ForegroundColor Magenta; Write-Host "Press Enter to exit." -ForegroundColor Yellow; pause
+ENTER
+
+REM Close PowerShell
+DELAY 3000
+ALT F4
