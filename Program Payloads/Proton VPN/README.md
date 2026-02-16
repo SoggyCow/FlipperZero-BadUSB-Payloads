@@ -1,75 +1,74 @@
-# 🔐 Proton VPN Installation Script via Chocolatey for Flipper Zero
+# Proton VPN Installation Script for Flipper Zero
 
-**Author:** SoggyCow  
-**License:** MIT License
+**Author:** [SoggyCow](https://github.com/SoggyCow)  
+**License:** MIT
 
----
+## Overview
 
-## 📦 Overview
+This script automates the installation of [Proton VPN](https://protonvpn.com/), a privacy-focused virtual private network service from Proton (the team behind Proton Mail, Drive, Pass, and Calendar).  
+Proton VPN provides no-logs policy, open-source apps, Secure Core servers (multi-hop routing), NetShield ad/malware/tracker blocker, Stealth protocol (obfuscation), kill switch, port forwarding (paid), and strong encryption — with a generous free tier (unlimited data, medium speeds, 3 countries) and paid plans for faster speeds and more servers/locations.
 
-This script automates installation of [Proton VPN](https://protonvpn.com), a security-focused VPN client, using [Chocolatey](https://chocolatey.org) on Windows.  
-Built for use with Flipper Zero’s **BadUSB** feature, it uses DuckyScript to simulate keyboard input and execute a PowerShell command silently in a hidden window.
+Using Flipper Zero’s **BadUSB** feature with DuckyScript, the script opens an elevated Command Prompt and silently installs Proton VPN via [Chocolatey](https://chocolatey.org/).
 
-> ⚠️ **Important**: Chocolatey must be installed _prior_ to running this script.
+> **Note:** Chocolatey must be pre-installed on the target system. If it is not, run a Chocolatey installation payload first.
 
----
-
-## 🚀 Usage Instructions
-
-Designed for Flipper Zero’s BadUSB mode (keyboard emulation):
+## Usage Instructions
 
 ### 1. Save the Script
-Save the DuckyScript as a `.txt` file, e.g., `install_protonvpn.txt`.
+- Filename: `install_protonvpn.txt`
+- Format: UTF-8 plain text
 
-### 2. Transfer to Flipper Zero
-- Connect via USB or Bluetooth.
-- Use **qFlipper** or **Flipper Mobile** to upload the script to:  
-  `SD Card/badusb/install_protonvpn.txt`
+### 2. Upload to Flipper
+- Connect Flipper Zero via USB or Bluetooth
+- Use **qFlipper** or **Flipper Mobile App**
+- Transfer the file to: `SD Card/badusb/`
 
-### 3. Execute the Script
-- On Flipper Zero:  
-  Navigate to `Main Menu > Bad USB`
-- Select `install_protonvpn.txt`.
-- Confirm **USB mode** is active (USB icon should be displayed).
-- Plug Flipper Zero into the target Windows machine.
-- Press **Run** — the payload will:
-  - Launch Windows Run dialog (`Win + R`)
-  - Run a hidden PowerShell command that installs Proton VPN via Chocolatey
+### 3. Run the Script
+- On Flipper: Navigate to `Main Menu > Bad USB > install_protonvpn.txt`
+- Ensure USB mode is active
+- Connect to the target Windows machine and press **Run**
 
-### ✅ Verification
-If Chocolatey is installed and internet access is available, Proton VPN will be installed automatically.
+The script will:
+- Open the Run dialog (Win + R)
+- Launch an elevated Command Prompt (cmd with CTRL + SHIFT + ENTER)
+- Execute: choco install protonvpn -y && exit
 
----
+## Installation Verification
 
-## 🧰 Requirements
+Proton VPN installs silently if:
+- Chocolatey is already installed
+- Administrative privileges are granted (UAC prompt accepted)
+- An internet connection is available
 
-- Windows operating system  
-- Chocolatey pre-installed  
-- Flipper Zero with BadUSB capability  
-- Internet connection on target machine  
-- Admin privileges for software installation
+After installation:
+- Look for “Proton VPN” in the Start menu or system tray
+- Or check the installation path (typically `C:\Program Files\Proton\VPN`)
+- Launch Proton VPN to confirm the login/setup window appears (Proton account required — free account signup is quick)
 
----
+## Requirements
 
-## ⚠️ Notes & Caveats
+- **OS**: Windows 10 / 11
+- **Chocolatey**: Must be pre-installed
+- **Flipper Zero**: BadUSB feature enabled
+- **Internet Access**: Required for Chocolatey package download
+- **Admin Privileges**: Required for elevated Command Prompt
 
-- **Chocolatey Dependency**: You must install Chocolatey first.  
-- **Admin Rights**: Required to execute the install successfully.  
-- **Silent Install**: The `-y` flag suppresses user prompts.  
-- **Stealth Mode**: PowerShell runs hidden (`-W Hidden`), but AV software (e.g. Defender) may flag the behavior.  
-- **Timing Reliability**: Script includes `DELAY 1000` and `DELAY 500`. On slow systems, increase these (e.g. to `DELAY 700`).  
-- **Testing**: Run in a sandbox or VM environment first to verify behavior safely.
+## Technical Notes
 
----
+- **Chocolatey Dependency**: The script assumes Chocolatey is already present
+- **Elevation**: Opens an elevated cmd.exe (may show UAC prompt)
+- **Silent Install**: Uses -y to suppress all prompts
+- **Shell**: Uses Command Prompt (cmd) for broad compatibility
+- **Delays**: Standard timing (DELAY 1000, 500, 1500). Increase if the target system is slow
+- **Testing Recommendation**: Always test in a virtual machine or isolated environment first
+- **Security**: VPN clients route all traffic — verify the installation and use a trusted Proton account. Free tier is sufficient for basic privacy use
 
-## ⚖️ Disclaimer
+## Disclaimer
 
-This script is offered **as-is** for educational purposes only.  
-Use it responsibly — only on systems you own or have **explicit authorization** to access.  
-The author (**SoggyCow**) is not liable for misuse, data loss, or damages.
+This script is provided for educational and research purposes only.  
+Use it exclusively on systems you own or have explicit written permission to access.  
+The author is not responsible for any misuse, security incidents, or damage resulting from the use of this script.
 
----
+## License
 
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
+Licensed under the MIT License. See the `LICENSE` file for full details.
