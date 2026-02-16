@@ -1,94 +1,76 @@
-# PuTTY Installation Script via Chocolatey for Flipper Zero
+# PuTTY Installation Script for Flipper Zero
 
-**Author:** SoggyCow  
+**Author:** [SoggyCow](https://github.com/SoggyCow)  
 **License:** MIT
 
----
+## Overview
 
-## 🛠 Overview
+This script automates the installation of [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html), the most popular free, open-source SSH and telnet client for Windows.  
+PuTTY provides secure remote terminal access (SSH, Telnet, Rlogin, Raw), SFTP/SCP file transfer via its companion tool PSCP, key generation (PuTTYgen), tunneling/port forwarding, saved sessions, serial console support, and is widely used by system administrators, developers, network engineers, and anyone needing terminal access to Linux/Unix servers, routers, embedded devices, or cloud instances.
 
-Automates the installation of [PuTTY](https://www.putty.org/), a popular open-source SSH and Telnet client, using [Chocolatey](https://chocolatey.org/) on Windows.  
-Designed for **Flipper Zero’s BadUSB** function using **DuckyScript** to open an elevated Command Prompt and silently install PuTTY.
+Using Flipper Zero’s **BadUSB** feature with DuckyScript, the script opens an elevated Command Prompt and silently installs PuTTY (including full integration with Windows context menus and file associations) via [Chocolatey](https://chocolatey.org/).
 
-> ⚠️ Requires pre-installed Chocolatey on target system.
+> **Note:** Chocolatey must be pre-installed on the target system. If it is not, run a Chocolatey installation payload first.
 
----
+## Usage Instructions
 
-## 🚀 Deployment Instructions
+### 1. Save the Script
+- Filename: `install_putty.txt`
+- Format: UTF-8 plain text
 
-### 1. Save the Payload
-
-- Filename: `install_putty.txt`  
-- Format: UTF-8 encoded `.txt`, compatible with Flipper Zero BadUSB
-
-### 2. Transfer to Flipper Zero
-
-- Connect via **USB** or **Bluetooth**
+### 2. Upload to Flipper
+- Connect Flipper Zero via USB or Bluetooth
 - Use **qFlipper** or **Flipper Mobile App**
-- Upload to:  
-  `SD Card/badusb/`
+- Transfer the file to: `SD Card/badusb/`
 
-### 3. Execute on Target System
+### 3. Run the Script
+- On Flipper: Navigate to `Main Menu > Bad USB > install_putty.txt`
+- Ensure USB mode is active
+- Connect to the target Windows machine and press **Run**
 
-- Navigate: `Main Menu > Bad USB`  
-- Select: `install_putty.txt`  
-- Verify USB mode is active (USB logo visible)  
-- Plug into Windows machine  
-- Tap **Run**
+The script will:
+- Open the Run dialog (Win + R)
+- Launch an elevated Command Prompt (cmd with CTRL + SHIFT + ENTER)
+- Execute: choco install putty.install -y && exit
 
-Payload actions:
-- Opens Windows **Run Dialog**  
-- Launches **elevated CMD** (UAC may appear)  
-- Executes: `choco install putty.install -y`
+## Installation Verification
 
----
+PuTTY installs silently if:
+- Chocolatey is already installed
+- Administrative privileges are granted (UAC prompt accepted)
+- An internet connection is available
 
-## ✅ Verification & Results
+After installation:
+- Look for “PuTTY” in the Start menu
+- Or check the installation path (typically `C:\Program Files\PuTTY`)
+- Launch PuTTY to confirm the configuration window opens
+- Right-click any .ppk file or use context menu on folders to verify shell integration
 
-- **Silent install**: No user interaction required  
-- **Version**: Latest stable (e.g., 0.81+ as of August 2025)  
-- Visit: [Chocolatey Package Page](https://community.chocolatey.org/packages/putty.install)
+## Requirements
 
----
+- **OS**: Windows 10 / 11
+- **Chocolatey**: Must be pre-installed
+- **Flipper Zero**: BadUSB feature enabled
+- **Internet Access**: Required for Chocolatey package download
+- **Admin Privileges**: Required for elevated Command Prompt
 
-## 📋 System Prerequisites
+## Technical Notes
 
-- Windows 10/11 OS  
-- Chocolatey pre-installed  
-- Flipper Zero with BadUSB enabled  
-- Internet connection on target system  
-- Admin privileges to launch elevated CMD  
-- PuTTY system compatibility (lightweight footprint)
+- **Chocolatey Dependency**: The script assumes Chocolatey is already present
+- **Elevation**: Opens an elevated cmd.exe (may show UAC prompt)
+- **Silent Install**: Uses -y to suppress all prompts
+- **Shell**: Uses Command Prompt (cmd) for broad compatibility
+- **Package Choice**: Uses `putty.install` (recommended package that adds file associations, context menus, and full Windows integration)
+- **Delays**: Standard timing (DELAY 1000, 500, 1500). Increase if the target system is slow
+- **Testing Recommendation**: Always test in a virtual machine or isolated environment first
+- **Security**: SSH clients are generally low-risk, but verify SSH key handling and use only in authorized environments
 
----
+## Disclaimer
 
-## ⚙️ Technical Notes
+This script is provided for educational and research purposes only.  
+Use it exclusively on systems you own or have explicit written permission to access.  
+The author is not responsible for any misuse, security incidents, or damage resulting from the use of this script.
 
-- **Admin Rights Required**: Elevated CMD may trigger UAC  
-- **Silent Flag**: `-y` bypasses user prompts  
-- **Shell**: CMD used for maximal system compatibility  
-- **Timing Delays**:  
-  - Standard: `DELAY 1000`, `500`, `1500`  
-  - For slower systems: increase `DELAY 500` to `700+`  
+## License
 
-- **Failure Modes**:  
-  - If Chocolatey isn’t installed, script aborts  
-  - No fallback mechanisms—validate environment first
-
-- **Sandbox Testing**:  
-  Use a virtual machine to verify behavior before live deployment
-
----
-
-## ⚖️ Disclaimer
-
-Educational and lawful use only.  
-Only deploy on machines with **explicit permission**.  
-Author assumes **no liability** for unintended consequences.
-
----
-
-## 📄 License
-
-Licensed under the **MIT License**  
-See the [LICENSE](LICENSE) file for full terms.
+Licensed under the MIT License. See the `LICENSE` file for full details.
