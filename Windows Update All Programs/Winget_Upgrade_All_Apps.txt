@@ -1,6 +1,9 @@
 REM Title: Winget Auto-Upgrader
-REM Author: SoggyCow
-REM Description: Assumes Winget is pre-installed; upgrades all packages silently and closes terminal
+REM Author: SoggyCow (GitHub: SoggyCow)
+REM Description: Upgrades all available packages via winget silently.
+REM              Auto-accepts source and package agreements to avoid prompts.
+REM              Assumes winget is pre-installed on Windows 10/11.
+REM              Runs in cmd and closes automatically when finished.
 
 DELAY 1000
 GUI r
@@ -8,5 +11,7 @@ DELAY 500
 STRING cmd
 ENTER
 DELAY 900
-STRING winget upgrade --all -h && exit
+
+REM Full silent upgrade command with agreement auto-accept
+STRING winget upgrade --all --silent --accept-source-agreements --accept-package-agreements && exit
 ENTER
