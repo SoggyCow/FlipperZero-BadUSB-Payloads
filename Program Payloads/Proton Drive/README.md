@@ -1,104 +1,74 @@
-# Proton Drive Installation Script via Chocolatey for Flipper Zero
+# Proton Drive Installation Script for Flipper Zero
 
-**Author:** SoggyCow  
+**Author:** [SoggyCow](https://github.com/SoggyCow)  
 **License:** MIT
 
----
+## Overview
 
-## ☁️ Overview
+This script automates the installation of [Proton Drive](https://proton.me/drive), the end-to-end encrypted cloud storage and file-sharing service from Proton (the team behind Proton Mail and Proton VPN).  
+Proton Drive provides zero-knowledge encryption, secure file sync across devices, photo backup, file versioning, password-protected sharing links, and strong privacy guarantees — ideal for users seeking alternatives to Google Drive, Dropbox, or OneDrive with better data protection.
 
-Installs [Proton Drive](https://proton.me/drive), a secure file sync and cloud storage client, using [Chocolatey](https://chocolatey.org/) on Windows.  
-Crafted for **Flipper Zero’s BadUSB** with **DuckyScript**, simulating keystrokes to launch elevated **Command Prompt (CMD)** and perform a silent install.
+Using Flipper Zero’s **BadUSB** feature with DuckyScript, the script opens an elevated Command Prompt and silently installs Proton Drive via [Chocolatey](https://chocolatey.org/).
 
-> ⚠️ Chocolatey must already be installed. Refer to `install_chocolatey.txt`.
+> **Note:** Chocolatey must be pre-installed on the target system. If it is not, run a Chocolatey installation payload first.
 
----
+## Usage Instructions
 
-## 🚀 Usage Instructions
-
-### 1. Save Script
-
-- Filename: `install_protondrive.txt`  
+### 1. Save the Script
+- Filename: `install_protondrive.txt`
 - Format: UTF-8 plain text
 
-### 2. Upload to Flipper Zero
+### 2. Upload to Flipper
+- Connect Flipper Zero via USB or Bluetooth
+- Use **qFlipper** or **Flipper Mobile App**
+- Transfer the file to: `SD Card/badusb/`
 
-- Connect via **USB/Bluetooth**  
-- Use **qFlipper** or **Flipper Mobile App**  
-- Destination folder: `SD Card/badusb/`
+### 3. Run the Script
+- On Flipper: Navigate to `Main Menu > Bad USB > install_protondrive.txt`
+- Ensure USB mode is active
+- Connect to the target Windows machine and press **Run**
 
-### 3. Execute
+The script will:
+- Open the Run dialog (Win + R)
+- Launch an elevated Command Prompt (cmd with CTRL + SHIFT + ENTER)
+- Execute: choco install protondrive -y && exit
 
-- Navigate:  
-  `Main Menu > Bad USB > install_protondrive.txt`
-- Ensure USB mode is active (USB icon visible)
-- Connect Flipper to target Windows system  
-- Press **Run**
+## Installation Verification
 
-Actions performed:
-- Opens Windows Run dialog  
-- Launches elevated CMD (UAC prompt may appear)  
-- Executes install command:  
-  `choco install protondrive -y`
+Proton Drive installs silently if:
+- Chocolatey is already installed
+- Administrative privileges are granted (UAC prompt accepted)
+- An internet connection is available
 
----
+After installation:
+- Look for “Proton Drive” in the Start menu or system tray
+- Or check the installation path (typically `C:\Program Files\Proton\Drive`)
+- Launch Proton Drive to confirm the login/setup window appears (Proton account required for full use)
 
-## ✅ Installation Verification
+## Requirements
 
-Succeeds if:
-- Chocolatey is installed  
-- Internet is available  
-- `protondrive` package exists  
-- Admin privileges are granted
+- **OS**: Windows 10 / 11
+- **Chocolatey**: Must be pre-installed
+- **Flipper Zero**: BadUSB feature enabled
+- **Internet Access**: Required for Chocolatey package download
+- **Admin Privileges**: Required for elevated Command Prompt
 
-> Check package status: [Chocolatey: Proton Drive](https://community.chocolatey.org/packages/protondrive)
+## Technical Notes
 
----
+- **Chocolatey Dependency**: The script assumes Chocolatey is already present
+- **Elevation**: Opens an elevated cmd.exe (may show UAC prompt)
+- **Silent Install**: Uses -y to suppress all prompts
+- **Shell**: Uses Command Prompt (cmd) for broad compatibility
+- **Delays**: Standard timing (DELAY 1000, 500, 1500). Increase if the target system is slow
+- **Testing Recommendation**: Always test in a virtual machine or isolated environment first
+- **Security**: Encrypted cloud clients are generally low-risk, but require account authentication — use only in authorized environments
 
-## 📋 Requirements
+## Disclaimer
 
-- Windows 10/11  
-- Chocolatey pre-installed  
-- Flipper Zero w/ BadUSB enabled  
-- Internet connection  
-- Admin rights  
-- Proton Drive system compatibility (generally lightweight)
+This script is provided for educational and research purposes only.  
+Use it exclusively on systems you own or have explicit written permission to access.  
+The author is not responsible for any misuse, security incidents, or damage resulting from the use of this script.
 
----
+## License
 
-## ⚙️ Technical Notes
-
-- **Chocolatey Dependency:**  
-  Pre-install Chocolatey—see `install_chocolatey.txt`
-
-- **Package Availability:**  
-  As of August 2025, `protondrive` may not exist in Chocolatey repo.  
-  Confirm before deployment.
-
-- **CMD Shell Preference:**  
-  Ensures wide compatibility across systems
-
-- **Silent Install Flag:**  
-  `-y` disables prompts
-
-- **Timing Delays:**  
-  Default: `DELAY 1000`, `500`, `1500`  
-  Adjust for system responsiveness
-
-- **Pre-deployment Testing:**  
-  Use VMs or sandbox environments to verify stability
-
----
-
-## ⚠️ Disclaimer
-
-This script is provided **as-is** for educational purposes.  
-Run only on machines you **own or are authorized to access**.  
-Author disclaims responsibility for misuse or collateral impact.
-
----
-
-## 📄 License
-
-Licensed under the **MIT License**  
-Refer to the [LICENSE](LICENSE) file
+Licensed under the MIT License. See the `LICENSE` file for full details.
