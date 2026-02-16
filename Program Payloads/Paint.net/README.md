@@ -20,7 +20,7 @@ Runs via Flipper Zero’s **BadUSB keyboard emulation**.
 
 ### 1. Save the Script
 
-- Save to a `.txt` file (e.g., `install_paintnet.txt`)
+- Save to a `.txt` file (e.g., `install_paint.net.txt`)
 
 ### 2. Upload to Flipper Zero
 
@@ -33,7 +33,7 @@ Runs via Flipper Zero’s **BadUSB keyboard emulation**.
 
 - On Flipper:  
   `Main Menu > Bad USB`
-- Select `install_paintnet.txt`
+- Select `install_paint.net.txt`
 - Confirm USB mode is active
 - Plug into target Windows machine
 - Press **Run**

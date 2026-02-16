@@ -14,7 +14,7 @@ Using Flipper Zero’s **BadUSB** feature with DuckyScript, the script opens an 
 ## Usage Instructions
 
 ### 1. Save the Script
-- Filename: `install_ida-free.txt`
+- Filename: `install_ida.txt`
 - Format: UTF-8 plain text
 
 ### 2. Upload to Flipper
@@ -23,7 +23,7 @@ Using Flipper Zero’s **BadUSB** feature with DuckyScript, the script opens an 
 - Transfer the file to: `SD Card/badusb/`
 
 ### 3. Run the Script
-- On Flipper: Navigate to `Main Menu > Bad USB > install_ida-free.txt`
+- On Flipper: Navigate to `Main Menu > Bad USB > install_ida.txt`
 - Ensure USB mode is active
 - Connect to the target Windows machine and press **Run**
 
