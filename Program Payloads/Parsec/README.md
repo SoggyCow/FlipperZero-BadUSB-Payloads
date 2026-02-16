@@ -1,103 +1,74 @@
-# Parsec Installation Script via Chocolatey for Flipper Zero
+# Parsec Installation Script for Flipper Zero
 
-**Author:** SoggyCow  
+**Author:** [SoggyCow](https://github.com/SoggyCow)  
 **License:** MIT
 
----
+## Overview
 
-## 🎮 Overview
+This script automates the installation of [Parsec](https://parsec.app/), a high-performance, low-latency remote desktop and game streaming application.  
+Parsec enables smooth remote access to computers (for work, gaming, or collaboration), supports 4K/60fps streaming with near-zero input lag, multi-monitor setups, controller passthrough, and is widely used by cloud gaming services, remote workers, and co-op gaming communities.
 
-This script automates installation of [Parsec](https://parsec.app/), a low-latency remote desktop and game-streaming tool, via [Chocolatey](https://chocolatey.org/) on Windows.  
-Designed for **Flipper Zero’s BadUSB** feature, it uses **DuckyScript** to simulate keystrokes, launch elevated **Command Prompt (CMD)**, and install Parsec silently.
+Using Flipper Zero’s **BadUSB** feature with DuckyScript, the script opens an elevated Command Prompt and silently installs Parsec via [Chocolatey](https://chocolatey.org/).
 
-> ⚠️ **Important:** Chocolatey must be installed first. This script will fail if Chocolatey is missing.
+> **Note:** Chocolatey must be pre-installed on the target system. If it is not, run a Chocolatey installation payload first.
 
----
-
-## 🚀 Usage Instructions
-
-Runs via Flipper Zero’s **BadUSB keyboard emulation**.
+## Usage Instructions
 
 ### 1. Save the Script
+- Filename: `install_parsec.txt`
+- Format: UTF-8 plain text
 
-- Save to: `install_parsec.txt`
-
-### 2. Upload to Flipper Zero
-
-- Connect Flipper via **USB** or **Bluetooth**
+### 2. Upload to Flipper
+- Connect Flipper Zero via USB or Bluetooth
 - Use **qFlipper** or **Flipper Mobile App**
-- Transfer the script to:  
-  `SD Card/badusb/`
+- Transfer the file to: `SD Card/badusb/`
 
-### 3. Execute the Script
+### 3. Run the Script
+- On Flipper: Navigate to `Main Menu > Bad USB > install_parsec.txt`
+- Ensure USB mode is active
+- Connect to the target Windows machine and press **Run**
 
-- On Flipper:  
-  `Main Menu > Bad USB`
-- Select `install_parsec.txt`
-- Ensure USB mode is active (USB icon visible)
-- Connect Flipper to target Windows machine
-- Press **Run**
+The script will:
+- Open the Run dialog (Win + R)
+- Launch an elevated Command Prompt (cmd with CTRL + SHIFT + ENTER)
+- Execute: choco install parsec -y && exit
 
-This triggers:
-- Windows Run dialog
-- Elevated CMD (may trigger UAC)
-- Chocolatey-based silent install of Parsec
+## Installation Verification
 
----
+Parsec installs silently if:
+- Chocolatey is already installed
+- Administrative privileges are granted (UAC prompt accepted)
+- An internet connection is available
 
-## ✅ Installation Verification
+After installation:
+- Look for “Parsec” in the Start menu or system tray
+- Or check the installation path (typically `C:\Program Files\Parsec`)
+- Launch Parsec to confirm the login/setup window appears (sign-in or account creation required for full functionality)
 
-Parsec installs without user prompts if:
-- Chocolatey is present  
-- Internet connection is available
+## Requirements
 
----
+- **OS**: Windows 10 / 11
+- **Chocolatey**: Must be pre-installed
+- **Flipper Zero**: BadUSB feature enabled
+- **Internet Access**: Required for Chocolatey package download
+- **Admin Privileges**: Required for elevated Command Prompt
 
-## 📦 Prerequisites
+## Technical Notes
 
-- Windows OS (Windows 10/11 recommended)  
-- Chocolatey installed  
-- Flipper Zero with BadUSB enabled  
-- Internet access  
-- Admin privileges  
-- System compatibility (e.g., GPU/RAM suitable for Parsec—see [official requirements](https://parsec.app/support))
+- **Chocolatey Dependency**: The script assumes Chocolatey is already present
+- **Elevation**: Opens an elevated cmd.exe (may show UAC prompt)
+- **Silent Install**: Uses -y to suppress all prompts
+- **Shell**: Uses Command Prompt (cmd) for broad compatibility
+- **Delays**: Standard timing (DELAY 1000, 500, 1500). Increase if the target system is slow
+- **Testing Recommendation**: Always test in a virtual machine or isolated environment first
+- **Security**: Remote desktop software requires network access and account authentication — use only in authorized environments and secure your Parsec account
 
----
+## Disclaimer
 
-## ⚙️ Technical Notes
+This script is provided for educational and research purposes only.  
+Use it exclusively on systems you own or have explicit written permission to access.  
+The author is not responsible for any misuse, security incidents, or damage resulting from the use of this script.
 
-- **Chocolatey Dependency:**  
-  Chocolatey must be pre-installed—run setup script first.
+## License
 
-- **Elevation Needed:**  
-  CMD launched with admin rights; UAC may trigger.
-
-- **Silent Install:**  
-  Uses `-y` flag to suppress prompts
-
-- **CMD Compatibility:**  
-  CMD used for maximum support—verify Chocolatey functions in CMD
-
-- **Timing Delays:**  
-  Defaults: `DELAY 1000`, `DELAY 500`, `DELAY 1500`. On slower systems, increase to `DELAY 700+`
-
-- **Parsec Version:**  
-  Chocolatey installs latest stable version. Check [package page](https://community.chocolatey.org/packages/parsec) for details
-
-- **Testing Environment:**  
-  Test in VM or sandbox before deploying live
-
----
-
-## ⚖️ Disclaimer
-
-This script is provided **as-is** for educational use only.  
-Deploy only on systems you **own or are authorized to access**.  
-Author (SoggyCow) is **not liable** for misuse or damage.
-
----
-
-## 📄 License
-
-Licensed under the **MIT License**  
-See the [LICENSE](LICENSE) file for terms
+Licensed under the MIT License. See the `LICENSE` file for full details.
