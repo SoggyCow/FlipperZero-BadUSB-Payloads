@@ -1,0 +1,44 @@
+REM ================================================
+REM GoodUSB Payload: Install 7-Zip on Linux (Debian/Ubuntu family)
+REM Created by SoggyCow (GitHub: SoggyCow)
+REM Description: Opens terminal and installs p7zip-full (7-Zip CLI tool)
+REM Target: Ubuntu, Debian, Linux Mint, Pop!_OS and derivatives
+REM Note: sudo will prompt for password — user must enter it manually.
+REM       Ctrl+Alt+T opens terminal on most desktop environments.
+REM ================================================
+
+DELAY 800
+GUI t
+DELAY 1200
+
+REM Brief instructions shown in terminal
+STRING echo "Installing 7-Zip (p7zip-full)..."
+ENTER
+DELAY 400
+STRING echo "You will be prompted for your sudo password."
+ENTER
+DELAY 600
+STRING echo "Press Enter to continue..."
+ENTER
+DELAY 1500
+
+REM Update package list + install non-interactively where possible
+STRING sudo apt update -y && sudo apt install p7zip-full p7zip-rar -y
+ENTER
+DELAY 800
+
+REM Extended delay for password prompt + apt operations
+DELAY 18000                REM 18 seconds — covers sudo auth + package download/install
+
+REM Completion feedback
+STRING echo ""
+ENTER
+STRING echo "Installation finished."
+ENTER
+STRING echo "Test with: 7z --help"
+ENTER
+DELAY 3000
+
+REM Close terminal
+STRING exit
+ENTER
