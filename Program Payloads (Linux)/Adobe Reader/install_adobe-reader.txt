@@ -1,0 +1,50 @@
+REM ================================================
+REM GoodUSB Payload: Install Adobe Acrobat Reader (via Snap) on Linux
+REM Created by SoggyCow (GitHub: SoggyCow)
+REM Description: Opens terminal and installs acrordrdc snap (Wine-wrapped Adobe Reader DC)
+REM Target: Ubuntu, Debian, Linux Mint, Pop!_OS and derivatives (snap supported)
+REM Note: sudo will prompt for password — user must enter it manually.
+REM       Ctrl+Alt+T opens terminal on most desktop environments.
+REM       This provides the closest to Windows Adobe Reader experience on Linux.
+REM ================================================
+
+DELAY 800
+GUI t
+DELAY 1200
+
+REM Brief instructions in terminal
+STRING echo "Installing Adobe Acrobat Reader (via acrordrdc snap)..."
+ENTER
+DELAY 400
+STRING echo "You will be prompted for your sudo password."
+ENTER
+DELAY 600
+STRING echo "This uses snap to run a Wine-wrapped version of Adobe Reader DC."
+ENTER
+DELAY 800
+STRING echo "Press Enter to continue..."
+ENTER
+DELAY 1500
+
+REM Ensure snapd is installed (harmless if already present), then install acrordrdc
+STRING sudo apt update -y && sudo apt install snapd -y && sudo snap install acrordrdc
+ENTER
+DELAY 800
+
+REM Extended delay: sudo password + snapd install (if needed) + snap download/install
+DELAY 25000                REM 25 seconds — covers auth, potential snapd setup, and large snap download
+
+REM Completion feedback
+STRING echo ""
+ENTER
+STRING echo "Installation finished."
+ENTER
+STRING echo "Launch with: acrordrdc"
+ENTER
+STRING echo "Or search for 'Acrobat Reader' in your applications menu."
+ENTER
+DELAY 3000
+
+REM Close terminal
+STRING exit
+ENTER
