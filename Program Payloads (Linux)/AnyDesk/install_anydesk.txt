@@ -1,0 +1,47 @@
+REM ================================================
+REM GoodUSB Payload: Install AnyDesk on Linux (Debian/Ubuntu family)
+REM Created by SoggyCow (GitHub: SoggyCow)
+REM Description: Opens terminal, adds official AnyDesk APT repo, and installs anydesk
+REM Target: Ubuntu, Debian, Linux Mint, Pop!_OS and derivatives
+REM Note: sudo will prompt for password — user must enter it manually.
+REM       Ctrl+Alt+T opens terminal on most desktop environments.
+REM       This installs the latest official version with automatic updates.
+REM ================================================
+
+DELAY 800
+GUI t
+DELAY 1200
+
+REM Brief instructions in terminal
+STRING echo "Installing AnyDesk (official APT repository method)..."
+ENTER
+DELAY 400
+STRING echo "You will be prompted for your sudo password multiple times."
+ENTER
+DELAY 600
+STRING echo "Press Enter to continue..."
+ENTER
+DELAY 1500
+
+REM Add GPG key + repo + update + install (standard official steps)
+STRING wget -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY | gpg --dearmor | sudo tee /etc/apt/keyrings/anydesk.gpg > /dev/null && echo "deb [signed-by=/etc/apt/keyrings/anydesk.gpg] http://deb.anydesk.com/ all main" | sudo tee /etc/apt/sources.list.d/anydesk-stable.list && sudo apt update -y && sudo apt install anydesk -y
+ENTER
+DELAY 800
+
+REM Extended delay: covers multiple sudo prompts (key + repo + update + install) + download time
+DELAY 30000                REM 30 seconds — adjust higher for slow connections or first-time key/repo setup
+
+REM Completion feedback
+STRING echo ""
+ENTER
+STRING echo "Installation finished."
+ENTER
+STRING echo "Launch AnyDesk with: anydesk"
+ENTER
+STRING echo "Or search for 'AnyDesk' in your applications menu."
+ENTER
+DELAY 3000
+
+REM Close terminal
+STRING exit
+ENTER
