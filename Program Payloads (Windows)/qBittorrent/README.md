@@ -1,12 +1,12 @@
 # **qBittorrent Installation Script via Chocolatey for Flipper Zero**
 
-**Author**: [CayleRose1](https://github.com/CayleRose1)
+**Author**: [CayleRose](https://github.com/CayleRose)
 
 ## **Overview**
 
 This script automates the installation of **[qBittorrent](https://www.qbittorrent.org/)**, a free and open-source BitTorrent client for downloading and sharing files, using **[Chocolatey](https://chocolatey.org/)**, a package manager for Windows. Designed for Flipper Zero's **BadUSB** feature, it uses DuckyScript to simulate keyboard inputs, opening an elevated Command Prompt (CMD), executing a Chocolatey command to silently install qBittorrent, and closing the terminal afterward.
 
-**Important**: This script requires **[Chocolatey](https://chocolatey.org/)** to be pre-installed. You **must** run the [Chocolatey installation script](https://github.com/CayleRose1/choco-install-script) first.
+**Important**: This script requires **[Chocolatey](https://chocolatey.org/)** to be pre-installed. You **must** run the [Chocolatey installation script](https://github.com/CayleRose/choco-install-script) first.
 
 ## **Usage**
 
@@ -48,7 +48,7 @@ This script is intended for use with Flipper Zero's **BadUSB** functionality, wh
 
 ## **Disclaimer**
 
-This script is provided as-is for **educational purposes**. Use it responsibly and only on systems you own or have explicit permission to access. The author ([CayleRose1](https://github.com/CayleRose1)) is not responsible for any issues arising from its use, including potential misuse in violation of software terms or legal regulations.
+This script is provided as-is for **educational purposes**. Use it responsibly and only on systems you own or have explicit permission to access. The author ([CayleRose](https://github.com/CayleRose)) is not responsible for any issues arising from its use, including potential misuse in violation of software terms or legal regulations.
 
 ## **License**
 

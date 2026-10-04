@@ -1,5 +1,5 @@
 REM Title: Close Windscribe VPN Processes
-REM Author: CayleRose1
+REM Author: CayleRose
 REM Description: Opens elevated CMD to forcefully terminate Windscribe VPN processes (Windscribe.exe and WindscribeService.exe) and closes the terminal
 
 DELAY 1000

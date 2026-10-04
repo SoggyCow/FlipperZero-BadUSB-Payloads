@@ -1,6 +1,6 @@
 # CrystalDiskInfo Installation Script for Flipper Zero
 
-Author: [CayleRose1](https://github.com/CayleRose1)  
+Author: [CayleRose](https://github.com/CayleRose)  
 License: MIT
 
 ## Overview
@@ -59,7 +59,7 @@ Verify installation via: [Chocolatey Package Page](https://community.chocolatey.
 
 ## Disclaimer
 
-This script is for educational purposes only. Use only on systems you own or have explicit permission to access. The author, CayleRose1, is not liable for misuse or system impact.
+This script is for educational purposes only. Use only on systems you own or have explicit permission to access. The author, CayleRose, is not liable for misuse or system impact.
 
 ## License
 

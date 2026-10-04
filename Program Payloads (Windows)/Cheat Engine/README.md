@@ -1,6 +1,6 @@
 # Cheat Engine Installation Script for Flipper Zero
 
-Author: [CayleRose1](https://github.com/CayleRose1)  
+Author: [CayleRose](https://github.com/CayleRose)  
 License: MIT
 
 ## Overview
@@ -65,7 +65,7 @@ Many online games and anti-cheat systems detect and ban Cheat Engine usage.
 
 ## Disclaimer
 
-This script is for **educational and authorized testing only**. The author, CayleRose1, is not liable for misuse, bans, account suspensions, legal consequences, or system damage.
+This script is for **educational and authorized testing only**. The author, CayleRose, is not liable for misuse, bans, account suspensions, legal consequences, or system damage.
 
 ## License
 

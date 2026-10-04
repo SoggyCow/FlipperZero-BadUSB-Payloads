@@ -1,6 +1,6 @@
 REM ================================================
 REM GoodUSB Payload: Disable Windows 11 Automatic Updates
-REM Created by CayleRose1 (GitHub: CayleRose1)
+REM Created by CayleRose (GitHub: CayleRose)
 REM Purpose: Disable automatic Windows Update checks/downloads/installs
 REM          (Not recommended - increases security risk)
 REM Requires: Windows 11, internet (optional), administrator privileges
@@ -16,7 +16,7 @@ ENTER
 DELAY 1000
 
 REM Introduction text
-STRING This is GoodUSB - a security payload developed by CayleRose1 (GitHub: CayleRose1).
+STRING This is GoodUSB - a security payload developed by CayleRose (GitHub: CayleRose).
 ENTER
 STRING It disables automatic Windows Update on Windows 11.
 ENTER
@@ -27,7 +27,7 @@ STRING WARNING: Disabling updates increases security vulnerability.
 ENTER
 STRING Use only on isolated/test systems. Not for production devices.
 ENTER
-STRING Developed and shared by CayleRose1. Source available on GitHub.
+STRING Developed and shared by CayleRose. Source available on GitHub.
 ENTER
 STRING Unplug the device to cancel at any time.
 ENTER
@@ -66,7 +66,7 @@ ENTER
 DELAY 4000
 
 REM PowerShell execution block
-STRING Clear-Host; Write-Host "GoodUSB Payload - Developed by CayleRose1 (GitHub: CayleRose1)" -ForegroundColor Cyan; Write-Host "Disabling Windows Automatic Updates..." -ForegroundColor Red; Write-Host "Press Enter to continue (this is irreversible without manual revert)..." -ForegroundColor Yellow; pause
+STRING Clear-Host; Write-Host "GoodUSB Payload - Developed by CayleRose (GitHub: CayleRose)" -ForegroundColor Cyan; Write-Host "Disabling Windows Automatic Updates..." -ForegroundColor Red; Write-Host "Press Enter to continue (this is irreversible without manual revert)..." -ForegroundColor Yellow; pause
 ENTER
 DELAY 2000
 
@@ -86,7 +86,7 @@ ENTER
 DELAY 1000
 
 REM Final message
-STRING Write-Host "Automatic Windows Updates have been disabled." -ForegroundColor Green; Write-Host "Services stopped/disabled + registry updated." -ForegroundColor Green; Write-Host "Reboot the system for full effect." -ForegroundColor Yellow; Write-Host "Source and updates: GitHub - CayleRose1" -ForegroundColor Magenta; Write-Host "Press Enter to exit." -ForegroundColor Yellow; pause
+STRING Write-Host "Automatic Windows Updates have been disabled." -ForegroundColor Green; Write-Host "Services stopped/disabled + registry updated." -ForegroundColor Green; Write-Host "Reboot the system for full effect." -ForegroundColor Yellow; Write-Host "Source and updates: GitHub - CayleRose" -ForegroundColor Magenta; Write-Host "Press Enter to exit." -ForegroundColor Yellow; pause
 ENTER
 
 REM Close PowerShell

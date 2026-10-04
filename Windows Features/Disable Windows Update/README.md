@@ -1,6 +1,6 @@
 # Disable Windows 11 Automatic Updates (GoodUSB) for Flipper Zero
 
-**Author:** [CayleRose1](https://github.com/CayleRose1)  
+**Author:** [CayleRose](https://github.com/CayleRose)  
 **License:** MIT
 
 ## Overview

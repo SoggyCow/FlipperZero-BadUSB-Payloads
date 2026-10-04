@@ -1,6 +1,6 @@
 # Thunderbird Installation Script for Flipper Zero
 
-Author: CayleRose1  
+Author: CayleRose  
 License: MIT
 
 ## Overview
@@ -58,7 +58,7 @@ Verify installation via: [Chocolatey Package Page](https://community.chocolatey.
 
 ## Disclaimer
 
-This script is for educational purposes only. Use only on systems you own or have explicit permission to access. The author, CayleRose1, is not liable for misuse or unintended outcomes.
+This script is for educational purposes only. Use only on systems you own or have explicit permission to access. The author, CayleRose, is not liable for misuse or unintended outcomes.
 
 ## License
 

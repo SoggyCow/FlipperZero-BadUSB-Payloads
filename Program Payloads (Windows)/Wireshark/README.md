@@ -1,6 +1,6 @@
 # Wireshark Installation Script for Flipper Zero
 
-Author: CayleRose1  
+Author: CayleRose  
 License: MIT
 
 ## Overview
@@ -58,7 +58,7 @@ Wireshark installs silently if:
 
 ## Disclaimer
 
-This script is provided for educational purposes only. Use only on systems you own or have explicit permission to configure. The author, CayleRose1, is not liable for misuse or system impact.
+This script is provided for educational purposes only. Use only on systems you own or have explicit permission to configure. The author, CayleRose, is not liable for misuse or system impact.
 
 ## License
 

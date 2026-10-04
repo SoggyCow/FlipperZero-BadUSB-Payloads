@@ -1,6 +1,6 @@
 # TestDisk Installation Script for Flipper Zero
 
-Author: CayleRose1  
+Author: CayleRose  
 License: MIT
 
 ## Overview
@@ -59,7 +59,7 @@ Installs the latest stable version (e.g., 7.2+ as of October 2025). Verify via: 
 
 ## Disclaimer
 
-This script is for educational purposes only. Use only on systems you own or have explicit permission to access. The author, CayleRose1, is not liable for misuse or system impact.
+This script is for educational purposes only. Use only on systems you own or have explicit permission to access. The author, CayleRose, is not liable for misuse or system impact.
 
 ## License
 

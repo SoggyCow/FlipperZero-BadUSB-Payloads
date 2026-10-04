@@ -1,6 +1,6 @@
 REM ================================================
 REM GoodUSB Payload: Install AnyDesk on Linux (Debian/Ubuntu family)
-REM Created by CayleRose1 (GitHub: CayleRose1)
+REM Created by CayleRose (GitHub: CayleRose)
 REM Description: Opens terminal, adds official AnyDesk APT repo, and installs anydesk
 REM Target: Ubuntu, Debian, Linux Mint, Pop!_OS and derivatives
 REM Note: sudo will prompt for password — user must enter it manually.

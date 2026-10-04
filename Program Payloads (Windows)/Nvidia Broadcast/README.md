@@ -3,7 +3,7 @@
 ## Overview
 This repository contains a BadUSB script for the Flipper Zero to automate the installation of Nvidia Broadcast using Chocolatey on a Windows system. The script assumes Chocolatey is pre-installed and runs with administrative privileges to silently install Nvidia Broadcast and close the terminal.
 
-**Author**: [CayleRose1](https://github.com/CayleRose1)  
+**Author**: [CayleRose](https://github.com/CayleRose)  
 **Platform**: Flipper Zero (BadUSB)  
 **Target**: Windows systems with Chocolatey installed
 
@@ -35,7 +35,7 @@ The script performs the following actions:
 - Use responsibly and only on systems you have permission to modify.
 
 ## Disclaimer
-This script is provided for educational purposes only. The author, CayleRose1, is not responsible for any misuse or damage caused by this script. Always obtain proper authorization before running BadUSB scripts on any system.
+This script is provided for educational purposes only. The author, CayleRose, is not responsible for any misuse or damage caused by this script. Always obtain proper authorization before running BadUSB scripts on any system.
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

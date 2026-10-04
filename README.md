@@ -1,11 +1,11 @@
 # Flipper Zero BadUSB Scripts
 
-Author: [CayleRose1](https://github.com/CayleRose1)  
+Author: [CayleRose](https://github.com/CayleRose)  
 License: MIT
 
 ## Purpose
 
-This repository is a collection of **BadUSB payloads** designed by CayleRose1 for [Flipper Zero](https://flipperzero.one/), utilizing **DuckyScript** to leverage its USB emulation capabilities. The scripts range from practical utilities to creative automations and software installations, created to support the Flipper Zero community and showcase adversarial testing and automation techniques.
+This repository is a collection of **BadUSB payloads** designed by CayleRose for [Flipper Zero](https://flipperzero.one/), utilizing **DuckyScript** to leverage its USB emulation capabilities. The scripts range from practical utilities to creative automations and software installations, created to support the Flipper Zero community and showcase adversarial testing and automation techniques.
 
 ## Contents
 
@@ -18,7 +18,7 @@ Scripts are organized in individual folders with descriptive names, including:
 ## How to Use
 
 1. **Clone or Download the Repo**:  
-   Clone with `git clone https://github.com/CayleRose1/flipperzero-badusb-payloads.git` or download directly.
+   Clone with `git clone https://github.com/CayleRose/flipperzero-badusb-payloads.git` or download directly.
 
 2. **Load Scripts onto Flipper Zero**:  
    - Connect Flipper Zero via USB or Bluetooth.
@@ -36,7 +36,7 @@ Scripts are organized in individual folders with descriptive names, including:
 
 ## Important Notes
 
-- **Chocolatey Dependency**: Scripts require **Chocolatey** pre-installed. Use the [Chocolatey installation script](https://github.com/CayleRose1/FlipperZero-BadUSB-Payloads/blob/main/Program%20Payloads/Install%20Chocolatey.txt) if needed.
+- **Chocolatey Dependency**: Scripts require **Chocolatey** pre-installed. Use the [Chocolatey installation script](https://github.com/CayleRose/FlipperZero-BadUSB-Payloads/blob/main/Program%20Payloads/Install%20Chocolatey.txt) if needed.
 - **Package Availability**: Verify package availability in the [Chocolatey Community Repository](https://community.chocolatey.org/packages) before running, as some packages may not be available (e.g., `protonpass`, `protondrive`).
 - **Admin Privileges**: Scripts typically open an elevated Command Prompt, which may trigger a UAC prompt.
 - **Delays**: Scripts use delays (e.g., `DELAY 1000`, `DELAY 500`). Adjust for slower systems if needed.
@@ -45,7 +45,7 @@ Scripts are organized in individual folders with descriptive names, including:
 
 ## Disclaimer
 
-These scripts are for **educational and research purposes only**. Use only on systems you own or have explicit permission to access. **CayleRose1** is not liable for misuse or any resulting issues.
+These scripts are for **educational and research purposes only**. Use only on systems you own or have explicit permission to access. **CayleRose** is not liable for misuse or any resulting issues.
 
 ## Contributions
 
@@ -54,4 +54,4 @@ Contributions, ideas, and pull requests are welcome. Submit your scripts or impr
 ---
 
 Enjoy the payloads and use them responsibly.  
-— **CayleRose1**
+— **CayleRose**

@@ -1,6 +1,6 @@
 # FileZilla Installation Script (Chocolatey) for Flipper Zero
 
-**Author:** CayleRose1  
+**Author:** CayleRose  
 **License:** MIT
 
 Installs [FileZilla](https://filezilla-project.org/) — a popular open-source FTP client — via [Chocolatey](https://chocolatey.org/).

@@ -1,6 +1,6 @@
 # Data Exfiltration via FTP (Desktop + Documents + Pictures + Videos + Downloads) for Flipper Zero
 
-**Author:** [CayleRose1](https://github.com/CayleRose1)  
+**Author:** [CayleRose](https://github.com/CayleRose)  
 **License:** MIT
 
 ## Overview

@@ -1,6 +1,6 @@
 # VMware Tools Installation Script for Flipper Zero
 
-**Author:** [CayleRose1](https://github.com/CayleRose1)  
+**Author:** [CayleRose](https://github.com/CayleRose)  
 **License:** MIT
 
 ## Overview

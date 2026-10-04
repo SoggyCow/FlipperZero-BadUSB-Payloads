@@ -1,6 +1,6 @@
 # Filmora Installation Script (Chocolatey) for Flipper Zero
 
-**Author:** CayleRose1  
+**Author:** CayleRose  
 **License:** MIT
 
 Installs [Filmora](https://filmora.wondershare.com/) — a popular video editing software — via [Chocolatey](https://chocolatey.org/).

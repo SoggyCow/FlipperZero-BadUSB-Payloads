@@ -1,6 +1,6 @@
 # qFlipper Installation Script (Chocolatey) for Flipper Zero
 
-**Author:** CayleRose1  
+**Author:** CayleRose  
 **License:** MIT
 
 Installs [qFlipper](https://flipperzero.one/update) — the official desktop application for managing Flipper Zero devices — via [Chocolatey](https://chocolatey.org/).

@@ -1,7 +1,7 @@
 # Enable Windows Sandbox – Flipper Zero BadUSB Payload
 
 **Title:** Enable Windows Sandbox (Win+X method)  
-**Author:** [CayleRose1](https://github.com/CayleRose1)  
+**Author:** [CayleRose](https://github.com/CayleRose)  
 **Description:** A DuckyScript payload designed for **Flipper Zero** (BadUSB mode) that opens an elevated PowerShell or Windows Terminal via the Win+X power user menu, then enables Windows Sandbox without forcing an immediate restart.  
 
 Intended for **personal convenience** on your own machines — quick Sandbox setup in labs or test environments without clicking through the GUI every time.

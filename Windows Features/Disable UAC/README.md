@@ -3,7 +3,7 @@
 ## Overview
 This repository contains a Flipper Zero BadUSB script designed to disable Windows User Account Control (UAC) by modifying the Windows registry. The script automates the process of opening an elevated Command Prompt, setting the UAC prompt level to 0, and exiting the terminal.
 
-**Author**: CayleRose1  
+**Author**: CayleRose  
 **Script File**: `disable_UAC.txt`
 
 **Note**: Disabling UAC reduces security by allowing applications to run with administrative privileges without prompting the user. Use this script responsibly and only in controlled environments where you understand the implications.

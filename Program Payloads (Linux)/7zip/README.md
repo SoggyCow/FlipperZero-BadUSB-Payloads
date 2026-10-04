@@ -1,6 +1,6 @@
 # 7-Zip Installation Script for Linux (Flipper Zero BadUSB)
 
-Author: [CayleRose1](https://github.com/CayleRose1)  
+Author: [CayleRose](https://github.com/CayleRose)  
 License: MIT
 
 ## Overview
@@ -65,7 +65,7 @@ The packages install the latest available version from the distribution reposito
 
 ## Disclaimer
 
-This script is for educational and personal use only. Use exclusively on systems you own or have explicit permission to access. The author, CayleRose1, is not responsible for any misuse, data loss, or system issues.
+This script is for educational and personal use only. Use exclusively on systems you own or have explicit permission to access. The author, CayleRose, is not responsible for any misuse, data loss, or system issues.
 
 ## License
 
