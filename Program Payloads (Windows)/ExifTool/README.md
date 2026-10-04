@@ -1,97 +1,72 @@
-# ExifTool Installation Script via Chocolatey for Flipper Zero
+# ExifTool Installation Script (Chocolatey) for Flipper Zero
 
 **Author:** SoggyCow  
 **License:** MIT
 
----
+Installs [ExifTool](https://exiftool.org/) — a powerful command-line tool for reading, writing, and editing metadata in images, documents, audio, and other files — via [Chocolatey](https://chocolatey.org/).
 
-## 🧠 Overview
+This payload is written in DuckyScript for **Flipper Zero BadUSB**. It opens an elevated Command Prompt and silently installs ExifTool.
 
-Installs [ExifTool](https://exiftool.org/), a robust command-line utility for reading, writing, and manipulating metadata across file formats (images, documents, audio, etc.), using [Chocolatey](https://chocolatey.org/).  
-Purpose-built for **Flipper Zero’s BadUSB**, this payload uses **DuckyScript** to simulate keystrokes, elevate CMD, and deploy a silent install.
-
-> ⚠️ Requires Chocolatey pre-installed. Use `install_chocolatey.txt` prior to execution.
+> **Prerequisite:** Chocolatey must already be installed. Run `install_chocolatey.txt` first if needed.
 
 ---
 
-## 🚀 Deployment Instructions
+## Deployment
 
-### 1. Prepare Script
+### 1. Prepare the script
+- Save the payload as `install_exiftool.txt`
+- Use UTF-8 encoding
 
-- Save as: `install_exiftool.txt`  
-- Format: UTF-8 `.txt` compatible with Flipper Zero
-
-### 2. Upload to Flipper
-
-- Connect via USB or Bluetooth  
-- Use **qFlipper** or **Flipper Mobile**  
-- Path:  
+### 2. Copy to Flipper Zero
+- Connect the Flipper via USB or Bluetooth
+- Use **qFlipper** or the Flipper Mobile app
+- Place the file in:  
   `SD Card/badusb/`
 
-### 3. Execute on Target
+### 3. Run on target
+1. On the Flipper: **Main Menu → Bad USB → install_exiftool.txt**
+2. Confirm USB mode is active
+3. Plug the Flipper into the target Windows machine
+4. Press **Run**
 
-- Navigation:  
-  `Main Menu > Bad USB > install_exiftool.txt`  
-- Confirm USB mode active  
-- Plug into target Windows machine  
-- Press **Run**
-
-Payload flow:
-- Opens Windows Run dialog  
-- Elevates to CMD (may show UAC prompt)  
-- Executes:  
-  `choco install exiftool -y`
+**What the payload does:**
+- Opens the Windows Run dialog
+- Launches an elevated Command Prompt (UAC prompt may appear)
+- Runs: `choco install exiftool -y`
 
 ---
 
-## ✅ Post-Install Confirmation
+## Requirements
 
-- No user input required  
-- Installs latest stable version (12.x+ as of Aug 2025)  
-- Requires Chocolatey and internet connectivity  
-- Chocolatey page: [ExifTool Package](https://community.chocolatey.org/packages/exiftool)
-
----
-
-## 📋 Requirements
-
-| Requirement                        | Description                                  |
-|------------------------------------|----------------------------------------------|
-| OS                                 | Windows 10/11                                |
-| Chocolatey                         | Must be installed                            |
-| Admin Privileges                   | Required                                     |
-| Internet Connection                | Needed for package download                  |
-| Flipper Zero with BadUSB           | Functional and active                        |
-| CMD Compatibility                  | CMD must support Chocolatey                  |
+| Requirement                  | Notes                              |
+|-----------------------------|------------------------------------|
+| OS                          | Windows 10 / 11                    |
+| Chocolatey                  | Must be pre-installed              |
+| Administrator privileges    | Required                           |
+| Internet connection         | Needed to download the package     |
+| Flipper Zero (BadUSB)       | Functional and in USB mode         |
 
 ---
 
-## ⚙️ Technical Considerations
+## Notes
 
-- **Elevation Prompt:**  
-  UAC may appear if system defaults require confirmation
+- **UAC prompt** — May appear depending on system settings. The payload continues once approved.
+- **Silent install** — The `-y` flag skips confirmation prompts.
+- **Timing** — Default delays are `DELAY 1000`, `500`, and `1500`. Increase them on slower machines if needed.
+- **Testing** — Always test in a virtual machine or controlled environment before real use.
 
-- **Silent Install:**  
-  `-y` bypasses prompts and proceeds automatically
-
-- **Delays Used:**  
-  Defaults: `DELAY 1000`, `500`, `1500`  
-  Adjust for slower systems as needed (e.g., `DELAY 700+`)
-
-- **Testing Strategy:**  
-  Always validate in controlled VM or test rig before live use
+Package reference: [ExifTool on Chocolatey](https://community.chocolatey.org/packages/exiftool)
 
 ---
 
-## ⚠️ Disclaimer
+## Disclaimer
 
-For educational use only.  
-Deploy only on systems you **own or are authorized to control**.  
-The author assumes no liability for misuse or effects caused by execution.
+For educational and authorized use only.  
+Run this payload **only** on systems you own or have explicit permission to modify.  
+The author accepts no responsibility for misuse or any resulting damage.
 
 ---
 
-## 📄 License
+## License
 
-Licensed under the **MIT License**  
-See `LICENSE` file for full terms.
+MIT License — see the `LICENSE` file for full terms.

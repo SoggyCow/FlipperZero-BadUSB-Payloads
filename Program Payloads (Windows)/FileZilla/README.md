@@ -1,105 +1,72 @@
-# FileZilla Installation Script via Chocolatey for Flipper Zero
+# FileZilla Installation Script (Chocolatey) for Flipper Zero
 
 **Author:** SoggyCow  
 **License:** MIT
 
----
+Installs [FileZilla](https://filezilla-project.org/) — a popular open-source FTP client — via [Chocolatey](https://chocolatey.org/).
 
-## 🌐 Overview
+This payload is written in DuckyScript for **Flipper Zero BadUSB**. It opens an elevated Command Prompt and silently installs FileZilla.
 
-Installs [FileZilla](https://filezilla-project.org/), a widely used open-source FTP client, via [Chocolatey](https://chocolatey.org/) on Windows.  
-Designed for **Flipper Zero’s BadUSB** functionality, using **DuckyScript** to open elevated CMD and execute a silent installation.
-
-> ⚠️ Requires Chocolatey to be installed beforehand.
+> **Prerequisite:** Chocolatey must already be installed. Run `install_chocolatey.txt` first if needed.
 
 ---
 
-## 🚀 Usage Instructions
+## Deployment
 
-### 1. Save the Script
+### 1. Prepare the script
+- Save the payload as `install_filezilla.txt`
+- Use UTF-8 encoding
 
-- Filename: `install_filezilla.txt`  
-- Format: Plain `.txt`, compatible with Flipper Zero
-
-### 2. Upload to Flipper Zero
-
-- Connect via **USB** or **Bluetooth**
-- Use **qFlipper** or **Flipper Mobile App**
-- Upload to:  
+### 2. Copy to Flipper Zero
+- Connect the Flipper via USB or Bluetooth
+- Use **qFlipper** or the Flipper Mobile app
+- Place the file in:  
   `SD Card/badusb/`
 
-### 3. Execute the Script
+### 3. Run on target
+1. On the Flipper: **Main Menu → Bad USB → install_filezilla.txt**
+2. Confirm USB mode is active
+3. Plug the Flipper into the target Windows machine
+4. Press **Run**
 
-- On Flipper Zero:  
-  `Main Menu > Bad USB`
-- Select: `install_filezilla.txt`
-- Verify USB mode is active (USB logo displayed)
-- Plug into target Windows machine
-- Tap **Run**
-
-Script actions:
-- Opens Windows Run dialog  
-- Launches elevated CMD (UAC may appear)  
-- Executes Chocolatey command to install FileZilla silently
+**What the payload does:**
+- Opens the Windows Run dialog
+- Launches an elevated Command Prompt (UAC prompt may appear)
+- Runs: `choco install filezilla -y`
 
 ---
 
-## ✅ Installation Verification
+## Requirements
 
-FileZilla installs without manual interaction if:
-- Chocolatey is installed  
-- Admin privileges are available  
-- Internet connection is active
-
----
-
-## 📦 Requirements
-
-- Windows 10/11  
-- Chocolatey installed  
-- Flipper Zero with BadUSB enabled  
-- Active internet connection  
-- Admin privileges  
-- FileZilla-compatible system (typically lightweight)
+| Requirement                  | Notes                              |
+|-----------------------------|------------------------------------|
+| OS                          | Windows 10 / 11                    |
+| Chocolatey                  | Must be pre-installed              |
+| Administrator privileges    | Required                           |
+| Internet connection         | Needed to download the package     |
+| Flipper Zero (BadUSB)       | Functional and in USB mode         |
 
 ---
 
-## ⚙️ Technical Notes
+## Notes
 
-- **Chocolatey Dependency:**  
-  Must be pre-installed on the system
+- **UAC prompt** — May appear depending on system settings. The payload continues once approved.
+- **Silent install** — The `-y` flag skips confirmation prompts.
+- **Timing** — Default delays are `DELAY 1000`, `500`, and `1500`. Increase them on slower machines if needed.
+- **Testing** — Always test in a virtual machine or controlled environment before real use.
 
-- **Elevation / UAC Handling:**  
-  CMD is launched with admin privileges; UAC may be triggered
-
-- **Silent Installation Flag:**  
-  `-y` used to bypass user prompts
-
-- **Shell Choice:**  
-  CMD selected for system compatibility
-
-- **Delay Tuning:**  
-  - Defaults: `DELAY 1000`, `500`, `1500`  
-  - For slower machines: increase to `DELAY 700+`
-
-- **Version Installed:**  
-  Latest stable FileZilla version (e.g., 3.x as of August 2025)  
-  See [Chocolatey Package Page](https://community.chocolatey.org/packages/filezilla)
-
-- **Testing Recommendation:**  
-  Run in VM or sandbox before deploying live
+Package reference: [FileZilla on Chocolatey](https://community.chocolatey.org/packages/filezilla)
 
 ---
 
-## ⚖️ Disclaimer
+## Disclaimer
 
-Educational use only.  
-Use only on systems you **own or have permission to modify**.  
-Author assumes **no liability** for misuse or system consequences.
+For educational and authorized use only.  
+Run this payload **only** on systems you own or have explicit permission to modify.  
+The author accepts no responsibility for misuse or any resulting damage.
 
 ---
 
-## 📄 License
+## License
 
-Licensed under the **MIT License**  
-See the [LICENSE](LICENSE) file for full terms
+MIT License — see the `LICENSE` file for full terms.

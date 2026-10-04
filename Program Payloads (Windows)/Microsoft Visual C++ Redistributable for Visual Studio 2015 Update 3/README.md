@@ -1,85 +1,72 @@
-# Visual C++ Redistributable 2015 Update 3 Installer via Chocolatey
+# Visual C++ Redistributable 2015 Update 3 Installation Script (Chocolatey) for Flipper Zero
 
 **Author:** SoggyCow  
 **License:** MIT
 
----
+Installs the **Microsoft Visual C++ Redistributable for Visual Studio 2015 Update 3** — a runtime required by many C++ applications — via [Chocolatey](https://chocolatey.org/).
 
-## 🧩 Overview
+This payload is written in DuckyScript for **Flipper Zero BadUSB**. It opens an elevated Command Prompt and silently installs the redistributable.
 
-Installs the **Microsoft Visual C++ Redistributable for Visual Studio 2015 Update 3**, required for many C++ applications.  
-Built for **Flipper Zero’s BadUSB** using **DuckyScript**, this payload automates silent deployment via **elevated CMD** using [Chocolatey](https://chocolatey.org/).
-
-> ⚠️ Ensure Chocolatey is installed beforehand (`install_chocolatey.txt` module required).
+> **Prerequisite:** Chocolatey must already be installed. Run `install_chocolatey.txt` first if needed.
 
 ---
 
-## 🛠️ Usage Instructions
+## Deployment
 
-### 1. Save Payload
+### 1. Prepare the script
+- Save the payload as `install_vcredist2015.txt`
+- Use UTF-8 encoding
 
-- File name: `install_vcredist2015.txt`  
-- Encoding: UTF-8 plain `.txt` file (Flipper-compatible)
+### 2. Copy to Flipper Zero
+- Connect the Flipper via USB or Bluetooth
+- Use **qFlipper** or the Flipper Mobile app
+- Place the file in:  
+  `SD Card/badusb/`
 
-### 2. Upload to Flipper
+### 3. Run on target
+1. On the Flipper: **Main Menu → Bad USB → install_vcredist2015.txt**
+2. Confirm USB mode is active
+3. Plug the Flipper into the target Windows machine
+4. Press **Run**
 
-- Use **qFlipper** or **Flipper Mobile App**  
-- Path: `SD Card/badusb/`
-
-### 3. Deploy on Target
-
-- On Flipper:  
-  `Main Menu > Bad USB > install_vcredist2015.txt`  
-- Confirm USB mode active (USB icon visible)  
-- Connect to Windows machine  
-- Tap **Run**
-
-Execution Flow:
-- Launches Windows Run dialog  
-- Elevates to admin CMD (CTRL+SHIFT+ENTER) — triggers UAC if active  
-- Runs:  
-  `choco install vcredist2015 -y`
+**What the payload does:**
+- Opens the Windows Run dialog
+- Launches an elevated Command Prompt (UAC prompt may appear)
+- Runs: `choco install vcredist2015 -y`
 
 ---
 
-## 🧪 Verification & Requirements
+## Requirements
 
-| Requirement               | Description                                           |
-|---------------------------|--------------------------------------------------------|
-| Windows OS                | Windows 10/11                                          |
-| Chocolatey                | Must be installed beforehand                           |
-| Admin Privileges          | Required for elevated install                          |
-| Internet Connectivity     | Required for Chocolatey package retrieval              |
-| CMD Compatibility         | Must accept Chocolatey commands                        |
-| Runtime Dependencies      | Supports VS 2015-built C++ apps                        |
-
----
-
-## ⚙️ Technical Notes
-
-- **Silent Install:**  
-  `-y` flag enables non-interactive installation
-
-- **Delays for Reliability:**  
-  `DELAY 1000`, `500`, `1500` tuned for average systems  
-  Increase delays if failure occurs on slower hosts
-
-- **Package Version:**  
-  Latest stable Visual C++ Redistributable 2015 Update 3 (check [Chocolatey package](https://community.chocolatey.org/packages/vcredist2015))
-
-- **Testing Recommendation:**  
-  Use VM or sandbox first to verify payload behavior
+| Requirement                  | Notes                              |
+|-----------------------------|------------------------------------|
+| OS                          | Windows 10 / 11                    |
+| Chocolatey                  | Must be pre-installed              |
+| Administrator privileges    | Required                           |
+| Internet connection         | Needed to download the package     |
+| Flipper Zero (BadUSB)       | Functional and in USB mode         |
 
 ---
 
-## ⚠️ Disclaimer
+## Notes
 
-Use only on systems with **explicit authorization**.  
-Author provides no warranties; script is delivered **as-is**. Improper use may result in unintended system changes.
+- **UAC prompt** — May appear depending on system settings. The payload continues once approved.
+- **Silent install** — The `-y` flag skips confirmation prompts.
+- **Timing** — Default delays are `DELAY 1000`, `500`, and `1500`. Increase them on slower machines if needed.
+- **Testing** — Always test in a virtual machine or controlled environment before real use.
+
+Package reference: [vcredist2015 on Chocolatey](https://community.chocolatey.org/packages/vcredist2015)
 
 ---
 
-## 📄 License
+## Disclaimer
 
-Released under the **MIT License**  
-See attached `LICENSE` file for full legal terms.
+For educational and authorized use only.  
+Run this payload **only** on systems you own or have explicit permission to modify.  
+The author accepts no responsibility for misuse or any resulting damage.
+
+---
+
+## License
+
+MIT License — see the `LICENSE` file for full terms.

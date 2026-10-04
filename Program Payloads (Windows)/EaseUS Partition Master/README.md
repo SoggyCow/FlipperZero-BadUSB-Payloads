@@ -1,104 +1,72 @@
-# EaseUS Partition Master Free Installation Script via Chocolatey for Flipper Zero
+# EaseUS Partition Master Free Installation Script (Chocolatey) for Flipper Zero
 
 **Author:** SoggyCow  
 **License:** MIT
 
----
+Installs [EaseUS Partition Master Free](https://www.easeus.com/partition-manager/) — a disk partition management tool for resizing, merging, and formatting drives — via [Chocolatey](https://chocolatey.org/).
 
-## 🧱 Overview
+This payload is written in DuckyScript for **Flipper Zero BadUSB**. It opens an elevated Command Prompt and silently installs EaseUS Partition Master Free.
 
-Installs **EaseUS Partition Master Free**, a disk partition management utility for resizing, merging, and formatting drives, using [Chocolatey](https://chocolatey.org/) on Windows.  
-Powered by **Flipper Zero’s BadUSB** functionality, this **DuckyScript** payload simulates keyboard input to launch elevated CMD and silently deploy the tool.
-
-> ⚠️ Chocolatey must be installed prior to execution. See `install_chocolatey.txt`.
+> **Prerequisite:** Chocolatey must already be installed. Run `install_chocolatey.txt` first if needed.
 
 ---
 
-## 🚀 Usage Instructions
+## Deployment
 
-### 1. Save Script
+### 1. Prepare the script
+- Save the payload as `install_partitionmaster.txt`
+- Use UTF-8 encoding
 
-- File name: `install_partitionmaster.txt`  
-- Format: Plain `.txt`, UTF-8 encoded
-
-### 2. Upload to Flipper
-
-- Connect via USB or Bluetooth  
-- Use **qFlipper** or **Flipper Mobile App**  
-- Upload to:  
+### 2. Copy to Flipper Zero
+- Connect the Flipper via USB or Bluetooth
+- Use **qFlipper** or the Flipper Mobile app
+- Place the file in:  
   `SD Card/badusb/`
 
-### 3. Execute on Target Machine
+### 3. Run on target
+1. On the Flipper: **Main Menu → Bad USB → install_partitionmaster.txt**
+2. Confirm USB mode is active
+3. Plug the Flipper into the target Windows machine
+4. Press **Run**
 
-- Navigate:  
-  `Main Menu > Bad USB > install_partitionmaster.txt`  
-- Confirm USB mode active (USB icon visible)  
-- Connect Flipper to Windows host  
-- Tap **Run**
-
-Script actions:
-- Opens Windows Run dialog  
-- Elevates CMD (`CTRL + SHIFT + ENTER`, triggers UAC if enabled)  
-- Executes:  
-  `choco install partitionmasterfree -y`
+**What the payload does:**
+- Opens the Windows Run dialog
+- Launches an elevated Command Prompt (UAC prompt may appear)
+- Runs: `choco install partitionmasterfree -y`
 
 ---
 
-## ✅ Verification
+## Requirements
 
-- Discord installs silently if:
-  - Chocolatey is installed  
-  - Internet access is active  
-  - Admin rights are granted  
-  - CMD is Chocolatey-compatible
-
-Check Chocolatey package: [partitionmasterfree](https://community.chocolatey.org/packages/partitionmasterfree)
-
----
-
-## 📋 Prerequisites
-
-| Requirement              | Description                                        |
-|--------------------------|----------------------------------------------------|
-| OS                       | Windows 10/11                                      |
-| Chocolatey               | Must be installed                                  |
-| Admin Privileges         | Required                                           |
-| Internet Connection      | Required for package download                      |
-| Flipper Zero             | BadUSB functionality enabled                       |
-| CMD Compatibility        | Required                                           |
-| System Specs             | Typically lightweight; verify with EaseUS docs     |
+| Requirement                  | Notes                              |
+|-----------------------------|------------------------------------|
+| OS                          | Windows 10 / 11                    |
+| Chocolatey                  | Must be pre-installed              |
+| Administrator privileges    | Required                           |
+| Internet connection         | Needed to download the package     |
+| Flipper Zero (BadUSB)       | Functional and in USB mode         |
 
 ---
 
-## ⚙️ Technical Notes
+## Notes
 
-- **Timing Delays:**  
-  Uses `DELAY 1000`, `500`, `1500` for stable execution  
-  Tune upward for slower systems (`700+`)
+- **UAC prompt** — May appear depending on system settings. The payload continues once approved.
+- **Silent install** — The `-y` flag skips confirmation prompts.
+- **Timing** — Default delays are `DELAY 1000`, `500`, and `1500`. Increase them on slower machines if needed.
+- **Testing** — Always test in a virtual machine or controlled environment before real use.
 
-- **Silent Install:**  
-  `-y` flag suppresses prompts
-
-- **Elevation Method:**  
-  Simulates `CTRL + SHIFT + ENTER`; UAC may appear
-
-- **Package Availability:**  
-  Confirm that `partitionmasterfree` exists in Chocolatey repo (as of August 2025)
-
-- **Testing Protocol:**  
-  Run in a VM or sandbox before deploying to production environments
+Package reference: [partitionmasterfree on Chocolatey](https://community.chocolatey.org/packages/partitionmasterfree)
 
 ---
 
-## ⚠️ Disclaimer
+## Disclaimer
 
-This payload is provided **as-is**, strictly for educational use.  
-Deploy only on systems you **own or have explicit authorization** to modify.  
-Author assumes no liability for misuse or consequences.
+For educational and authorized use only.  
+Run this payload **only** on systems you own or have explicit permission to modify.  
+The author accepts no responsibility for misuse or any resulting damage.
 
 ---
 
-## 📄 License
+## License
 
-Licensed under the **MIT License**  
-See the included `LICENSE` file for full terms
+MIT License — see the `LICENSE` file for full terms.
