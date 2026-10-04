@@ -1,5 +1,5 @@
 REM Title: Install Paint.net via Chocolatey (Admin CMD)
-REM Author: SoggyCow
+REM Author: CayleRose
 REM Description: Assumes Chocolatey is pre-installed; installs Paint.net silently and closes terminal
 
 DELAY 1000

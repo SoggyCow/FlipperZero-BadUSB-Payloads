@@ -1,5 +1,5 @@
 REM Title: Close Private Internet Access (PIA) VPN Processes
-REM Author: SoggyCow
+REM Author: CayleRose
 REM Description: Opens elevated CMD to forcefully terminate PIA VPN processes (pia-client.exe and pia-service.exe) and closes the terminal
 
 DELAY 1000

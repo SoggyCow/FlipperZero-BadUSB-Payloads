@@ -1,6 +1,6 @@
 # Node.js Installation Script for Flipper Zero
 
-Author: [SoggyCow](https://github.com/SoggyCow)  
+Author: [CayleRose](https://github.com/CayleRose)  
 License: MIT
 
 ## Overview
@@ -60,7 +60,7 @@ Verify installation via: [Chocolatey Package Page](https://community.chocolatey.
 
 ## Disclaimer
 
-This script is for educational purposes only. Use only on systems you own or have explicit permission to access. The author, SoggyCow, is not liable for misuse, data loss, or system damage.
+This script is for educational purposes only. Use only on systems you own or have explicit permission to access. The author, CayleRose, is not liable for misuse, data loss, or system damage.
 
 ## License
 

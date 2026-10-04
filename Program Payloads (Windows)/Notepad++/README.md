@@ -1,6 +1,6 @@
 # Notepad++ Installation Script via Chocolatey
 
-**Author**: [SoggyCow](https://github.com/SoggyCow)
+**Author**: [CayleRose](https://github.com/CayleRose)
 
 ## Overview
 
@@ -35,7 +35,7 @@ This script is designed for use with a keystroke injection tool (e.g., USB Rubbe
 
 ## Disclaimer
 
-This script is provided as-is for educational purposes. Use it responsibly and ensure you understand the implications of automating software installations. The author [](https://github.com/SoggyCow) is not responsible for any issues arising from its use.
+This script is provided as-is for educational purposes. Use it responsibly and ensure you understand the implications of automating software installations. The author [](https://github.com/CayleRose) is not responsible for any issues arising from its use.
 
 ## License
 

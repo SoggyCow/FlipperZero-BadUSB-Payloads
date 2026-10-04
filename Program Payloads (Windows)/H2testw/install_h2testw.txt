@@ -1,5 +1,5 @@
 REM Title: Install H2testw via Chocolatey (Admin CMD)
-REM Author: SoggyCow
+REM Author: CayleRose
 REM Description: Assumes Chocolatey is pre-installed; installs H2testw silently and closes terminal
 
 DELAY 1000

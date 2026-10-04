@@ -1,4 +1,4 @@
-REM Author: SoggyCow
+REM Author: Cayle Rose
 REM All 9999 Combinations
 
 STRING 0000

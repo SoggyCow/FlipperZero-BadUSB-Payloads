@@ -1,6 +1,6 @@
 # ExifTool Installation Script (Chocolatey) for Flipper Zero
 
-**Author:** SoggyCow  
+**Author:** CayleRose  
 **License:** MIT
 
 Installs [ExifTool](https://exiftool.org/) — a powerful command-line tool for reading, writing, and editing metadata in images, documents, audio, and other files — via [Chocolatey](https://chocolatey.org/).

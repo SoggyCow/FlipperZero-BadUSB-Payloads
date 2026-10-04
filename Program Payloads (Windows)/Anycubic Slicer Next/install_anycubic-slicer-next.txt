@@ -1,5 +1,5 @@
 REM Title: Install Anycubic Slicer Next via Chocolatey (Admin CMD)
-REM Author: SoggyCow
+REM Author: CayleRose
 REM Description: Assumes Chocolatey is pre-installed; installs Anycubic Slicer Next silently and closes terminal
 DELAY 1000
 GUI r

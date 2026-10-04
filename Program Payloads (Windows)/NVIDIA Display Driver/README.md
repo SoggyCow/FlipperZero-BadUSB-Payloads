@@ -1,6 +1,6 @@
 # NVIDIA Display Driver Installation Script (Chocolatey) for Flipper Zero
 
-**Author:** SoggyCow  
+**Author:** CayleRose  
 **License:** MIT
 
 Installs the [NVIDIA Display Driver](https://www.nvidia.com/Download/index.aspx) via [Chocolatey](https://chocolatey.org/).

@@ -1,6 +1,6 @@
 # Visual Studio Code Installation Script for Flipper Zero
 
-Author: SoggyCow  
+Author: CayleRose  
 License: MIT
 
 ## Overview
@@ -58,7 +58,7 @@ Visual Studio Code installs silently if:
 
 ## Disclaimer
 
-This script is for educational purposes only. Use only on systems you own or have explicit permission to configure. The author, SoggyCow, is not liable for misuse or system damage.
+This script is for educational purposes only. Use only on systems you own or have explicit permission to configure. The author, CayleRose, is not liable for misuse or system damage.
 
 ## License
 

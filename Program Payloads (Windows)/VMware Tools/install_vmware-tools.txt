@@ -1,5 +1,5 @@
 REM Title: Install VMware Tools via Chocolatey (Admin CMD)
-REM Author: SoggyCow
+REM Author: CayleRose
 REM Description: Assumes Chocolatey is pre-installed; installs VMware Tools silently and closes terminal
 
 DELAY 1000

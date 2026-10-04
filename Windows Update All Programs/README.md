@@ -1,6 +1,6 @@
 # Winget Auto-Upgrader Script for Flipper Zero
 
-**Author:** [SoggyCow](https://github.com/SoggyCow)  
+**Author:** [CayleRose](https://github.com/CayleRose)  
 **License:** MIT
 
 ## Overview

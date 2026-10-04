@@ -1,6 +1,6 @@
 # mIRC Installation Script for Flipper Zero
 
-Author: SoggyCow  
+Author: CayleRose  
 License: MIT
 
 ## Overview

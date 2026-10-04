@@ -1,6 +1,6 @@
 # Visual C++ Redistributable 2015 Update 3 Installation Script (Chocolatey) for Flipper Zero
 
-**Author:** SoggyCow  
+**Author:** CayleRose  
 **License:** MIT
 
 Installs the **Microsoft Visual C++ Redistributable for Visual Studio 2015 Update 3** — a runtime required by many C++ applications — via [Chocolatey](https://chocolatey.org/).

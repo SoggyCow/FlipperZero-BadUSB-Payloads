@@ -1,6 +1,6 @@
 # **Program Termination Scripts for Flipper Zero BadUSB**
 
-**Author**: [SoggyCow](https://github.com/SoggyCow)
+**Author**: [CayleRose](https://github.com/CayleRose)
 
 ## **Overview**
 
@@ -45,7 +45,7 @@ These scripts are intended for use with Flipper Zero's **BadUSB** functionality,
 
 ## **Disclaimer**
 
-These scripts are provided as-is for **educational and research purposes**. Use them responsibly and only on systems you own or have explicit permission to access. The author ([SoggyCow](https://github.com/SoggyCow)) is not responsible for any issues arising from their use, including unintended process termination or service disruptions.
+These scripts are provided as-is for **educational and research purposes**. Use them responsibly and only on systems you own or have explicit permission to access. The author ([CayleRose](https://github.com/CayleRose)) is not responsible for any issues arising from their use, including unintended process termination or service disruptions.
 
 ## **Contributions**
 

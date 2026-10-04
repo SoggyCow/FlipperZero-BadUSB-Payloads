@@ -1,7 +1,7 @@
 # Enable Windows Hyper-V – Flipper Zero BadUSB Payload
 
 **Title:** Enable Windows Hyper-V (Win+X method)  
-**Author:** [SoggyCow](https://github.com/SoggyCow)  
+**Author:** [CayleRose](https://github.com/CayleRose)  
 **Description:** A DuckyScript payload designed for **Flipper Zero** (BadUSB mode) that opens an elevated PowerShell or Windows Terminal via the Win+X power user menu, then enables the Hyper-V optional Windows feature without forcing an immediate restart.  
 
 Intended for **personal convenience** on your own machines — quick Hyper-V setup in labs or test environments without clicking through the GUI every time.

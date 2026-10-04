@@ -1,5 +1,5 @@
 REM Title: Close ExpressVPN Processes
-REM Author: SoggyCow
+REM Author: CayleRose
 REM Description: Opens elevated CMD to forcefully terminate ExpressVPN processes (expressvpn-ui.exe and expressvpn.exe) and closes the terminal
 
 DELAY 1000

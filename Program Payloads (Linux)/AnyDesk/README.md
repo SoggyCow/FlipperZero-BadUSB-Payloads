@@ -1,6 +1,6 @@
 # AnyDesk Installation Script for Linux (Flipper Zero BadUSB)
 
-Author: [SoggyCow](https://github.com/SoggyCow)  
+Author: [CayleRose](https://github.com/CayleRose)  
 License: MIT
 
 ## Overview
@@ -67,7 +67,7 @@ Verify repo addition: `cat /etc/apt/sources.list.d/anydesk-stable.list`
 
 ## Disclaimer
 
-This script is for educational and personal use only. Use exclusively on systems you own or have explicit permission to access. The author, SoggyCow, is not responsible for any misuse, data loss, or system issues.
+This script is for educational and personal use only. Use exclusively on systems you own or have explicit permission to access. The author, CayleRose, is not responsible for any misuse, data loss, or system issues.
 
 AnyDesk installation adds a third-party repository — review the source if security is a concern.
 

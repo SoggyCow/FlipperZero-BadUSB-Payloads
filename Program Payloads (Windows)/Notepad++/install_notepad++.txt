@@ -1,5 +1,5 @@
 REM Title: Install Notepad++ via Chocolatey
-REM Author: SoggyCow
+REM Author: CayleRose
 REM Description: Assumes Chocolatey is pre-installed; installs Notepad++ silently and closes terminal
 
 DELAY 1000
