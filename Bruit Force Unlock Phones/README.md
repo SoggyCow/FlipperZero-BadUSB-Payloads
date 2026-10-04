@@ -2,7 +2,7 @@ Here’s the GitHub README for your 4-digit PIN brute-force BadUSB payload gener
 
 # 4-Digit PIN Brute-Force Payload Generator for Flipper Zero
 
-**Author:** [SoggyCow](https://github.com/SoggyCow)  
+**Author:** [SoggyCow](https://github.com/CayleRose)  
 **License:** MIT
 
 ## Overview
