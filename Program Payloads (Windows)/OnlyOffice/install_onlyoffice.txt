@@ -1,0 +1,14 @@
+REM Title: ONLYOFFICE Desktop Editors Installer
+REM Author: CayleRose
+REM Description: Installs ONLYOFFICE Desktop Editors using Chocolatey
+REM Target: Windows 10/11
+REM Requires: Chocolatey, internet access, and administrator approval
+
+DELAY 1000
+GUI r
+DELAY 500
+STRING cmd
+CTRL-SHIFT ENTER
+DELAY 1500
+STRING choco install onlyoffice -y
+ENTER
