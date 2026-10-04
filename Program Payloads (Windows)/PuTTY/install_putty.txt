@@ -1,5 +1,5 @@
 REM Title: Install PuTTY via Chocolatey (Admin CMD)
-REM Author: CayleRose
+REM Author: CayleRose1
 REM Description: Assumes Chocolatey is pre-installed; installs PuTTY silently and closes terminal
 
 DELAY 1000

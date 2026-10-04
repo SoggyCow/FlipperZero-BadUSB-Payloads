@@ -1,6 +1,6 @@
 # Docker Desktop Installation Script for Flipper Zero
 
-**Author:** [CayleRose](https://github.com/CayleRose)  
+**Author:** [CayleRose1](https://github.com/CayleRose1)  
 **License:** MIT
 
 ## Overview
@@ -65,7 +65,7 @@ Verify installation via: [Chocolatey Package Page](https://community.chocolatey.
 
 This script is for **educational and authorized use only**.  
 Use **only** on systems you own or have explicit permission to modify.  
-The author, CayleRose, is not liable for system instability, data loss, or misuse.
+The author, CayleRose1, is not liable for system instability, data loss, or misuse.
 
 ## License
 

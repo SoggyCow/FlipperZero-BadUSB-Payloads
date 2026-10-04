@@ -1,6 +1,6 @@
 # Zoom Installation Script for Flipper Zero
 
-Author: CayleRose  
+Author: CayleRose1  
 License: MIT
 
 ## Overview
@@ -56,7 +56,7 @@ Zoom installs silently if:
 
 ## Disclaimer
 
-This script is provided for educational purposes only. Use only on systems you own or have explicit permission to access. The author, CayleRose, is not liable for unintended outcomes or misuse.
+This script is provided for educational purposes only. Use only on systems you own or have explicit permission to access. The author, CayleRose1, is not liable for unintended outcomes or misuse.
 
 ## License
 

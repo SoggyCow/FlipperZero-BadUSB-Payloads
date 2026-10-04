@@ -1,6 +1,6 @@
 # Chocolatey Installation Script
 
-Author: CayleRose  
+Author: CayleRose1  
 License: MIT
 
 ## Overview
@@ -43,7 +43,7 @@ Designed for use with keystroke injection tools like Flipper Zero’s BadUSB fea
 
 ## Disclaimer
 
-This script is provided for educational purposes only. Running scripts with admin privileges or automated downloads carries risks. The author, CayleRose, is not liable for misuse or adverse outcomes.
+This script is provided for educational purposes only. Running scripts with admin privileges or automated downloads carries risks. The author, CayleRose1, is not liable for misuse or adverse outcomes.
 
 ## License
 

@@ -1,5 +1,5 @@
 REM Title: Close Surfshark VPN Processes
-REM Author: CayleRose
+REM Author: CayleRose1
 REM Description: Opens elevated CMD to forcefully terminate Surfshark VPN processes (Surfshark.exe and Surfshark.Service.exe) and closes the terminal
 
 DELAY 1000

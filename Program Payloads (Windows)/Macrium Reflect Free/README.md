@@ -1,6 +1,6 @@
 # Macrium Reflect Free Installation Script (Chocolatey) for Flipper Zero
 
-**Author:** CayleRose  
+**Author:** CayleRose1  
 **License:** MIT
 
 Installs [Macrium Reflect Free](https://www.macrium.com/reflectfree) — a disk imaging and backup tool — via [Chocolatey](https://chocolatey.org/).

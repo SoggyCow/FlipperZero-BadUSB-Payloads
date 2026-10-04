@@ -1,6 +1,6 @@
 # WinGet Installation Script for Flipper Zero
 
-Author: CayleRose  
+Author: CayleRose1  
 License: MIT
 
 ## Overview
@@ -58,7 +58,7 @@ Installs the latest WinGet version (e.g., 1.x as of October 2025). See [Chocolat
 
 ## Disclaimer
 
-This script is for educational and authorized purposes only. Use only on systems you own or have explicit permission to modify. The author, CayleRose, is not liable for misuse or damage.
+This script is for educational and authorized purposes only. Use only on systems you own or have explicit permission to modify. The author, CayleRose1, is not liable for misuse or damage.
 
 ## License
 

@@ -1,6 +1,6 @@
 # Anycubic Slicer Next Installation Script (Chocolatey) for Flipper Zero
 
-**Author:** CayleRose  
+**Author:** CayleRose1  
 **License:** MIT
 
 Installs [Anycubic Slicer Next](https://www.anycubic.com/) — Anycubic’s official 3D printing slicer software — via [Chocolatey](https://chocolatey.org/).

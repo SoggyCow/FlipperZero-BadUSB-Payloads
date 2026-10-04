@@ -1,6 +1,6 @@
 REM ================================================
 REM GoodUSB Payload: Install Adobe Acrobat Reader (via Snap) on Linux
-REM Created by CayleRose (GitHub: CayleRose)
+REM Created by CayleRose1 (GitHub: CayleRose1)
 REM Description: Opens terminal and installs acrordrdc snap (Wine-wrapped Adobe Reader DC)
 REM Target: Ubuntu, Debian, Linux Mint, Pop!_OS and derivatives (snap supported)
 REM Note: sudo will prompt for password — user must enter it manually.

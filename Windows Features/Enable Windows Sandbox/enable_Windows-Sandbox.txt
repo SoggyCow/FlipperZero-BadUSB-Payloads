@@ -1,5 +1,5 @@
 REM Title: Enable Windows Sandbox (Win+X method)
-REM Author: CayleRose
+REM Author: CayleRose1
 REM Description: Opens elevated PowerShell via Win+X > A then enables Windows Sandbox without forcing immediate restart
 DELAY 1000
 GUI x

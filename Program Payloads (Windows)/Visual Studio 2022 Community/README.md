@@ -1,6 +1,6 @@
 # Visual Studio 2022 Community Installation Script for Flipper Zero
 
-Author: CayleRose  
+Author: CayleRose1  
 License: MIT
 
 ## Overview
@@ -62,7 +62,7 @@ Visual Studio installs silently if:
 
 ## Disclaimer
 
-This script is provided for educational purposes only. Use only on systems you own or have explicit permission to configure. The author, CayleRose, is not liable for damage or misuse.
+This script is provided for educational purposes only. Use only on systems you own or have explicit permission to configure. The author, CayleRose1, is not liable for damage or misuse.
 
 ## License
 

@@ -1,5 +1,5 @@
 REM Title: Close PrivateVPN Processes
-REM Author: CayleRose
+REM Author: CayleRose1
 REM Description: Opens elevated CMD to forcefully terminate PrivateVPN processes (PrivateVPN.exe and PrivateVPNService.exe) and closes the terminal
 
 DELAY 1000

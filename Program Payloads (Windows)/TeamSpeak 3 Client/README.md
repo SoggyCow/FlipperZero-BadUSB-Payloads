@@ -1,6 +1,6 @@
 # TeamSpeak 3 Client Installation Script for Flipper Zero
 
-**Author:** [CayleRose](https://github.com/CayleRose)  
+**Author:** [CayleRose1](https://github.com/CayleRose1)  
 **License:** MIT
 
 ## Overview

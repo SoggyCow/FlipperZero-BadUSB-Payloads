@@ -1,5 +1,5 @@
 REM Title: Install IDA via Chocolatey (Admin CMD)
-REM Author: CayleRose
+REM Author: CayleRose1
 REM Description: Assumes Chocolatey is pre-installed; installs IDA Free silently and closes terminal
 
 DELAY 1000

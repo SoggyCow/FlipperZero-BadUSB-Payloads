@@ -1,6 +1,6 @@
 # EaseUS Partition Master Free Installation Script (Chocolatey) for Flipper Zero
 
-**Author:** CayleRose  
+**Author:** CayleRose1  
 **License:** MIT
 
 Installs [EaseUS Partition Master Free](https://www.easeus.com/partition-manager/) — a disk partition management tool for resizing, merging, and formatting drives — via [Chocolatey](https://chocolatey.org/).
