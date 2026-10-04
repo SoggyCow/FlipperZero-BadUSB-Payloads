@@ -1,92 +1,72 @@
-# Macrium Reflect Free Installation Script via Chocolatey for Flipper Zero
+# Macrium Reflect Free Installation Script (Chocolatey) for Flipper Zero
 
 **Author:** SoggyCow  
 **License:** MIT
 
----
+Installs [Macrium Reflect Free](https://www.macrium.com/reflectfree) — a disk imaging and backup tool — via [Chocolatey](https://chocolatey.org/).
 
-## 🔒 Overview
+This payload is written in DuckyScript for **Flipper Zero BadUSB**. It opens an elevated Command Prompt and silently installs Macrium Reflect Free.
 
-Automates installation of **Macrium Reflect Free**, a disk imaging and backup tool, using [Chocolatey](https://chocolatey.org/) and **Flipper Zero’s BadUSB** functionality.  
-Payload simulates keyboard input to elevate CMD and run a silent install command.
-
-> ⚠️ Requires prior installation of Chocolatey. Use `install_chocolatey.txt`.
+> **Prerequisite:** Chocolatey must already be installed. Run `install_chocolatey.txt` first if needed.
 
 ---
 
-## ⚙️ Setup & Execution
+## Deployment
 
-### 1. Save Script
+### 1. Prepare the script
+- Save the payload as `install_reflect.txt`
+- Use UTF-8 encoding
 
-- File name: `install_reflect.txt`  
-- Format: Plain `.txt`, UTF-8 encoded
-
-### 2. Upload to Flipper
-
-- Connect via USB or Bluetooth  
-- Transfer via **qFlipper** or **Flipper Mobile App**  
-- Destination path:  
+### 2. Copy to Flipper Zero
+- Connect the Flipper via USB or Bluetooth
+- Use **qFlipper** or the Flipper Mobile app
+- Place the file in:  
   `SD Card/badusb/`
 
-### 3. Execute on Target
+### 3. Run on target
+1. On the Flipper: **Main Menu → Bad USB → install_reflect.txt**
+2. Confirm USB mode is active
+3. Plug the Flipper into the target Windows machine
+4. Press **Run**
 
-- On Flipper:  
-  `Main Menu > Bad USB > install_reflect.txt`  
-- Confirm USB logo is displayed (USB mode active)  
-- Plug Flipper into target Windows machine  
-- Tap **Run**
-
-Script flow:
-- Opens Windows Run dialog  
-- Elevates CMD (`CTRL + SHIFT + ENTER`) — may invoke UAC  
-- Executes:  
-  `choco install reflect-free -y`
+**What the payload does:**
+- Opens the Windows Run dialog
+- Launches an elevated Command Prompt (UAC prompt may appear)
+- Runs: `choco install reflect-free -y`
 
 ---
 
-## 📦 Installation Checklist
+## Requirements
 
-| Component                 | Requirement/Note                                     |
-|---------------------------|------------------------------------------------------|
-| OS                        | Windows 10/11                                        |
-| Chocolatey                | Must be pre-installed                                |
-| Admin Privileges          | Required to run elevated CMD                         |
-| Internet Access           | Necessary for package retrieval                      |
-| CMD Compatibility         | CMD must support Chocolatey commands                 |
-| RAM/Disk Space            | Minimum 1 GB RAM / 500 MB disk space (verify specs)  |
-| Script Delays             | `DELAY 1000`, `500`, `1500` (tune for slower systems)|
+| Requirement                  | Notes                              |
+|-----------------------------|------------------------------------|
+| OS                          | Windows 10 / 11                    |
+| Chocolatey                  | Must be pre-installed              |
+| Administrator privileges    | Required                           |
+| Internet connection         | Needed to download the package     |
+| Flipper Zero (BadUSB)       | Functional and in USB mode         |
 
 ---
 
-## 🛠 Technical Notes
+## Notes
 
-- **Elevation Handling:**  
-  Simulates `CTRL + SHIFT + ENTER`; may prompt UAC
+- **UAC prompt** — May appear depending on system settings. The payload continues once approved.
+- **Silent install** — The `-y` flag skips confirmation prompts.
+- **Timing** — Default delays are `DELAY 1000`, `500`, and `1500`. Increase them on slower machines if needed.
+- **Testing** — Always test in a virtual machine or controlled environment before real use.
 
-- **Silent Deployment:**  
-  Uses `-y` switch for no user interaction
-
-- **Timing Adjustments:**  
-  Tune delays upward (`500 ➞ 700+`) if timing issues arise
-
-- **Chocolatey Package:**  
-  Installs latest version (e.g., 8.x as of August 2025)  
-  Check Chocolatey package: [reflect-free](https://community.chocolatey.org/packages/reflect-free)
-
-- **Sandbox Testing:**  
-  Recommended before live use (e.g., on virtual machines)
+Package reference: [reflect-free on Chocolatey](https://community.chocolatey.org/packages/reflect-free)
 
 ---
 
-## ⚠️ Disclaimer
+## Disclaimer
 
-Use responsibly on devices you **own or have permission to modify**.  
-This payload is offered for **educational purposes**, without warranty.  
-Author assumes no liability for unintended effects.
+For educational and authorized use only.  
+Run this payload **only** on systems you own or have explicit permission to modify.  
+The author accepts no responsibility for misuse or any resulting damage.
 
 ---
 
-## 📄 License
+## License
 
-Distributed under the **MIT License**  
-See included `LICENSE` file for details
+MIT License — see the `LICENSE` file for full terms.

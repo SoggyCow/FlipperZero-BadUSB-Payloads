@@ -1,103 +1,75 @@
-# NVIDIA Display Driver Installation Script via Chocolatey for Flipper Zero
+# NVIDIA Display Driver Installation Script (Chocolatey) for Flipper Zero
 
 **Author:** SoggyCow  
 **License:** MIT
 
----
+Installs the [NVIDIA Display Driver](https://www.nvidia.com/Download/index.aspx) via [Chocolatey](https://chocolatey.org/).
 
-## 🎮 Overview
+This payload is written in DuckyScript for **Flipper Zero BadUSB**. It opens an elevated Command Prompt and silently installs the latest NVIDIA display driver.
 
-Silently installs the [NVIDIA Display Driver](https://www.nvidia.com/Download/index.aspx) via [Chocolatey](https://chocolatey.org/) on Windows.  
-Engineered for **Flipper Zero’s BadUSB**, leveraging **DuckyScript** to elevate CMD and execute a silent install for NVIDIA graphics hardware.
-
-> ⚠️ Chocolatey **must be pre-installed**. See `install_chocolatey.txt`.
+> **Prerequisite:** Chocolatey must already be installed. Run `install_chocolatey.txt` first if needed.
 
 ---
 
-## 🚀 Usage Instructions
+## Deployment
 
-### 1. Prepare the Script
+### 1. Prepare the script
+- Save the payload as `install_nvidia.txt`
+- Use UTF-8 encoding
 
-- Save as: `install_nvidia.txt`  
-- Format: UTF-8 plain text (Flipper-compatible)
+### 2. Copy to Flipper Zero
+- Connect the Flipper via USB or Bluetooth
+- Use **qFlipper** or the Flipper Mobile app
+- Place the file in:  
+  `SD Card/badusb/`
 
-### 2. Transfer to Flipper Zero
+### 3. Run on target
+1. On the Flipper: **Main Menu → Bad USB → install_nvidia.txt**
+2. Confirm USB mode is active
+3. Plug the Flipper into the target Windows machine
+4. Press **Run**
 
-- Connect via USB or Bluetooth  
-- Use **qFlipper** or **Flipper Mobile App**  
-- Upload to: `SD Card/badusb/`
-
-### 3. Execute the Payload
-
-- Menu: `Main Menu > Bad USB > install_nvidia.txt`  
-- Confirm USB mode is active  
-- Connect to target Windows machine  
-- Press **Run**
-
-Script actions:
-- Opens **Run dialog**  
-- Launches **elevated CMD** (may trigger UAC prompt)  
-- Executes: `choco install nvidia-display-driver -y`
+**What the payload does:**
+- Opens the Windows Run dialog
+- Launches an elevated Command Prompt (UAC prompt may appear)
+- Runs: `choco install nvidia-display-driver -y`
 
 ---
 
-## ✅ Verification Checklist
+## Requirements
 
-- Chocolatey installed  
-- Active internet connection  
-- System has compatible **NVIDIA GPU**  
-- Admin privileges available
-
-> Latest NVIDIA drivers will be installed automatically (e.g., Game Ready or Studio depending on system).
-
-Check status via:  
-[Chocolatey Package Page](https://community.chocolatey.org/packages/nvidia-display-driver)
-
----
-
-## 📋 Requirements
-
-- Windows 10/11  
-- Chocolatey installed  
-- Flipper Zero with BadUSB enabled  
-- Internet access  
-- Admin rights  
-- NVIDIA GPU with Chocolatey-compatible driver support
+| Requirement                  | Notes                                          |
+|-----------------------------|------------------------------------------------|
+| OS                          | Windows 10 / 11                                |
+| Chocolatey                  | Must be pre-installed                          |
+| Administrator privileges    | Required                                       |
+| Internet connection         | Needed to download the package                 |
+| Flipper Zero (BadUSB)       | Functional and in USB mode                     |
+| Hardware                    | Compatible NVIDIA GPU required                 |
 
 ---
 
-## ⚙️ Execution Notes
+## Notes
 
-- **Privilege Elevation:**  
-  Required to install drivers via CMD; triggers UAC
+- **UAC prompt** — May appear depending on system settings. The payload continues once approved.
+- **Silent install** — The `-y` flag skips confirmation prompts.
+- **Timing** — Default delays are `DELAY 1000`, `500`, and `1500`. Increase them on slower machines if needed.
+- **GPU requirement** — Installation will fail if no supported NVIDIA GPU is present.
+- **Virtual machines** — Most VMs lack proper GPU passthrough. Test on physical hardware.
+- **Testing** — Always test in a controlled environment before real use.
 
-- **Silent Flag:**  
-  `-y` bypasses all user prompts
-
-- **Shell:**  
-  CMD selected for compatibility
-
-- **Timing Delays:**  
-  Standard: `DELAY 1000`, `500`, `1500`  
-  Tune upward (`500` → `700+`) for slower systems
-
-- **GPU Detection:**  
-  Script fails silently if no supported GPU is present
-
-- **Virtualization Caveat:**  
-  Virtual machines typically lack GPU passthrough—test on physical hardware
+Package reference: [nvidia-display-driver on Chocolatey](https://community.chocolatey.org/packages/nvidia-display-driver)
 
 ---
 
-## ⚠️ Disclaimer
+## Disclaimer
 
-Provided for **educational use only**.  
-Deploy only on systems you **own or are authorized to modify**.  
-Author is **not liable** for misuse or unintended consequences.
+For educational and authorized use only.  
+Run this payload **only** on systems you own or have explicit permission to modify.  
+The author accepts no responsibility for misuse or any resulting damage.
 
 ---
 
-## 📄 License
+## License
 
-Licensed under the **MIT License**  
-See the [LICENSE](LICENSE) file for details.
+MIT License — see the `LICENSE` file for full terms.
